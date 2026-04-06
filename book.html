@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve a Place — Via Vinho</title>
+  <meta name="description" content="Reserve your place on a Via Vinho experience. Classic tours from €55. Reserve experiences by enquiry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .book-page {
+      padding-top: 140px;
+      background: var(--cream);
+      min-height: 100vh;
+    }
+    .book-header {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter) clamp(60px, 8vw, 100px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--col-gap);
+      align-items: end;
+      border-bottom: 1px solid var(--cream-mid);
+    }
+    .book-header-left h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-top: 20px;
+    }
+    .book-header-right {
+      padding-bottom: 4px;
+    }
+
+    /* Tier toggle */
+    .tier-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--cream-mid);
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .tier-toggle-btn {
+      flex: 1;
+      padding: 14px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: background var(--t), color var(--t);
+      text-align: center;
+    }
+    .tier-toggle-btn.active {
+      background: var(--burgundy);
+      color: var(--cream);
+    }
+    .tier-toggle-btn:not(.active):hover {
+      background: var(--cream-dark);
+      color: var(--charcoal);
+    }
+
+    /* Form sections */
+    .book-form-section {
+      padding: clamp(60px, 8vw, 100px) var(--gutter);
+      background: var(--cream);
+    }
+    .book-form-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: var(--col-gap);
+      align-items: start;
+    }
+
+    .form-section-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--cream-mid);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .form-section-num {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted-light);
+    }
+
+    /* Tour selector cards */
+    .tour-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 28px;
+    }
+    .tour-option {
+      padding: 22px 24px;
+      background: var(--cream-dark);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color var(--t), background var(--t);
+    }
+    .tour-option:hover { background: var(--white); }
+    .tour-option.selected {
+      border-color: var(--burgundy);
+      background: var(--white);
+    }
+    .tour-option-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .tour-option-detail {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .tour-option-price {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Booking sidebar */
+    .booking-sidebar-card {
+      background: var(--burgundy);
+      padding: 40px 36px;
+    }
+    .booking-sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(245, 241, 232, 0.1);
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .sidebar-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold);
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .sidebar-item-text {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245, 241, 232, 0.65);
+      line-height: 1.6;
+    }
+    .sidebar-contact {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(245, 241, 232, 0.1);
+    }
+    .sidebar-contact p {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(245, 241, 232, 0.4);
+      line-height: 1.7;
+    }
+    .sidebar-contact a {
+      color: var(--gold);
+      display: block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      transition: color var(--t);
+    }
+    .sidebar-contact a:hover { color: var(--gold-light); }
+
+    /* Reserve enquiry panel */
+    .reserve-enquiry-panel {
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-mid);
+      padding: 40px 44px;
+      display: none;
+    }
+    .reserve-enquiry-panel.visible { display: block; }
+    .classic-form-panel { display: block; }
+    .classic-form-panel.hidden { display: none; }
+
+    @media (max-width: 1080px) {
+      .book-header { grid-template-columns: 1fr; }
+      .book-form-inner { grid-template-columns: 1fr; }
+      .tour-selector { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Via Vinho</span>
+      <span class="nav-logo-sub">Lisbon · Wine Experiences</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="classic.html">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html" class="nav-reserve">Reserve a place</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="classic.html">Classic</a>
+    <a href="reserve.html">Reserve</a>
+    <a href="about.html">About</a>
+    <a href="book.html">Book a place</a>
+  </div>
+
+  <main class="book-page">
+    <div class="book-header">
+      <div class="book-header-left">
+        <div class="eyebrow reveal"><span class="divider"></span>Reserve a place</div>
+        <h1 class="reveal">Begin<br />your experience.</h1>
+      </div>
+      <div class="book-header-right reveal">
+        <p class="body-lg">
+          Choose your experience below and complete the form. We'll confirm availability
+          within 24 hours and send full details ahead of your visit.
+        </p>
+        <p class="body-sm" style="margin-top:12px; color:var(--muted-light);">
+          For Reserve experiences, use the enquiry form or write directly to
+          <a href="mailto:reserve@viavinho.net" style="color:var(--burgundy);">reserve@viavinho.net</a>
+        </p>
+      </div>
+    </div>
+
+    <section class="book-form-section">
+      <div class="book-form-inner">
+
+        <!-- FORM -->
+        <div>
+          <!-- Tier selection -->
+          <div style="margin-bottom:48px;" class="reveal">
+            <div class="form-section-title">
+              <span class="form-section-num">01</span>
+              Choose your tier
+            </div>
+            <div class="tier-toggle">
+              <button class="tier-toggle-btn active" id="btn-classic" onclick="selectTier('classic')">
+                Via Vinho Classic
+              </button>
+              <button class="tier-toggle-btn" id="btn-reserve" onclick="selectTier('reserve')">
+                Via Vinho Reserve
+              </button>
+            </div>
+          </div>
+
+          <!-- CLASSIC FORM -->
+          <div class="classic-form-panel reveal" id="classic-panel">
+            <!-- Tour selection -->
+            <div style="margin-bottom:48px;">
+              <div class="form-section-title">
+                <span class="form-section-num">02</span>
+                Select your experience
+              </div>
+              <div class="tour-selector">
+                <div class="tour-option selected" onclick="selectTour(this)">
+                  <div class="tour-option-name">Lisbon Wine Walk</div>
+                  <div class="tour-option-detail">3 hours · Alfama &amp; Mouraria</div>
+                  <div class="tour-option-price">From €55 / person</div>
+                </div>
+                <div class="tour-option" onclick="selectTour(this)">
+                  <div class="tour-option-name">Setúbal Day Tour</div>
+                  <div class="tour-option-detail">Full day · Estate tastings &amp; lunch</div>
+                  <div class="tour-option-price">From €95 / person</div>
+                </div>
+                <div class="tour-option" onclick="selectTour(this)">
+                  <div class="tour-option-name">Corporate Day</div>
+                  <div class="tour-option-detail">Flexible · Groups 8–50</div>
+                  <div class="tour-option-price">Custom pricing</div>
+                </div>
+                <div class="tour-option" onclick="selectTour(this)">
+                  <div class="tour-option-name">Gift Voucher</div>
+                  <div class="tour-option-detail">Any experience · Any date</div>
+                  <div class="tour-option-price">From €55</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Details form -->
+            <form action="mailto:info@viavinho.net" method="post" enctype="text/plain">
+              <div style="margin-bottom:48px;">
+                <div class="form-section-title">
+                  <span class="form-section-num">03</span>
+                  Your details
+                </div>
+                <div class="form-row-split">
+                  <div class="form-row">
+                    <label class="form-label">First name</label>
+                    <input type="text" class="form-input" placeholder="Your first name" required />
+                  </div>
+                  <div class="form-row">
+                    <label class="form-label">Last name</label>
+                    <input type="text" class="form-input" placeholder="Your last name" required />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label">Email address</label>
+                  <input type="email" class="form-input" placeholder="you@example.com" required />
+                </div>
+                <div class="form-row">
+                  <label class="form-label">Phone (optional)</label>
+                  <input type="tel" class="form-input" placeholder="+1 555 000 0000" />
+                </div>
+              </div>
+
+              <div style="margin-bottom:48px;">
+                <div class="form-section-title">
+                  <span class="form-section-num">04</span>
+                  Your visit
+                </div>
+                <div class="form-row-split">
+                  <div class="form-row">
+                    <label class="form-label">Preferred date</label>
+                    <input type="date" class="form-input" required />
+                  </div>
+                  <div class="form-row">
+                    <label class="form-label">Number of guests</label>
+                    <select class="form-select" required>
+                      <option value="">Select…</option>
+                      <option>1 guest</option>
+                      <option>2 guests</option>
+                      <option>3 guests</option>
+                      <option>4 guests</option>
+                      <option>5 guests</option>
+                      <option>6 guests</option>
+                      <option>7 guests</option>
+                      <option>8 guests</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label">Dietary requirements or notes</label>
+                  <textarea class="form-textarea" placeholder="Vegetarian, allergies, occasion, anything we should know…"></textarea>
+                </div>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                <button type="submit" class="btn btn-gold form-submit" style="width:auto; padding:15px 40px;">
+                  Send reservation request
+                  <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <p class="body-sm" style="color:var(--muted-light);">We'll confirm within 24 hours.</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- RESERVE ENQUIRY PANEL -->
+          <div class="reserve-enquiry-panel" id="reserve-panel">
+            <div style="margin-bottom:36px;">
+              <div class="eyebrow" style="margin-bottom:16px;"><span class="divider"></span>Reserve enquiry</div>
+              <h2 class="heading-md" style="color:var(--charcoal); margin-bottom:16px;">
+                Tell us what you have in mind.
+              </h2>
+              <p class="body-lg">
+                Every Reserve experience begins with a conversation. There is no booking form —
+                because the experience itself doesn't exist until we understand what you're looking for.
+              </p>
+            </div>
+            <form action="mailto:reserve@viavinho.net" method="post" enctype="text/plain">
+              <div class="form-row">
+                <label class="form-label">Your name</label>
+                <input type="text" class="form-input" placeholder="Your full name" required />
+              </div>
+              <div class="form-row">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-input" placeholder="you@example.com" required />
+              </div>
+              <div class="form-row-split" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                <div class="form-row">
+                  <label class="form-label">Approximate dates</label>
+                  <input type="text" class="form-input" placeholder="e.g. mid-June" />
+                </div>
+                <div class="form-row">
+                  <label class="form-label">Number of guests</label>
+                  <select class="form-select">
+                    <option value="">Select…</option>
+                    <option>1–2 guests</option>
+                    <option>3–4 guests</option>
+                    <option>5–6 guests</option>
+                    <option>Larger group</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <label class="form-label">What are you looking for?</label>
+                <textarea class="form-textarea" style="min-height:140px;" placeholder="Tell us about the occasion, your interests, any wines or regions you're drawn to, or simply what kind of day you'd like to have…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold" style="padding:15px 40px;">
+                Send enquiry
+                <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="booking-sidebar">
+          <div class="booking-sidebar-card reveal">
+            <div class="booking-sidebar-title">Every visit includes</div>
+            <div class="sidebar-item">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="sidebar-item-text">Private transport from Lisbon</span>
+            </div>
+            <div class="sidebar-item">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="sidebar-item-text">WSET-trained guide, English &amp; Portuguese</span>
+            </div>
+            <div class="sidebar-item">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="sidebar-item-text">Curated estate tastings</span>
+            </div>
+            <div class="sidebar-item">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="sidebar-item-text">Long table lunch included</span>
+            </div>
+            <div class="sidebar-item">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="sidebar-item-text">No hidden extras</span>
+            </div>
+            <div class="sidebar-contact">
+              <p>Prefer to talk? We're happy to answer any questions before you reserve.</p>
+              <a href="mailto:info@viavinho.net">info@viavinho.net</a>
+              <a href="tel:+351910000000">+351 910 000 000</a>
+            </div>
+          </div>
+
+          <div style="margin-top:16px; padding:28px; background:var(--cream-dark); border:1px solid var(--cream-mid);" class="reveal reveal-delay-1">
+            <p class="body-sm" style="margin-bottom:12px; color:var(--charcoal);">
+              <strong style="font-family:var(--font-serif); font-size:1rem;">Looking for Reserve?</strong>
+            </p>
+            <p class="body-sm" style="margin-bottom:16px;">
+              Private experiences are built differently. Click Reserve above, or write directly to us.
+            </p>
+            <a href="mailto:reserve@viavinho.net" class="btn btn-outline-gold" style="font-size:0.66rem; padding:11px 20px;">
+              Enquire privately
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Via Vinho</div>
+        <div class="footer-brand-sub">Lisbon · Wine Experiences</div>
+        <p class="footer-tagline">Boutique wine experiences in Portugal's most interesting regions.</p>
+        <div class="footer-contact">
+          <a href="mailto:info@viavinho.net">info@viavinho.net</a>
+          <a href="tel:+351910000000">+351 910 000 000</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Experiences</p>
+        <ul class="footer-links">
+          <li><a href="classic.html">Via Vinho Classic</a></li>
+          <li><a href="reserve.html">Via Vinho Reserve</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Regions</p>
+        <ul class="footer-links">
+          <li><a href="#">Lisbon</a></li>
+          <li><a href="#">Setúbal</a></li>
+          <li><a href="#">Alentejo</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="mailto:info@viavinho.net">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Via Vinho. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        <a href="#" aria-label="TripAdvisor"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s0-4 4-4 4 4 4 4"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+
+    // Tier toggle
+    function selectTier(tier) {
+      document.getElementById('btn-classic').classList.toggle('active', tier === 'classic');
+      document.getElementById('btn-reserve').classList.toggle('active', tier === 'reserve');
+      document.getElementById('classic-panel').style.display = tier === 'classic' ? 'block' : 'none';
+      document.getElementById('reserve-panel').style.display = tier === 'reserve' ? 'block' : 'none';
+    }
+
+    // Tour selector
+    function selectTour(el) {
+      document.querySelectorAll('.tour-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    // Pre-select from URL param
+    const params = new URLSearchParams(window.location.search);
+    const tour = params.get('tour');
+    if (tour && tour.includes('reserve')) selectTier('reserve');
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

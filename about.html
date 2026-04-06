@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Via Vinho — Our Story</title>
+  <meta name="description" content="Via Vinho was built around a simple conviction: the best way to understand Portuguese wine is to stand in the vineyard, meet the people who make it, and sit down to a long lunch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* Values section */
+    .values {
+      padding: clamp(80px, 12vw, 140px) var(--gutter);
+      background: var(--cream-dark);
+    }
+    .values-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 72px;
+    }
+    .value-card {
+      background: var(--cream);
+      padding: 48px 44px;
+      border-top: 2px solid transparent;
+      transition: border-color var(--t), background var(--t);
+    }
+    .value-card:hover {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .value-num {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--burgundy);
+      opacity: 0.25;
+      line-height: 1;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .value-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .value-body {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* Press section */
+    .press {
+      padding: clamp(60px, 8vw, 100px) var(--gutter);
+      background: var(--cream);
+      border-top: 1px solid var(--cream-mid);
+    }
+    .press-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .press-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(32px, 5vw, 72px);
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .press-logo {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--muted-light);
+      letter-spacing: 0.02em;
+      transition: color var(--t);
+    }
+    .press-logo:hover { color: var(--charcoal); }
+
+    @media (max-width: 1080px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Via Vinho</span>
+      <span class="nav-logo-sub">Lisbon · Wine Experiences</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="classic.html">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="about.html" style="color:var(--burgundy);">About</a></li>
+      <li><a href="book.html" class="nav-reserve">Reserve a place</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="classic.html">Classic</a>
+    <a href="reserve.html">Reserve</a>
+    <a href="about.html">About</a>
+    <a href="book.html">Book a place</a>
+  </div>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero" id="story">
+    <div class="about-hero-image">
+      <img src="assets/images/about-main.jpeg" alt="Via Vinho — wine tasting with expert" />
+    </div>
+    <div class="about-hero-content">
+      <div class="eyebrow reveal" style="margin-bottom:24px; color:var(--gold);">
+        <span class="divider" style="background:var(--gold);"></span>Who we are
+      </div>
+      <h1 class="heading-xl reveal" style="color:var(--cream); margin-bottom:28px;">
+        Not a company.<br />A point of view<br />about wine.
+      </h1>
+      <p class="body-lg reveal reveal-delay-1" style="color:rgba(245,241,232,0.65); margin-bottom:20px;">
+        Via Vinho was built around a simple conviction: the best way to understand
+        Portuguese wine is to stand in the vineyard, meet the people who make it,
+        and sit down to a long lunch with a glass in your hand.
+      </p>
+      <p class="body-lg reveal reveal-delay-2" style="color:rgba(245,241,232,0.65);">
+        Based in Lisbon. Operating since 2012.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="about-story">
+    <div class="about-story-inner">
+      <div class="about-story-sidebar">
+        <div class="eyebrow reveal" style="margin-bottom:20px;"><span class="divider"></span>The story</div>
+        <div class="reveal" style="margin-top:40px;">
+          <img src="assets/images/about-accent.jpeg" alt="Wine at golden hour" style="width:100%; aspect-ratio:3/4; object-fit:cover;" />
+        </div>
+      </div>
+      <div>
+        <h2 class="heading-xl reveal" style="color:var(--charcoal); margin-bottom:36px;">
+          We go to places<br />that don't advertise.
+        </h2>
+        <p class="body-lg reveal reveal-delay-1" style="margin-bottom:24px;">
+          Via Vinho started because of a frustration. The wine tours that existed were
+          designed for people who needed to be entertained. We wanted something for people
+          who were genuinely curious — who wanted to understand, not just taste.
+        </p>
+        <p class="body-lg reveal reveal-delay-2" style="margin-bottom:24px;">
+          We work exclusively with independent estates — family-run wineries with something
+          genuine to say and no obligation to perform for tour groups. Some of them have
+          never hosted a commercial tour before us. That trust has been earned over more than
+          a decade of showing up the right way.
+        </p>
+
+        <blockquote class="about-pull-quote reveal reveal-delay-3">
+          "No scripted tastings. No bus groups. No obvious itineraries."
+        </blockquote>
+
+        <p class="body-lg reveal" style="margin-bottom:24px;">
+          Our guides are not characters. They are people who genuinely love this work, who
+          know Portuguese wine at a level most sommeliers in London or New York would envy,
+          and who understand that the best days are the ones that feel completely unplanned —
+          even when every detail has been thought through in advance.
+        </p>
+        <p class="body-lg reveal reveal-delay-1" style="margin-bottom:48px;">
+          Via Vinho Reserve came later, built for the guests who kept asking: could we do this
+          privately? Could we stay the night in Alentejo? Could we meet the winemaker?
+          The answer was always yes. We just had to make it official.
+        </p>
+        <div class="reveal reveal-delay-2" style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+          <a href="classic.html" class="btn btn-gold">Explore Classic <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="reserve.html" class="btn btn-outline-gold">Discover Reserve</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="values-inner">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:16px;"><span class="divider"></span>What we believe</div>
+        <h2 class="heading-lg" style="color:var(--charcoal);">The principles behind<br />every experience.</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <span class="value-num">01</span>
+          <h3 class="value-title">Independence, always</h3>
+          <p class="value-body">We work with family-run estates only. Never with cooperatives, large commercial producers, or anyone who pays for placement. The recommendation is always honest.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <span class="value-num">02</span>
+          <h3 class="value-title">Small, by design</h3>
+          <p class="value-body">Eight guests maximum, without exception. The number is not a selling point. It is the thing that makes every other part of the experience possible.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <span class="value-num">03</span>
+          <h3 class="value-title">The table matters</h3>
+          <p class="value-body">Lunch is not a logistics problem to be solved. It is as important as the tasting. We have spent years finding the right tables and earning the right reservations.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-num">04</span>
+          <h3 class="value-title">No performance</h3>
+          <p class="value-body">Our guides don't present. They converse. There is no script, no theatrical vocabulary, no attempt to impress. Just genuine expertise offered honestly.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <span class="value-num">05</span>
+          <h3 class="value-title">Access over aesthetics</h3>
+          <p class="value-body">We go to places because they make interesting wine, not because they photograph well. Some of the best estates we visit are completely anonymous from the road.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <span class="value-num">06</span>
+          <h3 class="value-title">Unhurried, always</h3>
+          <p class="value-body">We do not try to fit more in. A long lunch is not a delay. A conversation in the cellar is not an interruption. The pace is part of the experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section class="press">
+    <div class="press-inner">
+      <div class="eyebrow reveal" style="justify-content:center; margin-bottom:16px;"><span class="divider"></span>As seen in</div>
+      <div class="press-logos reveal reveal-delay-1">
+        <span class="press-logo">Condé Nast Traveller</span>
+        <span class="press-logo">The Guardian</span>
+        <span class="press-logo">Monocle</span>
+        <span class="press-logo">Wine Enthusiast</span>
+        <span class="press-logo">Vogue Portugal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="eyebrow cta-eyebrow reveal"><span class="divider"></span>Come with us</div>
+      <h2 class="cta-title reveal">The wine is already waiting.</h2>
+      <p class="cta-body reveal reveal-delay-1">
+        Two experiences. One brand. Both exceptional.
+        Choose the one that suits how you like to travel.
+      </p>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="classic.html" class="btn btn-gold">Explore Classic <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="reserve.html" class="btn btn-outline-gold">Discover Reserve</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Via Vinho</div>
+        <div class="footer-brand-sub">Lisbon · Wine Experiences</div>
+        <p class="footer-tagline">Boutique wine experiences in Portugal's most interesting regions. Based in Lisbon. Operating since 2012.</p>
+        <div class="footer-contact">
+          <a href="mailto:info@viavinho.net">info@viavinho.net</a>
+          <a href="tel:+351910000000">+351 910 000 000</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Experiences</p>
+        <ul class="footer-links">
+          <li><a href="classic.html">Via Vinho Classic</a></li>
+          <li><a href="reserve.html">Via Vinho Reserve</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Regions</p>
+        <ul class="footer-links">
+          <li><a href="#">Lisbon</a></li>
+          <li><a href="#">Setúbal</a></li>
+          <li><a href="#">Alentejo</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="book.html">Book</a></li>
+          <li><a href="mailto:info@viavinho.net">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Via Vinho. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        <a href="#" aria-label="TripAdvisor"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s0-4 4-4 4 4 4 4"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

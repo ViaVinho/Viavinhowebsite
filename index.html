@@ -3,1264 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Via Vinho — Wine Tours in Portugal</title>
+  <title>Via Vinho — Wine Experiences in Lisbon</title>
+  <meta name="description" content="Curated wine experiences in Lisbon and Portugal's finest regions. Two distinct journeys: Via Vinho Classic and Via Vinho Reserve." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* =============================================
-       DESIGN TOKENS
-    ============================================= */
-    :root {
-      --forest:      #1F3D2B;
-      --forest-deep: #152B1E;
-      --forest-mid:  #2A5039;
-      --cream:       #F5F1E8;
-      --cream-dark:  #EDE8DA;
-      --cream-mid:   #E6E0D0;
-      --gold:        #C6A96B;
-      --gold-light:  #D8BF8A;
-      --charcoal:    #1A1A1A;
-      --burgundy:    #6B1F2A;
-      --muted:       #7A7066;
-      --muted-light: #A09890;
-
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans:  'Jost', system-ui, sans-serif;
-
-      --radius-sm:  4px;
-      --radius-md:  8px;
-      --radius-lg:  16px;
-
-      --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
-      --transition-slow: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-      --max-w: 1280px;
-      --gutter: clamp(24px, 5vw, 80px);
-    }
-
-    /* =============================================
-       RESET & BASE
-    ============================================= */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--cream);
-      color: var(--charcoal);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    img { display: block; max-width: 100%; height: auto; }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* =============================================
-       UTILITY
-    ============================================= */
-    .container {
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* =============================================
-       NAVIGATION
-    ============================================= */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 28px var(--gutter);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background var(--transition), padding var(--transition), backdrop-filter var(--transition);
-    }
-    .nav.scrolled {
-      background: rgba(245, 241, 232, 0.96);
-      backdrop-filter: blur(12px);
-      padding: 18px var(--gutter);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-    }
-
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--cream);
-      transition: color var(--transition);
-    }
-    .nav.scrolled .nav-logo { color: var(--forest); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(245, 241, 232, 0.85);
-      transition: color var(--transition);
-    }
-    .nav.scrolled .nav-links a { color: var(--muted); }
-    .nav-links a:hover { color: var(--gold) !important; }
-
-    .nav-cta {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold) !important;
-      border: 1px solid var(--gold);
-      padding: 9px 22px;
-      border-radius: var(--radius-sm);
-      transition: background var(--transition), color var(--transition) !important;
-    }
-    .nav-cta:hover {
-      background: var(--gold) !important;
-      color: var(--forest) !important;
-    }
-
-    /* =============================================
-       HERO
-    ============================================= */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 640px;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg video,
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    /* Forest-tinted gradient overlay */
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(
-        to right,
-        rgba(21, 43, 30, 0.82) 0%,
-        rgba(21, 43, 30, 0.55) 55%,
-        rgba(21, 43, 30, 0.18) 100%
-      );
-    }
-
-    /* Bottom fade into cream */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      z-index: 2;
-      height: 220px;
-      background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
-    }
-
-    .hero-content {
-      position: absolute;
-      bottom: clamp(80px, 14vh, 140px);
-      left: var(--gutter);
-      right: var(--gutter);
-      z-index: 3;
-      max-width: 680px;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.06;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-    }
-    .hero-title em {
-      font-style: italic;
-      font-weight: 300;
-    }
-
-    .hero-sub {
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(245, 241, 232, 0.8);
-      max-width: 440px;
-      margin-bottom: 40px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--forest-deep);
-      padding: 15px 34px;
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      transition: background var(--transition), transform var(--transition);
-    }
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(245, 241, 232, 0.75);
-      border-bottom: 1px solid rgba(245, 241, 232, 0.3);
-      padding-bottom: 3px;
-      transition: color var(--transition), border-color var(--transition);
-    }
-    .btn-ghost:hover {
-      color: var(--cream);
-      border-color: var(--cream);
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      right: var(--gutter);
-      z-index: 3;
-      writing-mode: vertical-rl;
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(245, 241, 232, 0.45);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 48px;
-      background: rgba(245, 241, 232, 0.25);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.25; }
-      50% { opacity: 0.7; }
-    }
-
-    /* =============================================
-       MANIFESTO STRIP
-    ============================================= */
-    .manifesto {
-      padding: clamp(80px, 12vw, 140px) var(--gutter);
-      background: var(--cream);
-    }
-    .manifesto-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .manifesto-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.3;
-      color: var(--forest);
-      letter-spacing: -0.01em;
-      max-width: 780px;
-    }
-    .manifesto-quote cite {
-      display: block;
-      font-size: 0.85rem;
-      font-style: normal;
-      font-family: var(--font-sans);
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 28px;
-    }
-
-    .manifesto-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      flex-shrink: 0;
-    }
-    .stat {
-      text-align: right;
-    }
-    .stat-num {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      font-weight: 300;
-      color: var(--forest);
-      line-height: 1;
-      display: block;
-    }
-    .stat-label {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-      margin-top: 6px;
-    }
-
-    /* =============================================
-       TOURS
-    ============================================= */
-    .tours {
-      padding: clamp(60px, 10vw, 120px) var(--gutter);
-      background: var(--cream-dark);
-    }
-
-    .section-header {
-      max-width: var(--max-w);
-      margin: 0 auto 60px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .section-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      color: var(--forest);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-    .section-link {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid var(--cream-mid);
-      padding-bottom: 3px;
-      white-space: nowrap;
-      transition: color var(--transition), border-color var(--transition);
-    }
-    .section-link:hover {
-      color: var(--forest);
-      border-color: var(--forest);
-    }
-
-    .tours-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .tour-card {
-      position: relative;
-      background: var(--cream);
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .tour-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
-      z-index: 2;
-    }
-    .tour-card:hover::before { transform: scaleX(1); }
-
-    .tour-card-img-wrap {
-      overflow: hidden;
-      aspect-ratio: 3/2;
-    }
-    .tour-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.7s ease;
-    }
-    .tour-card:hover .tour-card-img { transform: scale(1.04); }
-
-    .tour-card-body {
-      padding: 32px 36px 40px;
-    }
-    .tour-tag {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-      display: block;
-    }
-    .tour-name {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--forest);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .tour-desc {
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .tour-meta {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--cream-mid);
-      padding-top: 20px;
-    }
-    .tour-meta-item {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .tour-meta-item svg {
-      width: 13px;
-      height: 13px;
-      stroke: var(--gold);
-      fill: none;
-    }
-
-    /* =============================================
-       ABOUT / STORY
-    ============================================= */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 640px;
-    }
-
-    .about-photo {
-      position: relative;
-      overflow: hidden;
-    }
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      transition: transform 1s ease;
-    }
-    .about-photo:hover img { transform: scale(1.03); }
-    .about-photo-accent {
-      position: absolute;
-      bottom: -1px; right: -1px;
-      width: 45%;
-      aspect-ratio: 1;
-      overflow: hidden;
-      border: 4px solid var(--cream);
-    }
-    .about-photo-accent img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-panel {
-      background: var(--forest);
-      padding: clamp(60px, 8vw, 100px) clamp(48px, 6vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .about-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .about-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .about-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 28px;
-    }
-    .about-body {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: rgba(245, 241, 232, 0.72);
-      margin-bottom: 20px;
-    }
-    .about-detail {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--gold-light);
-      margin: 32px 0 40px;
-      padding-left: 20px;
-      border-left: 1px solid var(--gold);
-      line-height: 1.6;
-    }
-    .btn-forest-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cream);
-      border: 1px solid rgba(245, 241, 232, 0.3);
-      padding: 13px 28px;
-      border-radius: var(--radius-sm);
-      transition: border-color var(--transition), color var(--transition);
-      align-self: flex-start;
-    }
-    .btn-forest-ghost:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* =============================================
-       INCLUSIONS
-    ============================================= */
-    .inclusions {
-      padding: clamp(80px, 12vw, 140px) var(--gutter);
-      background: var(--cream);
-    }
-    .inclusions-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .inclusions-body {
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--muted);
-      margin-top: 20px;
-    }
-
-    .inclusions-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-top: 1px solid var(--cream-mid);
-      border-left: 1px solid var(--cream-mid);
-    }
-    .inclusion-item {
-      padding: 28px 32px;
-      border-bottom: 1px solid var(--cream-mid);
-      border-right: 1px solid var(--cream-mid);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .inclusion-mark {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      margin-top: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .inclusion-mark svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--gold);
-      fill: none;
-    }
-    .inclusion-text strong {
-      display: block;
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--forest);
-      margin-bottom: 4px;
-    }
-    .inclusion-text span {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* =============================================
-       EXPERIENCE / FOOD
-    ============================================= */
-    .experience {
-      background: var(--cream-dark);
-      overflow: hidden;
-    }
-    .experience-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      min-height: 580px;
-    }
-    .experience-img {
-      overflow: hidden;
-    }
-    .experience-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 1s ease;
-    }
-    .experience-img:hover img { transform: scale(1.03); }
-    .experience-text {
-      padding: clamp(60px, 8vw, 100px) clamp(48px, 6vw, 72px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .experience-text .section-title { color: var(--forest); margin-bottom: 20px; }
-    .experience-body {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-    .experience-features {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-    .experience-feat {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--charcoal);
-    }
-    .experience-feat::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* =============================================
-       DESTINATIONS
-    ============================================= */
-    .destinations {
-      padding: clamp(60px, 10vw, 120px) var(--gutter);
-      background: var(--cream);
-    }
-    .destinations-grid {
-      max-width: var(--max-w);
-      margin: 60px auto 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-    }
-    .dest-card {
-      position: relative;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .dest-card-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.8s ease;
-    }
-    .dest-card:hover .dest-card-bg { transform: scale(1.05); }
-    .dest-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(21, 43, 30, 0.85) 0%, rgba(21, 43, 30, 0.2) 60%, transparent 100%);
-      transition: background var(--transition);
-    }
-    .dest-card:hover .dest-card-overlay {
-      background: linear-gradient(to top, rgba(21, 43, 30, 0.9) 0%, rgba(21, 43, 30, 0.35) 60%, transparent 100%);
-    }
-    .dest-card-content {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 40px 44px;
-      z-index: 2;
-    }
-    .dest-region {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .dest-name {
-      font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-    .dest-desc {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(245, 241, 232, 0.72);
-      max-width: 340px;
-      margin-bottom: 22px;
-    }
-    .dest-link {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: gap var(--transition);
-    }
-    .dest-link:hover { gap: 14px; }
-    .dest-link svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-    }
-
-    /* =============================================
-       TESTIMONIALS
-    ============================================= */
-    .testimonials {
-      padding: clamp(80px, 12vw, 140px) var(--gutter);
-      background: var(--forest);
-    }
-    .testimonials .section-eyebrow { color: var(--gold); }
-    .testimonials .section-title { color: var(--cream); }
-    .testimonials .section-header {
-      max-width: var(--max-w);
-      margin-bottom: 60px;
-    }
-
-    .testimonials-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .testi-card {
-      background: rgba(245, 241, 232, 0.04);
-      padding: 44px 40px;
-      border: 1px solid rgba(245, 241, 232, 0.08);
-      transition: background var(--transition);
-    }
-    .testi-card:hover {
-      background: rgba(245, 241, 232, 0.07);
-    }
-    .testi-quote {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-    .testi-quote::before {
-      content: '\201C';
-      font-size: 3rem;
-      color: var(--gold);
-      line-height: 0;
-      vertical-align: -0.45em;
-      margin-right: 4px;
-    }
-    .testi-meta {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .testi-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--forest-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 0.9rem;
-      color: var(--gold);
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-    .testi-name {
-      font-family: var(--font-sans);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      display: block;
-      margin-bottom: 3px;
-    }
-    .testi-origin {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: rgba(245, 241, 232, 0.45);
-      letter-spacing: 0.06em;
-    }
-
-    /* =============================================
-       CTA
-    ============================================= */
-    .cta-section {
-      padding: clamp(80px, 14vw, 160px) var(--gutter);
-      background: var(--forest-deep);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(198, 169, 107, 0.08) 0%, transparent 70%);
-    }
-    .cta-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-    .cta-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .cta-body {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: rgba(245, 241, 232, 0.65);
-      margin-bottom: 48px;
-    }
-    .cta-btns {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .btn-cream {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--cream);
-      color: var(--forest-deep);
-      padding: 16px 38px;
-      border-radius: var(--radius-sm);
-      transition: background var(--transition), transform var(--transition);
-    }
-    .btn-cream:hover {
-      background: var(--cream-dark);
-      transform: translateY(-1px);
-    }
-    .btn-gold-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 16px 38px;
-      border-radius: var(--radius-sm);
-      transition: background var(--transition), color var(--transition);
-    }
-    .btn-gold-outline:hover {
-      background: var(--gold);
-      color: var(--forest-deep);
-    }
-
-    /* =============================================
-       FOOTER
-    ============================================= */
-    .footer {
-      background: var(--charcoal);
-      padding: clamp(60px, 8vw, 100px) var(--gutter) 40px;
-    }
-    .footer-top {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid rgba(245, 241, 232, 0.08);
-    }
-    .footer-logo {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--cream);
-      margin-bottom: 18px;
-    }
-    .footer-tagline {
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: rgba(245, 241, 232, 0.45);
-      max-width: 240px;
-      margin-bottom: 28px;
-    }
-    .footer-contact a {
-      display: block;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: rgba(245, 241, 232, 0.55);
-      margin-bottom: 8px;
-      transition: color var(--transition);
-    }
-    .footer-contact a:hover { color: var(--gold); }
-
-    .footer-col-title {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(245, 241, 232, 0.35);
-      margin-bottom: 24px;
-    }
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .footer-links a {
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: rgba(245, 241, 232, 0.5);
-      transition: color var(--transition);
-    }
-    .footer-links a:hover { color: var(--cream); }
-
-    .footer-bottom {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding-top: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-copy {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: rgba(245, 241, 232, 0.25);
-      letter-spacing: 0.04em;
-    }
-    .footer-socials {
-      display: flex;
-      gap: 18px;
-    }
-    .footer-socials a {
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(245, 241, 232, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color var(--transition), background var(--transition);
-    }
-    .footer-socials a:hover {
-      border-color: var(--gold);
-      background: rgba(198, 169, 107, 0.1);
-    }
-    .footer-socials svg {
-      width: 14px;
-      height: 14px;
-      stroke: rgba(245, 241, 232, 0.45);
-      fill: none;
-      transition: stroke var(--transition);
-    }
-    .footer-socials a:hover svg { stroke: var(--gold); }
-
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
-    @media (max-width: 1024px) {
-      .tours-grid { grid-template-columns: 1fr; gap: 2px; }
-      .about { grid-template-columns: 1fr; }
-      .about-photo { aspect-ratio: 4/3; }
-      .inclusions-inner { grid-template-columns: 1fr; gap: 40px; }
-      .experience-inner { grid-template-columns: 1fr; }
-      .experience-img { aspect-ratio: 16/9; }
-      .destinations-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; gap: 2px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .manifesto-inner { grid-template-columns: 1fr; gap: 48px; }
-      .manifesto-stats { flex-direction: row; justify-content: flex-start; }
-      .stat { text-align: left; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .inclusions-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .section-header { flex-direction: column; align-items: flex-start; }
-      .hero-title { font-size: clamp(2.4rem, 9vw, 4rem); }
-      .about-photo-accent { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-  <!-- =============================================
-       NAVIGATION
-  ============================================= -->
+  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
-    <a class="nav-logo" href="#">Via Vinho.</a>
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Via Vinho</span>
+      <span class="nav-logo-sub">Lisbon · Wine Experiences</span>
+    </a>
     <ul class="nav-links">
-      <li><a href="#tours">Tours</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#destinations">Destinations</a></li>
-      <li><a href="#" class="nav-cta">Reserve</a></li>
+      <li><a href="classic.html">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="book.html" class="nav-reserve">Reserve a place</a></li>
     </ul>
+    <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
-  <!-- =============================================
-       HERO
-  ============================================= -->
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="classic.html">Classic</a>
+    <a href="reserve.html">Reserve</a>
+    <a href="about.html">About</a>
+    <a href="book.html">Book a place</a>
+  </div>
+
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg">
-      <video
-        autoplay muted loop playsinline
-        poster="assets/images/hero-poster.jpg">
-        <source
-          src="assets/videos/hero-reel.mp4"
-          type="video/mp4" />
-        <img
-          src="assets/images/hero-poster.jpg"
-          alt="Wine tour group in Portugal" />
+    <div class="hero-media">
+      <video autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
+        <source src="assets/videos/hero-reel.mp4" type="video/mp4" />
+        <img src="assets/images/hero-poster.jpg" alt="Wine tour in Portugal" />
       </video>
     </div>
 
     <div class="hero-content">
-      <p class="hero-eyebrow">Boutique Wine Tours · Portugal</p>
+      <div class="hero-eyebrow">
+        <span class="divider"></span>
+        <span>Lisbon &nbsp;·&nbsp; Wine Country &nbsp;·&nbsp; Since 2012</span>
+      </div>
       <h1 class="hero-title">
-        Wine country,<br />
-        <em>properly experienced</em>
+        Wine is meant<br />to be discovered.
       </h1>
       <p class="hero-sub">
-        Small-group and private tours through the Setúbal and Alentejo wine regions —
-        guided by someone who genuinely loves this land.
+        Intimate, guided experiences through Portugal's finest wine regions —
+        from Lisbon's cobbled streets to the sun-baked plains of Alentejo.
       </p>
       <div class="hero-actions">
-        <a href="#tours" class="btn-primary">
-          Explore Tours
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="classic.html" class="btn btn-gold">
+          Explore experiences
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#about" class="btn-ghost">Our story</a>
+        <a href="about.html" class="btn btn-outline-cream">Our story</a>
       </div>
     </div>
 
     <span class="hero-scroll">Scroll</span>
   </section>
 
-  <!-- =============================================
-       MANIFESTO
-  ============================================= -->
+  <!-- MANIFESTO -->
   <section class="manifesto">
     <div class="manifesto-inner">
       <blockquote class="manifesto-quote reveal">
-        "Not a tour. A day you'll still be talking about when you get home."
+        "We go to places that don't advertise.<br />That is the point."
         <cite>— Via Vinho</cite>
       </blockquote>
       <div class="manifesto-stats reveal reveal-delay-2">
-        <div class="stat">
+        <div>
           <span class="stat-num">8</span>
           <span class="stat-label">Max group size</span>
         </div>
-        <div class="stat">
+        <div>
           <span class="stat-num">12+</span>
           <span class="stat-label">Years guiding</span>
         </div>
-        <div class="stat">
+        <div>
           <span class="stat-num">98%</span>
           <span class="stat-label">Repeat &amp; referred</span>
         </div>
@@ -1268,289 +94,123 @@
     </div>
   </section>
 
-  <!-- =============================================
-       TOURS
-  ============================================= -->
-  <section class="tours" id="tours">
-    <div class="section-header">
-      <div class="reveal">
-        <p class="section-eyebrow">What we offer</p>
-        <h2 class="section-title">Choose your<br />experience</h2>
+  <!-- TIER INTRO -->
+  <section class="tier-intro">
+    <div class="tier-intro-inner">
+      <div class="eyebrow reveal" style="justify-content:center; margin-bottom:20px;">
+        <span class="divider"></span>Two ways to experience
       </div>
-      <a href="#" class="section-link reveal reveal-delay-2">View all tours</a>
-    </div>
-
-    <div class="tours-grid">
-
-      <article class="tour-card reveal">
-        <div class="tour-card-img-wrap">
-          <img class="tour-card-img"
-            src="assets/images/tour-signature.jpg"
-            alt="Small group wine tour in Portugal" />
-        </div>
-        <div class="tour-card-body">
-          <span class="tour-tag">Small Group · From €95</span>
-          <h3 class="tour-name">The Signature Day Tour</h3>
-          <p class="tour-desc">
-            Join a curated group of curious travellers — maximum eight — for a full day
-            through two or three estates. Unhurried, intimate, and guided with genuine expertise.
-          </p>
-          <div class="tour-meta">
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              8 hours
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Max 8 guests
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Setúbal / Alentejo
-            </span>
-          </div>
-        </div>
-      </article>
-
-      <article class="tour-card reveal reveal-delay-1">
-        <div class="tour-card-img-wrap">
-          <img class="tour-card-img"
-            src="assets/images/tour-private.jpg"
-            alt="Private wine tour couple" />
-        </div>
-        <div class="tour-card-body">
-          <span class="tour-tag">Private · From €220</span>
-          <h3 class="tour-name">The Private Experience</h3>
-          <p class="tour-desc">
-            Your own vehicle, your own pace, your own itinerary. Designed around anniversaries,
-            honeymoons, and anyone who prefers the road entirely to themselves.
-          </p>
-          <div class="tour-meta">
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              Full day
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              2–6 guests
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 3l14 9-14 9V3z"/></svg>
-              Bespoke route
-            </span>
-          </div>
-        </div>
-      </article>
-
-      <article class="tour-card reveal reveal-delay-2">
-        <div class="tour-card-img-wrap">
-          <img class="tour-card-img"
-            src="assets/images/tour-corporate.jpg"
-            alt="Corporate wine tour group toast" />
-        </div>
-        <div class="tour-card-body">
-          <span class="tour-tag">Corporate · Custom pricing</span>
-          <h3 class="tour-name">Team &amp; Corporate Days</h3>
-          <p class="tour-desc">
-            An uncommon team outing — out of the boardroom and into the vineyard.
-            Catered lunches, private tastings, and the kind of shared experience that
-            actually brings people together.
-          </p>
-          <div class="tour-meta">
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              Flexible
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Groups 8–50
-            </span>
-            <span class="tour-meta-item">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              Team-building
-            </span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- =============================================
-       ABOUT
-  ============================================= -->
-  <section class="about" id="about">
-    <div class="about-photo">
-      <img
-        src="assets/images/about-main.jpeg"
-        alt="Via Vinho wine tasting" />
-      <div class="about-photo-accent">
-        <img
-          src="assets/images/about-accent.jpeg"
-          alt="Wine at golden hour" />
-      </div>
-    </div>
-    <div class="about-panel">
-      <p class="about-eyebrow reveal">Who we are</p>
-      <h2 class="about-title reveal">
-        Not a company.<br />A point of view<br />about wine.
+      <h2 class="tier-intro-title heading-lg reveal reveal-delay-1">
+        Choose your journey.
       </h2>
-      <p class="about-body reveal reveal-delay-1">
-        Via Vinho was built around a simple conviction: the best way to understand
-        Portuguese wine is to stand in the vineyard, meet the people who make it,
-        and sit down to a long lunch with a glass in your hand.
+      <p class="body-lg tier-intro-body reveal reveal-delay-2">
+        Via Vinho offers two distinct experiences, each designed to match a different
+        kind of curiosity. Both are exceptional. Both are personal. Neither is for everyone.
       </p>
-      <p class="about-body reveal reveal-delay-2">
-        Based in Lisbon, we work exclusively with independent estates — family-run wineries
-        with something genuine to say. No scripted tastings. No bus groups.
-        No obvious itineraries.
-      </p>
-      <blockquote class="about-detail reveal reveal-delay-3">
-        "We go to places that don't advertise. That's the point."
-      </blockquote>
-      <a href="#" class="btn-forest-ghost reveal reveal-delay-4">
-        Meet the team
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="tier-divider reveal reveal-delay-3">
+        <span class="tier-divider-label">Classic &amp; Reserve</span>
+      </div>
     </div>
   </section>
 
-  <!-- =============================================
-       INCLUSIONS
-  ============================================= -->
-  <section class="inclusions">
-    <div class="inclusions-inner">
-      <div>
-        <p class="section-eyebrow reveal">Every tour includes</p>
-        <h2 class="section-title reveal">Thoughtfully<br />arranged</h2>
-        <p class="inclusions-body reveal reveal-delay-1">
-          Everything you need is taken care of before you arrive.
-          No hidden extras. No decisions to stress about on the day.
+  <!-- CLASSIC TIER -->
+  <section class="classic" id="classic">
+    <div class="classic-inner">
+      <div class="classic-image">
+        <img src="assets/images/tour-signature.jpg" alt="Via Vinho Classic — guided group wine tour" />
+      </div>
+      <div class="classic-content">
+        <div class="classic-tier-badge reveal">
+          <span>Via Vinho Classic</span>
+        </div>
+        <h2 class="classic-title reveal">
+          Wine, conversation,<br />and the roads<br />less taken.
+        </h2>
+        <p class="classic-body reveal reveal-delay-1">
+          Small-group tours through Lisbon's wine scene and the estates of Setúbal —
+          curated for those who want real access, honest expertise, and a table worth lingering at.
+          Maximum eight people. Always.
         </p>
-      </div>
-      <div class="inclusions-grid reveal reveal-delay-1">
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Private transport</strong>
-            <span>Door-to-door from Lisbon in a comfortable, air-conditioned vehicle</span>
-          </div>
+        <div class="classic-highlights reveal reveal-delay-2">
+          <div class="classic-highlight">Lisbon walking wine tours — discover the city through its glass</div>
+          <div class="classic-highlight">Setúbal day tours — estate tastings, long lunch, golden hour</div>
+          <div class="classic-highlight">Maximum 8 guests — never a crowd, always a conversation</div>
+          <div class="classic-highlight">WSET-trained guide, English and Portuguese</div>
         </div>
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Expert guide</strong>
-            <span>WSET-trained guide fluent in English, French, and Portuguese</span>
-          </div>
-        </div>
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Estate tastings</strong>
-            <span>Curated tastings at 2–3 handpicked independent estates</span>
-          </div>
-        </div>
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Regional lunch</strong>
-            <span>A long, leisurely table at a local restaurant or estate</span>
-          </div>
-        </div>
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Small groups only</strong>
-            <span>Maximum 8 guests — never a crowd, always a conversation</span>
-          </div>
-        </div>
-        <div class="inclusion-item">
-          <div class="inclusion-mark">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="inclusion-text">
-            <strong>Wine to take home</strong>
-            <span>Bottles available to purchase directly from the estates at cellar prices</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       EXPERIENCE / FOOD
-  ============================================= -->
-  <section class="experience">
-    <div class="experience-inner">
-      <div class="experience-img">
-        <img
-          src="assets/images/food-lunch.jpeg"
-          alt="Long table lunch at Portuguese estate" />
-      </div>
-      <div class="experience-text">
-        <p class="section-eyebrow reveal">The full picture</p>
-        <h2 class="section-title reveal">Wine is the reason.<br /><em style="font-family: var(--font-serif); font-style: italic;">Food is the memory.</em></h2>
-        <p class="experience-body reveal reveal-delay-1">
-          Every tour includes a long, unhurried lunch — ideally at the estate itself,
-          or at a local restaurant we've been eating at for years. Regional ingredients,
-          natural wines, and the kind of table that makes you forget about the time.
+        <p class="classic-price reveal reveal-delay-3">
+          From<strong>€95</strong>per person
         </p>
-        <div class="experience-features reveal reveal-delay-2">
-          <span class="experience-feat">Seasonal, regional menus</span>
-          <span class="experience-feat">Estate and local restaurant settings</span>
-          <span class="experience-feat">Paired to morning's tastings where possible</span>
-          <span class="experience-feat">Vegetarian and dietary options available</span>
+        <div class="reveal reveal-delay-3" style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+          <a href="classic.html" class="btn btn-gold">
+            Explore Classic
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="book.html" class="btn btn-text">Book a place</a>
         </div>
-        <a href="#tours" class="btn-primary reveal reveal-delay-3">
-          Plan your visit
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- =============================================
-       DESTINATIONS
-  ============================================= -->
+  <!-- RESERVE TIER -->
+  <section class="reserve" id="reserve">
+    <div class="reserve-inner">
+      <div class="reserve-content">
+        <div class="reserve-tier-badge reveal">
+          <span>Via Vinho Reserve</span>
+        </div>
+        <h2 class="reserve-title reveal">
+          An entirely<br />private affair.
+        </h2>
+        <p class="reserve-body reveal reveal-delay-1">
+          For those who prefer the road entirely to themselves. Bespoke itineraries built around
+          your palate, your schedule, and your idea of a perfect day in Portugal's wine country.
+          No shared tables. No compromises.
+        </p>
+        <div class="reserve-highlights reveal reveal-delay-2">
+          <div class="reserve-highlight">Your vehicle, your route, your pace</div>
+          <div class="reserve-highlight">Access to estates not open to the public</div>
+          <div class="reserve-highlight">Private tastings with winemakers</div>
+          <div class="reserve-highlight">Curated for anniversaries, honeymoons, and discerning travellers</div>
+        </div>
+        <div class="reserve-actions reveal reveal-delay-3">
+          <a href="reserve.html" class="btn btn-outline-cream">
+            Discover Reserve
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="mailto:reserve@viavinho.net" class="btn btn-text-gold">Enquire privately</a>
+        </div>
+      </div>
+      <div class="reserve-image">
+        <img src="assets/images/tour-private.jpg" alt="Via Vinho Reserve — private wine experience" />
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
   <section class="destinations" id="destinations">
-    <div class="container">
-      <div class="section-header">
-        <div class="reveal">
-          <p class="section-eyebrow">Where we go</p>
-          <h2 class="section-title">Two regions.<br />A lifetime of wine.</h2>
-        </div>
+    <div class="destinations-header reveal">
+      <div class="eyebrow" style="margin-bottom:16px;">
+        <span class="divider"></span>Where we go
       </div>
+      <h2 class="heading-lg" style="color:var(--charcoal);">Two regions.<br />A lifetime of wine.</h2>
     </div>
-
     <div class="destinations-grid">
-
       <div class="dest-card reveal">
         <div class="dest-card-bg" id="dest-setubal"></div>
         <div class="dest-card-overlay"></div>
         <div class="dest-card-content">
-          <span class="dest-region">Peninsula de Setúbal</span>
+          <span class="dest-region">Península de Setúbal</span>
           <h3 class="dest-name">Setúbal</h3>
           <p class="dest-desc">
-            An hour south of Lisbon, where the Arrábida mountains meet the ocean
-            and Moscatel has been made for centuries. Close, underestimated, extraordinary.
+            An hour south of Lisbon, where the Arrábida mountains meet the ocean and Moscatel
+            has been made for centuries. Close, underestimated, extraordinary.
           </p>
-          <a href="#" class="dest-link">
+          <a href="classic.html#setubal" class="dest-link">
             Discover Setúbal
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
-
       <div class="dest-card reveal reveal-delay-1">
         <div class="dest-card-bg" id="dest-alentejo"></div>
         <div class="dest-card-overlay"></div>
@@ -1558,105 +218,215 @@
           <span class="dest-region">Alentejo</span>
           <h3 class="dest-name">Alentejo</h3>
           <p class="dest-desc">
-            Portugal's great wine interior — vast plains, cork forests, and estates
-            producing wines of extraordinary character. A longer day. Always worth it.
+            Portugal's great wine interior — vast plains, cork oak forests, and estates of
+            extraordinary character. A longer day. Always worth every hour.
           </p>
-          <a href="#" class="dest-link">
+          <a href="reserve.html#alentejo" class="dest-link">
             Discover Alentejo
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- =============================================
-       TESTIMONIALS
-  ============================================= -->
-  <section class="testimonials">
-    <div class="section-header reveal">
-      <div>
-        <p class="section-eyebrow">What guests say</p>
-        <h2 class="section-title">Words we<br />didn't write</h2>
+  <!-- THE EXPERIENCE -->
+  <section class="experience">
+    <div class="experience-inner">
+      <div class="experience-sticky">
+        <div class="eyebrow reveal" style="margin-bottom:20px;">
+          <span class="divider"></span>Every tour includes
+        </div>
+        <h2 class="heading-lg experience-title reveal">Thoughtfully<br />arranged.</h2>
+        <p class="body-lg experience-body reveal reveal-delay-1">
+          Everything is considered before you arrive.
+          No hidden costs. No decisions to stress about on the day.
+          Just the experience.
+        </p>
+        <div class="reveal reveal-delay-2">
+          <a href="classic.html#inclusions" class="btn btn-gold">
+            See full inclusions
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
+      <div>
+        <div class="experience-image reveal" style="margin-bottom:32px;">
+          <img src="assets/images/food-lunch.jpeg" alt="Long table lunch at a Portuguese estate" />
+        </div>
+        <div class="inclusions-grid reveal reveal-delay-1">
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Private transport</strong>
+              <span>Door-to-door from Lisbon in a comfortable vehicle</span>
+            </div>
+          </div>
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Expert guide</strong>
+              <span>WSET-trained, English, French &amp; Portuguese</span>
+            </div>
+          </div>
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Estate tastings</strong>
+              <span>2–3 handpicked independent estates per tour</span>
+            </div>
+          </div>
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Long table lunch</strong>
+              <span>Unhurried, at the estate or a trusted local restaurant</span>
+            </div>
+          </div>
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Small groups only</strong>
+              <span>Maximum 8 — always intimate, never a crowd</span>
+            </div>
+          </div>
+          <div class="inclusion-item">
+            <div class="inclusion-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="inclusion-text">
+              <strong>Cellar-price bottles</strong>
+              <span>Purchase directly from estates at producer prices</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-header">
+      <div class="eyebrow reveal" style="margin-bottom:20px;">
+        <span class="divider"></span>What guests say
+      </div>
+      <h2 class="heading-lg reveal reveal-delay-1" style="color:var(--cream);">Words we<br />didn't write.</h2>
     </div>
     <div class="testimonials-grid">
 
       <div class="testi-card reveal">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
         <p class="testi-quote">
-          The best day of our two weeks in Portugal — and we had some very good days.
-          The guide was extraordinary. We bought six bottles and barely made it home with three.
+          The best day of our two weeks in Portugal. The guide was extraordinary —
+          knowledgeable without being pedantic, passionate without being performative.
+          We bought six bottles and barely made it home with three.
         </p>
         <div class="testi-meta">
           <div class="testi-avatar">M</div>
           <div>
             <span class="testi-name">Margaret &amp; David K.</span>
-            <span class="testi-origin">San Francisco, California</span>
+            <span class="testi-detail">San Francisco · Setúbal Day Tour</span>
           </div>
+          <span class="testi-platform">TripAdvisor</span>
         </div>
       </div>
 
       <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
         <p class="testi-quote">
-          We've done wine tours in Burgundy and Tuscany. This was better.
-          Smaller, more personal, and genuinely educational without being dull.
-          Book it.
+          We have done wine tours in Burgundy and Tuscany. This was better.
+          Smaller, more personal, and genuinely educational without ever being dull.
+          Book it without hesitation.
         </p>
         <div class="testi-meta">
           <div class="testi-avatar">S</div>
           <div>
             <span class="testi-name">Sophie L.</span>
-            <span class="testi-origin">London, United Kingdom</span>
+            <span class="testi-detail">London · Reserve Experience</span>
           </div>
+          <span class="testi-platform">Google</span>
         </div>
       </div>
 
       <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
         <p class="testi-quote">
-          I organised this for a team of twelve. Everyone arrived strangers.
-          Everyone left friends. The long table lunch sealed it.
-          Exceptional experience, flawlessly run.
+          I organised this for a corporate group of twelve. Everyone arrived as colleagues.
+          Everyone left as friends. The long table lunch sealed it.
+          Exceptional, flawlessly run.
         </p>
         <div class="testi-meta">
           <div class="testi-avatar">A</div>
           <div>
             <span class="testi-name">Antoine R.</span>
-            <span class="testi-origin">Paris, France</span>
+            <span class="testi-detail">Paris · Corporate Day</span>
           </div>
+          <span class="testi-platform">TripAdvisor</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- =============================================
-       CTA
-  ============================================= -->
+  <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-inner reveal">
-      <p class="cta-eyebrow">Ready to visit?</p>
-      <h2 class="cta-title">Portugal is waiting.<br /><em style="font-family: var(--font-serif); font-style: italic; font-weight: 300;">So is the wine.</em></h2>
-      <p class="cta-body">
+    <div class="cta-inner">
+      <div class="eyebrow cta-eyebrow reveal">
+        <span class="divider"></span>Begin your experience
+      </div>
+      <h2 class="cta-title reveal">
+        Portugal is waiting.<br />So is the wine.
+      </h2>
+      <p class="cta-body reveal reveal-delay-1">
         Spaces are limited to keep every tour exactly as it should be.
-        Reserve your place now — or get in touch to design something entirely your own.
+        Reserve your place, or get in touch to design something entirely your own.
       </p>
-      <div class="cta-btns">
-        <a href="#" class="btn-cream">Reserve a tour</a>
-        <a href="mailto:info@viavinho.net" class="btn-gold-outline">Get in touch</a>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="book.html" class="btn btn-gold">
+          Reserve a place
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:info@viavinho.net" class="btn btn-outline-gold">Get in touch</a>
       </div>
     </div>
   </section>
 
-  <!-- =============================================
-       FOOTER
-  ============================================= -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">Via Vinho.</div>
+        <div class="footer-brand-name">Via Vinho</div>
+        <div class="footer-brand-sub">Lisbon · Wine Experiences</div>
         <p class="footer-tagline">
-          Boutique wine tours in Portugal's most interesting regions.
+          Boutique wine experiences in Portugal's most interesting regions.
           Based in Lisbon. Operating since 2012.
         </p>
         <div class="footer-contact">
@@ -1665,30 +435,31 @@
         </div>
       </div>
       <div>
-        <p class="footer-col-title">Tours</p>
+        <p class="footer-col-title">Experiences</p>
         <ul class="footer-links">
-          <li><a href="#">Signature Day Tour</a></li>
-          <li><a href="#">Private Experience</a></li>
-          <li><a href="#">Corporate Days</a></li>
-          <li><a href="#">Gift a Tour</a></li>
+          <li><a href="classic.html">Via Vinho Classic</a></li>
+          <li><a href="reserve.html">Via Vinho Reserve</a></li>
+          <li><a href="classic.html#lisbon">Lisbon Wine Walk</a></li>
+          <li><a href="classic.html#setubal">Setúbal Day Tour</a></li>
+          <li><a href="reserve.html">Private Experience</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-col-title">Destinations</p>
+        <p class="footer-col-title">Regions</p>
         <ul class="footer-links">
+          <li><a href="#">Lisbon</a></li>
           <li><a href="#">Setúbal</a></li>
           <li><a href="#">Alentejo</a></li>
-          <li><a href="#">About the regions</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-col-title">Company</p>
         <ul class="footer-links">
-          <li><a href="#">About Via Vinho</a></li>
-          <li><a href="#">Meet the guides</a></li>
-          <li><a href="#">The estates</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="about.html">About Via Vinho</a></li>
+          <li><a href="about.html#story">Our story</a></li>
+          <li><a href="book.html">Book a place</a></li>
+          <li><a href="mailto:reserve@viavinho.net">Reserve privately</a></li>
+          <li><a href="mailto:info@viavinho.net">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -1699,65 +470,51 @@
           <svg viewBox="0 0 24 24" stroke-width="1.5">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.5" fill="rgba(245,241,232,0.45)" stroke="none"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" stroke-width="1.5">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="rgba(245,241,232,0.38)" stroke="none"/>
           </svg>
         </a>
         <a href="#" aria-label="TripAdvisor">
           <svg viewBox="0 0 24 24" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
             <path d="M8 14s0-4 4-4 4 4 4 4"/>
-            <circle cx="9" cy="11" r="1.5" fill="rgba(245,241,232,0.45)" stroke="none"/>
-            <circle cx="15" cy="11" r="1.5" fill="rgba(245,241,232,0.45)" stroke="none"/>
           </svg>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- =============================================
-       JAVASCRIPT
-  ============================================= -->
   <script>
-    // Destination card backgrounds
-    const destSetubal = document.getElementById('dest-setubal');
-    const destAlentejo = document.getElementById('dest-alentejo');
-
-    if (destSetubal) {
-      destSetubal.style.backgroundImage = `url('assets/images/dest-setubal.jpeg')`;
-      destSetubal.style.backgroundSize = 'cover';
-      destSetubal.style.backgroundPosition = 'center';
-    }
-    if (destAlentejo) {
-      destAlentejo.style.backgroundImage = `url('assets/images/dest-alentejo.jpeg')`;
-      destAlentejo.style.backgroundSize = 'cover';
-      destAlentejo.style.backgroundPosition = 'center';
-    }
-
-    // Nav scroll behaviour
+    // Nav scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // Scroll reveal via IntersectionObserver
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Destination backgrounds
+    const BASE = 'assets/images/';
+    const destSetubal = document.getElementById('dest-setubal');
+    const destAlentejo = document.getElementById('dest-alentejo');
+    if (destSetubal) destSetubal.style.backgroundImage = `url('${BASE}dest-setubal.jpeg')`;
+    if (destAlentejo) destAlentejo.style.backgroundImage = `url('${BASE}dest-alentejo.jpeg')`;
+
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    reveals.forEach(el => revealObserver.observe(el));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    reveals.forEach(el => observer.observe(el));
   </script>
 
 </body>
