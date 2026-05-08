@@ -7,34 +7,38 @@
   <meta name="description" content="Cultural wine immersions across Portugal. Private, hosted, designed around you.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- ════════════ NAV ════════════ -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">Via Vinho</a>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo/logo-classic-black.png" alt="Via Vinho" class="nav-logo-img">
+    </a>
     <ul class="nav-links">
-      <li><a href="#experiences">Classic</a></li>
-      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="#classic">Classic</a></li>
+      <li><a href="#reserve">Reserve</a></li>
       <li><a href="experiences.html">Experiences</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="enquire.html">Enquire</a></li>
+      <li class="nav-enquire"><a href="enquire.html">Enquire</a></li>
     </ul>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-mobile" id="mobile-menu">
-    <a href="#experiences">Classic</a>
-    <a href="reserve.html">Reserve</a>
+    <a href="#classic">Classic</a>
+    <a href="#reserve">Reserve</a>
     <a href="experiences.html">Experiences</a>
     <a href="#about">About</a>
     <a href="enquire.html">Enquire</a>
   </div>
 
-  <!-- 1. HERO — Reserve mood: cinematic, quiet -->
-  <section class="hero hero--left" id="hero">
+
+  <!-- ════════════ RESERVE HERO — video, charcoal-left gradient ════════════ -->
+  <section class="hero" id="hero">
     <div class="hero-bg">
       <video class="hero-video" autoplay muted loop playsinline preload="metadata"
              poster="assets/img/hero-still.jpg">
@@ -42,163 +46,358 @@
       </video>
       <img class="hero-fallback" src="assets/img/hero-still.jpg" alt="" aria-hidden="true">
     </div>
+
     <div class="hero-content">
-      <span class="eyebrow eyebrow--inverse">Cultural Wine Immersions</span>
-      <h1>Private wine experiences,<br>designed around you.</h1>
-      <a href="enquire.html" class="link link--inverse">Design your experience &rarr;</a>
+      <p class="hero-label">Private wine experiences · Portugal</p>
+      <h1 class="hero-headline">Private wine experiences,<br>designed around you.</h1>
+      <a href="enquire.html" class="hero-cta">
+        Design your experience
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
     </div>
   </section>
 
-  <!-- 2. POSITIONING — narrow italic serif, no heading -->
-  <section class="statement">
-    <div class="container">
-      <div class="statement-inner reveal">
-        <p class="editorial">
-          Via Vinho is not a tour company.<br>
-          We move within a network of producers, estates, and landscapes that
-          most visitors never see &mdash; and we bring you into it, naturally.<br>
-          Each experience is private, fully hosted, and shaped around how
-          you like to spend your time.
+
+  <!-- ════════════ RESERVE POSITIONING — burgundy band ════════════ -->
+  <section class="reserve-position" id="reserve">
+    <div class="reserve-position-inner reveal">
+      <p class="reserve-eyebrow">Via Vinho Reserve</p>
+      <p class="reserve-editorial">
+        Not a tour company. An insider with a point of view —
+        connected to Portugal's most respected producers, private estates,
+        and corners of the country that don't appear on any itinerary.
+        Every experience is private, fully hosted, and built around
+        what matters to you.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════ RESERVE SIGNALS — sparse hints, no pricing ════════════ -->
+  <section class="reserve-signals">
+    <div class="reserve-signals-inner">
+
+      <div class="reserve-signal reveal">
+        <p class="signal-tag">The Tagus · Lisbon</p>
+        <h3 class="signal-name">The River</h3>
+        <p class="signal-desc">
+          A private yacht. A chef on board. A curated selection.
+          The city on one shore, the Atlantic on the other.
+          No commentary. No rushing.
+        </p>
+      </div>
+
+      <div class="reserve-signal reveal reveal-d1">
+        <p class="signal-tag">Portugal · Multi-day</p>
+        <h3 class="signal-name">Bespoke</h3>
+        <p class="signal-desc">
+          Multi-day programmes, private estate access, exclusive tastings
+          with Portugal's most respected winemakers.
+          Every detail shaped around your preferences.
+        </p>
+      </div>
+
+      <div class="reserve-cta-wrap reveal reveal-d2">
+        <a href="reserve.html" class="btn-reserve">Design your experience</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════ TIER SEAM — Reserve → Classic ════════════ -->
+  <div class="tier-seam" aria-hidden="true">
+    <div class="tier-seam-line"></div>
+    <div class="tier-seam-rule"></div>
+    <span class="tier-seam-label">Via Vinho Classic</span>
+    <div class="tier-seam-rule"></div>
+    <div class="tier-seam-line"></div>
+  </div>
+
+
+  <!-- ════════════ CLASSIC INTRO — big italic, decorative illustration ════════════ -->
+  <section class="classic-intro" id="classic">
+
+    <svg class="classic-illustration" viewBox="0 0 500 680" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Wine glass -->
+      <path d="M188 68 C184 73 172 116 167 162 C158 228 155 292 190 336 C207 357 212 378 207 400 L207 472" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M312 68 C316 73 328 116 333 162 C342 228 345 292 310 336 C293 357 288 378 293 400 L293 472" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M170 472 Q250 486 330 472" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M207 400 Q250 412 293 400" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 8"/>
+      <path d="M176 218 Q250 210 324 218" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      <!-- Vine — left -->
+      <path d="M76 320 Q96 278 84 234 Q74 200 96 166 Q112 136 100 106" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M84 234 Q56 222 42 238 Q28 254 40 272" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M40 272 Q32 260 42 252 Q52 245 54 256 Q56 268 44 274 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+      <path d="M96 166 Q68 158 54 176 Q42 192 52 206" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M52 206 Q44 194 54 186 Q64 181 66 192 Q67 203 56 208 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+      <path d="M76 320 Q60 340 68 356 Q76 370 90 362 Q102 352 94 340" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Vine — right -->
+      <path d="M424 340 Q404 298 416 256 Q424 224 406 192" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M416 256 Q444 242 458 258 Q470 274 456 288" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M456 288 Q464 276 455 268 Q446 263 444 274 Q442 285 453 290 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+      <!-- Grapes -->
+      <circle cx="124" cy="532" r="16" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="148" cy="518" r="14" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="100" cy="518" r="14" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="136" cy="550" r="13" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <circle cx="112" cy="550" r="13" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <circle cx="124" cy="502" r="12" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M124 490 Q130 474 142 462 Q152 452 146 438" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M146 438 Q138 428 148 420 Q158 415 160 426 Q162 437 150 442 Z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+      <!-- Swirl -->
+      <path d="M388 52 Q412 30 436 48 Q458 66 440 90 Q420 116 392 102 Q366 88 376 66 Q384 48 408 44" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+
+    <div class="classic-intro-inner">
+      <p class="classic-eyebrow">Via Vinho Classic</p>
+
+      <h2 class="classic-headline reveal">
+        A few ways to spend<br>a very good day.
+      </h2>
+
+      <p class="classic-sub reveal reveal-d1">
+        Bookable wine days across Portugal's most compelling regions.
+        Transport, tastings, meals, and hosting — all included.
+        Maximum eight guests.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ════════════ CLASSIC INCLUSIONS — what every day includes ════════════ -->
+  <section class="inclusions">
+    <p class="inclusions-eyebrow">Every Classic experience includes</p>
+    <div class="inclusions-grid reveal">
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">Private groups of up to eight guests</p>
+      </div>
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">All tours and tastings included</p>
+      </div>
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">Snacks and meals throughout the day</p>
+      </div>
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">Expert hosting and a map of the region to keep</p>
+      </div>
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">Private transport from central Lisbon</p>
+      </div>
+      <div class="inclusion-item">
+        <div class="inclusion-dash"></div>
+        <p class="inclusion-text">Discounts on wine purchases at selected estates</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ CLASSIC EXPERIENCES — horizontal scroll ════════════ -->
+  <section class="classic-experiences" id="experiences-row">
+    <div class="classic-row">
+
+      <article class="classic-card reveal">
+        <div class="classic-card-img">
+          <img src="assets/img/graca-anjos.jpg" alt="Lisbon wine bar at dusk" loading="lazy">
+        </div>
+        <div class="classic-card-body">
+          <p class="classic-card-region">Lisbon · Evening</p>
+          <h3 class="classic-card-name">Graça &amp; Anjos After Dark</h3>
+          <p class="classic-card-tagline">A wine walk through Lisbon's most honest neighbourhoods.</p>
+          <p class="classic-card-desc">
+            Four handpicked stops across Graça and Anjos — from a natural wine bar
+            tucked behind a church to a petisco counter where the locals never leave.
+            The kind of evening you cannot find on a map.
+          </p>
+          <p class="classic-card-meta">Evening · 3–4 hours · Private transport included</p>
+          <div class="classic-card-footer">
+            <p class="classic-card-price">From €95 <small>per person</small></p>
+            <a href="experiences.html#experiences-row" class="btn-classic">
+              Book
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="classic-card reveal reveal-d1">
+        <div class="classic-card-img">
+          <img src="assets/img/palmela-salon.jpg" alt="Long table lunch in the Setúbal Peninsula" loading="lazy">
+        </div>
+        <div class="classic-card-body">
+          <p class="classic-card-region">Setúbal · Palmela · Full Day</p>
+          <h3 class="classic-card-name">The Palmela Salon</h3>
+          <p class="classic-card-tagline">Wine, gesture, and regional identity.</p>
+          <p class="classic-card-desc">
+            A prestige tasting at a leading Setúbal estate. An afternoon with Filipe Palhoça,
+            where winemaking meets art. A long lunch with regional cuisine,
+            shaped around shared conversation. Far from the crowds.
+          </p>
+          <p class="classic-card-meta">Full day from Lisbon · All-inclusive</p>
+          <div class="classic-card-footer">
+            <p class="classic-card-price">From €280 <small>per person</small></p>
+            <a href="experiences.html#experiences-row" class="btn-classic">
+              Book
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="classic-card reveal reveal-d1">
+        <div class="classic-card-img">
+          <img src="assets/img/atlantic-escape.jpg" alt="Coastal vineyard in Colares" loading="lazy">
+        </div>
+        <div class="classic-card-body">
+          <p class="classic-card-region">Colares · Atlantic Coast · Full Day</p>
+          <h3 class="classic-card-name">Atlantic Escape</h3>
+          <p class="classic-card-tagline">A day on the edge of the Atlantic.</p>
+          <p class="classic-card-desc">
+            Coastal winds, clay soils, and wines of extraordinary character.
+            Ramilo — custodian of ancient Colares traditions. Quinta San Michel
+            — where terroir and personality meet. A day of unhurried tastings,
+            vineyard walks, and a long lunch.
+          </p>
+          <p class="classic-card-meta">Full day from Lisbon · All-inclusive</p>
+          <div class="classic-card-footer">
+            <p class="classic-card-price">From €260 <small>per person</small></p>
+            <a href="experiences.html#experiences-row" class="btn-classic">
+              Book
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="classic-card reveal reveal-d2">
+        <div class="classic-card-img">
+          <img src="assets/img/atlantic-fringe.jpg" alt="Old vines in Torres Vedras" loading="lazy">
+        </div>
+        <div class="classic-card-body">
+          <p class="classic-card-region">Torres Vedras · Full Day</p>
+          <h3 class="classic-card-name">The Atlantic Fringe</h3>
+          <p class="classic-card-tagline">A day among the vines of Torres Vedras.</p>
+          <p class="classic-card-desc">
+            Vale de Capucha — a boundary-pushing Atlantic producer.
+            Pedras — a quiet discovery where minimal intervention meets maximum character.
+            A long lunch with seasonal Portuguese cuisine between the two.
+          </p>
+          <p class="classic-card-meta">Full day from Lisbon · All-inclusive</p>
+          <div class="classic-card-footer">
+            <p class="classic-card-price">From €240 <small>per person</small></p>
+            <a href="experiences.html#experiences-row" class="btn-classic">
+              Book
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════ FOUNDER STRIP — charcoal ════════════ -->
+  <section class="founder-strip" id="about">
+    <div class="founder-strip-inner reveal">
+      <div class="founder-strip-photo">
+        <img src="assets/img/nicola.jpg" alt="Nicola, Via Vinho founder" loading="lazy">
+      </div>
+      <div class="founder-strip-text">
+        <p class="founder-strip-eyebrow">Your host</p>
+        <h2 class="founder-strip-name">Nicola.</h2>
+        <p class="founder-strip-role">Founder · Via Vinho</p>
+        <div class="founder-strip-rule"></div>
+        <p class="founder-strip-copy">
+          Via Vinho started from a simple conviction: Portugal's wine regions
+          should be accessible to anyone curious enough to visit them — not just
+          those with connections, or the budget for private guides, or years of
+          prior knowledge. Everyone coming to Lisbon deserves a proper introduction.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 3. SIGNALS — 3 columns, no icons -->
-  <section class="signals">
-    <div class="container">
-      <div class="signals-grid">
-        <div class="signal reveal">
-          <h3>Private &amp; Exclusive</h3>
-          <p>Every experience is for your group alone &mdash; no mixed groups, no set routes.</p>
-        </div>
-        <div class="signal reveal reveal-d1">
-          <h3>Fully Hosted</h3>
-          <p>You're with us throughout the day. No handovers. No guesswork.</p>
-        </div>
-        <div class="signal reveal reveal-d2">
-          <h3>Built Around You</h3>
-          <p>We adjust the rhythm, the producers, the moments &mdash; depending on what matters to you.</p>
-        </div>
-      </div>
+
+  <!-- ════════════ TESTIMONIALS — full-bleed photo + alabaster card ════════════ -->
+  <section class="testimonials">
+    <div class="testimonials-bg" aria-hidden="true"></div>
+    <div class="testimonial-card reveal">
+      <p class="testimonial-quote">
+        "It was one of the most unique and fun experiences I've had in Lisbon
+        so far. I definitely recommend this to anyone wanting to spend an
+        amazing time with some friends while enjoying incredible wine
+        in beautiful locations."
+      </p>
+      <div class="testimonial-rule"></div>
+      <p class="testimonial-name">Laura Solis &nbsp;·&nbsp; Portugal</p>
     </div>
   </section>
 
-  <!-- 4. TRANSITION — Reserve to Classic -->
-  <section class="transition">
-    <div class="container">
-      <div class="reveal">
-        <p>For those who prefer something already shaped.</p>
-        <span class="transition-line" aria-hidden="true"></span>
-      </div>
+
+  <!-- ════════════ CTA — charcoal, ghost buttons ════════════ -->
+  <section class="cta-section" id="enquire">
+
+    <svg class="cta-illustration" viewBox="0 0 400 560" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M156 58 C152 63 140 106 135 152 C126 218 123 282 158 326 C175 347 180 368 175 390 L175 462" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M244 58 C248 63 260 106 265 152 C274 218 277 282 242 326 C225 347 220 368 225 390 L225 462" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M138 462 Q200 476 262 462" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M175 390 Q200 402 225 390" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="4 7"/>
+      <path d="M44 280 Q64 238 52 194 Q42 160 64 126 Q80 96 68 66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M52 194 Q24 182 10 198 Q-4 214 8 232" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M316 300 Q296 258 308 214 Q316 182 298 150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+
+    <div class="cta-rule"></div>
+
+    <h2 class="cta-headline reveal">
+      Tell me what you<br>have in mind.
+    </h2>
+
+    <p class="cta-body reveal reveal-d1">
+      The region, the pace, the kind of day you're looking for —
+      we'll take it from there.
+    </p>
+
+    <div class="cta-buttons reveal reveal-d2">
+      <a href="mailto:hello@viavinho.net?subject=Tour%20Enquiry" class="btn-ghost-dark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Email us
+      </a>
+      <a href="https://wa.me/351968523455?text=Hi%20Via%20Vinho%2C%20I%27d%20like%20to%20enquire%20about%20a%20tour."
+         class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp
+      </a>
     </div>
+
   </section>
 
-  <!-- 5 + 6. CLASSIC INTRO + EXPERIENCES GRID -->
-  <section class="experiences" id="experiences">
-    <div class="container">
 
-      <div class="experiences-head reveal">
-        <span class="eyebrow">Via Vinho Classic</span>
-        <h2>A few ways to spend a very good day.</h2>
-        <p>Structured experiences across Lisbon and its surrounding regions &mdash; with transport, tastings, and hosting handled from start to finish.</p>
-      </div>
-
-      <div class="experience-grid">
-
-        <a href="experience.html" class="experience reveal">
-          <div class="experience-image">
-            <img src="assets/img/graca-anjos.jpg" alt="Lisbon wine bar at dusk" loading="lazy">
-          </div>
-          <h3>Graça &amp; Anjos After Dark</h3>
-          <span class="experience-meta">Lisbon · Evening</span>
-          <p class="experience-desc">An evening that moves through neighbourhood wine bars and tables worth knowing &mdash; ending where the night naturally settles.</p>
-          <p class="experience-detail">Evening · All-inclusive</p>
-          <span class="experience-price">From €95 per person</span>
-        </a>
-
-        <a href="experience.html" class="experience reveal reveal-d1">
-          <div class="experience-image">
-            <img src="assets/img/palmela-salon.jpg" alt="Long table lunch in the Setúbal Peninsula" loading="lazy">
-          </div>
-          <h3>The Palmela Salon</h3>
-          <span class="experience-meta">Setúbal · Full Day</span>
-          <p class="experience-desc">A full day between the vineyards and the Atlantic &mdash; including time at the table, not just in the glass.</p>
-          <p class="experience-detail">Full Day · All-inclusive</p>
-          <span class="experience-price">From €280 per person</span>
-        </a>
-
-        <a href="experience.html" class="experience reveal">
-          <div class="experience-image">
-            <img src="assets/img/atlantic-escape.jpg" alt="Atlantic coast vineyard landscape" loading="lazy">
-          </div>
-          <h3>Atlantic Escape</h3>
-          <span class="experience-meta">Mafra · Full Day</span>
-          <p class="experience-desc">Coastal vineyards, open landscapes, and producers working close to the edge of the Atlantic.</p>
-          <p class="experience-detail">Full Day · All-inclusive</p>
-          <span class="experience-price">From €260 per person</span>
-        </a>
-
-        <a href="experience.html" class="experience reveal reveal-d1">
-          <div class="experience-image">
-            <img src="assets/img/atlantic-fringe.jpg" alt="Hand holding wine glass among vines" loading="lazy">
-          </div>
-          <h3>The Atlantic Fringe</h3>
-          <span class="experience-meta">Torres Vedras · Full Day</span>
-          <p class="experience-desc">A quieter stretch of coastline &mdash; where small producers and old vines shape a different side of Portuguese wine.</p>
-          <p class="experience-detail">Full Day · All-inclusive</p>
-          <span class="experience-price">From €240 per person</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. FOUNDER — asymmetric 2-column -->
-  <section class="founder" id="about">
-    <div class="grid reveal">
-      <div class="founder-inner" style="grid-column: 1 / -1;">
-        <div class="founder-image">
-          <img src="assets/img/nicola.jpg" alt="Nicola, Via Vinho founder" loading="lazy">
-        </div>
-        <div class="founder-text">
-          <span class="eyebrow">Your Host</span>
-          <h2>Nicola.</h2>
-          <p>I started Via Vinho to share a side of Portugal that doesn't reveal itself easily &mdash; the producers, places, and conversations that sit just beneath the surface.</p>
-          <p>When you join, you're not passed between guides. I'm there &mdash; shaping the day as it unfolds.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. FINAL CTA — dark background -->
-  <section class="cta-dark">
-    <div class="container">
-      <div class="cta-dark-inner reveal">
-        <h2>Tell me what you have in mind.</h2>
-        <p>The region, the pace, the kind of day you're looking for &mdash; we'll take it from there.</p>
-        <div class="cta-dark-buttons">
-          <a href="mailto:hello@viavinho.net" class="cta-dark-button">Email Us</a>
-          <a href="https://wa.me/351968523455" class="cta-dark-button" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. FOOTER -->
+  <!-- ════════════ FOOTER ════════════ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-col">
-          <p>hello@viavinho.net</p>
-          <p>Lisbon, Portugal</p>
-        </div>
-        <div class="footer-col footer-col--meta">
-          <p class="footer-meta">RNAAT Registered · Turismo de Portugal</p>
-          <p class="footer-meta">&copy; 2026 Via Vinho</p>
-        </div>
-        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
-      </div>
+    <div class="footer-inner">
+      <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
+      <p>RNAAT Registered · &copy; 2026 Via Vinho</p>
+      <p><a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a></p>
     </div>
   </footer>
 
