@@ -11,6 +11,7 @@
   --charcoal-3:   #7A7A7A;
   --burgundy:     #7A2F3A;
   --burgundy-deep:#5E2530;
+  --graphite:     #22232A;
   --hairline:     rgba(26, 26, 26, 0.10);
   --hairline-2:   rgba(26, 26, 26, 0.18);
 
@@ -1463,7 +1464,7 @@ section.section-flush { padding-top: 0; }
   line-height: 0;
 }
 .nav-logo-img {
-  height: 64px;
+  height: 72px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -1472,7 +1473,7 @@ section.section-flush { padding-top: 0; }
 .nav.scrolled .nav-logo-img,
 .nav--light .nav-logo-img {
   filter: none;
-  height: 56px;
+  height: 64px;
 }
 
 /* Text wordmark fallback when image fails to load */
@@ -1491,10 +1492,10 @@ section.section-flush { padding-top: 0; }
 .nav--light .nav-logo-text { color: var(--charcoal); }
 
 @media (max-width: 760px) {
-  .nav-logo-img { height: 52px; }
+  .nav-logo-img { height: 58px; }
   .nav.scrolled .nav-logo-img,
-  .nav--light .nav-logo-img { height: 46px; }
-  .nav-logo-text { font-size: 1.25rem; }
+  .nav--light .nav-logo-img { height: 52px; }
+  .nav-logo-text { font-size: 1.35rem; }
 }
 
 .nav-enquire a {
@@ -1768,11 +1769,10 @@ section.section-flush { padding-top: 0; }
   max-width: 460px;
 }
 
-/* ── Classic inclusions — reassurance below cards ── */
+/* ── Classic inclusions — graphite utility surface ── */
 .inclusions {
-  background: var(--alabaster);
+  background: var(--graphite);
   padding: clamp(56px, 9vw, 112px) var(--gutter) clamp(72px, 11vw, 140px);
-  border-top: 1px solid var(--hairline);
 }
 .inclusions .container {
   display: flex;
@@ -1783,10 +1783,10 @@ section.section-flush { padding-top: 0; }
 .inclusions-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--burgundy);
+  color: rgba(244, 249, 240, 0.55);
   margin-bottom: clamp(36px, 5vw, 56px);
   text-align: center;
 }
@@ -1810,15 +1810,15 @@ section.section-flush { padding-top: 0; }
   flex-shrink: 0;
   width: 24px;
   height: 1px;
-  background: var(--burgundy);
+  background: rgba(244, 249, 240, 0.45);
   margin-top: 14px;
 }
 .inclusion-text {
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.65;
-  color: var(--charcoal);
+  color: rgba(244, 249, 240, 0.88);
 }
 @media (max-width: 760px) {
   .inclusions-list {
@@ -1932,9 +1932,9 @@ section.section-flush { padding-top: 0; }
 }
 .classic-card:hover .card-link { color: var(--burgundy); }
 
-/* ── Founder strip — charcoal ── */
+/* ── Founder strip — softened burgundy ── */
 .founder-strip {
-  background: var(--charcoal);
+  background: var(--burgundy);
   padding: clamp(60px, 10vw, 120px) var(--gutter);
 }
 .founder-strip-inner {
@@ -1948,7 +1948,7 @@ section.section-flush { padding-top: 0; }
 .founder-strip-photo {
   aspect-ratio: 4/5;
   overflow: hidden;
-  background: rgba(244, 249, 240, 0.07);
+  background: rgba(244, 249, 240, 0.06);
 }
 .founder-strip-photo img {
   width: 100%;
@@ -1958,10 +1958,10 @@ section.section-flush { padding-top: 0; }
 .founder-strip-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.64rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(244, 249, 240, 0.55);
+  color: rgba(244, 249, 240, 0.62);
   margin-bottom: 12px;
 }
 .founder-strip-name {
@@ -1979,24 +1979,24 @@ section.section-flush { padding-top: 0; }
   font-weight: 300;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(244, 249, 240, 0.55);
+  color: rgba(244, 249, 240, 0.62);
   margin-bottom: 28px;
 }
 .founder-strip-rule {
   width: 48px;
   height: 1px;
-  background: var(--burgundy);
-  opacity: 0.6;
+  background: rgba(244, 249, 240, 0.45);
   margin-bottom: 28px;
 }
 .founder-strip-copy {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(244, 249, 240, 0.80);
+  color: rgba(244, 249, 240, 0.92);
   max-width: 540px;
 }
+.founder-strip-copy + .founder-strip-copy { margin-top: 18px; }
 
 /* ── Testimonials — full-bleed photo + alabaster card ── */
 .testimonials {
@@ -2051,16 +2051,43 @@ section.section-flush { padding-top: 0; }
   color: rgba(26, 26, 26, 0.72);
 }
 
-/* ── Quote strip — editorial, no card, no photo ── */
+/* ── Quote strip — full-width testimonial image with overlay ── */
 .quote-strip {
-  background: var(--alabaster);
-  padding: clamp(60px, 8vw, 100px) var(--gutter);
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(420px, 56vw, 560px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(80px, 11vw, 120px) var(--gutter);
+  background: var(--charcoal);
   text-align: center;
 }
+.quote-strip-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.quote-strip-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+}
+.quote-strip-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(26, 26, 26, 0.42) 0%,
+    rgba(26, 26, 26, 0.55) 60%,
+    rgba(26, 26, 26, 0.62) 100%);
+}
 .quote-strip-inner {
+  position: relative;
+  z-index: 1;
   max-width: 760px;
   margin: 0 auto;
-  position: relative;
 }
 .quote-mark {
   font-family: var(--font-serif);
@@ -2068,8 +2095,8 @@ section.section-flush { padding-top: 0; }
   font-weight: 400;
   font-style: italic;
   line-height: 0.9;
-  color: var(--burgundy);
-  opacity: 0.18;
+  color: var(--alabaster);
+  opacity: 0.32;
   margin-bottom: -20px;
   user-select: none;
 }
@@ -2080,7 +2107,7 @@ section.section-flush { padding-top: 0; }
   font-style: italic;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: var(--charcoal);
+  color: var(--alabaster);
   margin: 0 0 36px;
   border: 0;
   padding: 0;
@@ -2088,11 +2115,11 @@ section.section-flush { padding-top: 0; }
 }
 .quote-attribution {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.52);
+  color: rgba(244, 249, 240, 0.72);
 }
 
 /* ── CTA — charcoal with ghost buttons + decorative SVG ── */
