@@ -1013,6 +1013,30 @@ section.section-flush { padding-top: 0; }
   column-gap: var(--col-gap);
   row-gap: var(--space-7);
 }
+.exp-cards-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 28px;
+  row-gap: var(--space-6);
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .exp-cards-grid--three { grid-template-columns: repeat(2, 1fr); }
+  .exp-cards-grid--three > .exp-card:nth-child(3) { grid-column: 1 / -1; max-width: 480px; }
+}
+
+/* Fixed-price card variant — pricing visible without toggle */
+.exp-card--fixed .exp-card-fixed-pricing {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--hairline);
+}
+.exp-card--fixed .pricing-display {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.exp-card--fixed .exp-card-actions {
+  margin-top: var(--space-3);
+}
 
 .exp-card {
   display: flex;
@@ -1411,7 +1435,8 @@ section.section-flush { padding-top: 0; }
   .page-hero { height: 60vh; min-height: 440px; padding-bottom: var(--space-5); }
   .page-hero-content h1 { font-size: clamp(2rem, 8vw, 2.5rem); }
 
-  .exp-cards-grid { grid-template-columns: 1fr; row-gap: var(--space-6); }
+  .exp-cards-grid,
+  .exp-cards-grid--three { grid-template-columns: 1fr; row-gap: var(--space-6); }
   .exp-card-media { aspect-ratio: 3/2; }
 
   .pricing-display { grid-template-columns: 1fr; gap: var(--space-3); }
@@ -1533,10 +1558,10 @@ section.section-flush { padding-top: 0; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Reserve positioning — burgundy band ── */
+/* ── Reserve positioning — burgundy band, restrained ── */
 .reserve-position {
   background: var(--burgundy);
-  padding: clamp(80px, 12vw, 140px) var(--gutter);
+  padding: clamp(64px, 9vw, 100px) var(--gutter) clamp(40px, 6vw, 64px);
 }
 .reserve-position-inner {
   max-width: 600px;
@@ -1562,22 +1587,28 @@ section.section-flush { padding-top: 0; }
   color: var(--alabaster);
 }
 
-/* ── Reserve signals ── */
+/* ── Reserve signals — clickable, subtle hover ── */
 .reserve-signals {
   background: var(--burgundy);
-  padding: 0 var(--gutter) clamp(80px, 12vw, 140px);
+  padding: 0 var(--gutter) clamp(56px, 8vw, 96px);
 }
 .reserve-signals-inner {
   max-width: 640px;
   margin: 0 auto;
 }
 .reserve-signal {
+  display: block;
   border-top: 1px solid rgba(244, 249, 240, 0.15);
-  padding: 40px 0;
+  padding: 32px 0;
+  color: inherit;
+  transition: opacity 200ms var(--ease);
 }
 .reserve-signal:last-of-type {
   border-bottom: 1px solid rgba(244, 249, 240, 0.15);
 }
+.reserve-signal:hover { opacity: 0.85; }
+.reserve-signal:hover .signal-name { letter-spacing: 0.005em; }
+.signal-name { transition: letter-spacing 300ms var(--ease); }
 .signal-tag {
   font-family: var(--font-sans);
   font-size: 0.62rem;
@@ -1800,112 +1831,93 @@ section.section-flush { padding-top: 0; }
 }
 
 .classic-card {
-  flex: 0 0 clamp(300px, 36vw, 400px);
+  flex: 0 0 clamp(300px, 32vw, 380px);
   scroll-snap-align: start;
-  background: #fff;
+  background: transparent;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  color: inherit;
 }
 .classic-card-img {
   width: 100%;
-  height: 240px;
+  height: 320px;
   overflow: hidden;
+  margin-bottom: 22px;
 }
 .classic-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms var(--ease);
+  transition: transform 700ms var(--ease);
 }
-.classic-card:hover .classic-card-img img { transform: scale(1.03); }
+.classic-card:hover .classic-card-img img { transform: scale(1.025); }
 
-.classic-card-body { padding: 28px 32px 32px; display: flex; flex-direction: column; flex: 1; }
+.classic-card-body { padding: 0 4px; display: flex; flex-direction: column; flex: 1; }
 .classic-card-region {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 300;
+  font-size: 0.64rem;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--burgundy);
-  opacity: 0.72;
+  opacity: 0.78;
   margin-bottom: 10px;
 }
 .classic-card-name {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: clamp(1.4rem, 2.1vw, 1.7rem);
   font-weight: 400;
   font-style: italic;
   color: var(--charcoal);
   margin-bottom: 12px;
-  line-height: 1.2;
-}
-.classic-card-tagline {
-  font-family: var(--font-serif);
-  font-size: 0.92rem;
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(26, 26, 26, 0.72);
-  margin-bottom: 14px;
-  line-height: 1.5;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
 }
 .classic-card-desc {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 300;
-  line-height: 1.75;
-  color: rgba(26, 26, 26, 0.72);
-  margin-bottom: 24px;
+  line-height: 1.7;
+  color: rgba(26, 26, 26, 0.65);
+  margin-bottom: 22px;
+  max-width: 320px;
 }
-.classic-card-meta {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  color: rgba(26, 26, 26, 0.42);
-  margin-bottom: 20px;
-}
-.classic-card-footer {
+.classic-card-foot {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  border-top: 1px solid var(--hairline);
-  padding-top: 20px;
+  gap: 16px;
   margin-top: auto;
 }
 .classic-card-price {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: var(--burgundy);
   line-height: 1;
+  font-style: italic;
 }
 .classic-card-price small {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 300;
   color: rgba(26, 26, 26, 0.42);
-  margin-left: 6px;
+  margin-left: 4px;
   font-style: normal;
+  letter-spacing: 0.02em;
 }
-
-.btn-classic {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.card-link {
   font-family: var(--font-sans);
   font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  background: var(--burgundy);
-  color: var(--alabaster);
-  padding: 12px 20px;
-  transition: background 150ms var(--ease), transform 150ms var(--ease);
+  color: var(--charcoal);
+  transition: color 200ms var(--ease);
   white-space: nowrap;
 }
-.btn-classic:hover { background: #561929; transform: translateY(-1px); }
-.btn-classic:active { transform: translateY(0); }
+.classic-card:hover .card-link { color: var(--burgundy); }
 
 /* ── Founder strip — charcoal ── */
 .founder-strip {
@@ -2024,6 +2036,50 @@ section.section-flush { padding-top: 0; }
   font-weight: 400;
   letter-spacing: 0.08em;
   color: rgba(26, 26, 26, 0.72);
+}
+
+/* ── Quote strip — editorial, no card, no photo ── */
+.quote-strip {
+  background: var(--alabaster);
+  padding: clamp(96px, 14vw, 160px) var(--gutter);
+  text-align: center;
+}
+.quote-strip-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 0.9;
+  color: var(--burgundy);
+  opacity: 0.18;
+  margin-bottom: -20px;
+  user-select: none;
+}
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin: 0 0 36px;
+  border: 0;
+  padding: 0;
+  quotes: none;
+}
+.quote-attribution {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.52);
 }
 
 /* ── CTA — charcoal with ghost buttons + decorative SVG ── */

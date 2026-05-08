@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experiences — Via Vinho</title>
-  <meta name="description" content="Bookable classics and privately designed reserve wine experiences across Portugal's most compelling regions.">
+  <meta name="description" content="Bookable Classic experiences and privately designed Reserve experiences across Portugal's most compelling wine regions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">Via Vinho</a>
+  <nav class="nav nav--light" id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo/logo-classic-black.png" alt="Via Vinho" class="nav-logo-img">
+    </a>
     <ul class="nav-links">
-      <li><a href="index.html#experiences">Classic</a></li>
+      <li><a href="index.html#classic">Classic</a></li>
       <li><a href="reserve.html">Reserve</a></li>
       <li><a href="experiences.html">Experiences</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="enquire.html">Enquire</a></li>
+      <li class="nav-enquire"><a href="enquire.html">Enquire</a></li>
     </ul>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-mobile" id="mobile-menu">
-    <a href="index.html#experiences">Classic</a>
+    <a href="index.html#classic">Classic</a>
     <a href="reserve.html">Reserve</a>
     <a href="experiences.html">Experiences</a>
     <a href="index.html#about">About</a>
@@ -41,8 +43,8 @@
     <div class="container">
       <div class="page-hero-content reveal">
         <span class="eyebrow eyebrow--inverse">Via Vinho Experiences</span>
-        <h1>Experiences shaped around how you like to spend your time.</h1>
-        <p class="page-hero-lede">Bookable classics and privately designed reserve experiences across Portugal's most compelling wine regions.</p>
+        <h1>Five ways to spend a very good day in Portugal.</h1>
+        <p class="page-hero-lede">Bookable Classic days with transparent pricing. Privately designed Reserve experiences for those who want something shaped around them.</p>
       </div>
     </div>
   </section>
@@ -58,28 +60,28 @@
     </div>
   </section>
 
-  <!-- 3. CLASSIC EXPERIENCE CARDS -->
+  <!-- 3. CLASSIC CARDS -->
   <section class="tier-cards" aria-label="Classic experiences">
     <div class="container">
-      <div class="exp-cards-grid">
+      <div class="exp-cards-grid exp-cards-grid--three">
 
-        <!-- CLASSIC 1 — The Palmela Session -->
-        <article class="exp-card reveal" data-card data-tier="classic">
+        <!-- CLASSIC 1 — Sip Setúbal -->
+        <article class="exp-card reveal" id="sip-setubal" data-card data-tier="classic">
           <div class="exp-card-media">
-            <img src="assets/images/food-lunch.jpeg" alt="An intimate half-day table in the Setúbal Peninsula" loading="lazy">
+            <img src="assets/images/food-lunch.jpeg" alt="A half-day table in the Setúbal Peninsula" loading="lazy">
           </div>
           <div class="exp-card-body">
             <span class="eyebrow">Setúbal Peninsula</span>
-            <h3>The Palmela Session.</h3>
+            <h3>Sip Setúbal.</h3>
             <p class="exp-card-meta">Half Day</p>
-            <p class="exp-card-desc">A wine-first half day focused on tastings, producer stories, and regional bites without committing to a full day.</p>
+            <p class="exp-card-desc">A wine-first half day focused on tastings, producer stories, and regional bites.</p>
 
-            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-palmela-session">
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-sip-setubal">
               <span class="toggle-text">See pricing for your group</span>
               <span class="toggle-icon" aria-hidden="true"></span>
             </button>
 
-            <div class="exp-card-pricing" id="pricing-palmela-session"
+            <div class="exp-card-pricing" id="pricing-sip-setubal"
                  data-pricing-engine
                  data-tier="classic"
                  data-prices='{"launch":{"3":235,"4":185,"5":155,"6":135,"7":125},"summer":{"3":240,"4":190,"5":160,"6":140,"7":130},"harvest":{"3":255,"4":200,"5":170,"6":150,"7":135}}'>
@@ -87,12 +89,12 @@
 
                 <fieldset class="season-selector">
                   <legend class="visually-hidden">Season</legend>
-                  <input type="radio" id="season-palmela-session-launch" name="season-palmela-session" value="launch" checked>
-                  <label for="season-palmela-session-launch">Launch</label>
-                  <input type="radio" id="season-palmela-session-summer" name="season-palmela-session" value="summer">
-                  <label for="season-palmela-session-summer">Summer</label>
-                  <input type="radio" id="season-palmela-session-harvest" name="season-palmela-session" value="harvest">
-                  <label for="season-palmela-session-harvest">Harvest</label>
+                  <input type="radio" id="season-sip-setubal-launch" name="season-sip-setubal" value="launch" checked>
+                  <label for="season-sip-setubal-launch">Launch</label>
+                  <input type="radio" id="season-sip-setubal-summer" name="season-sip-setubal" value="summer">
+                  <label for="season-sip-setubal-summer">Summer</label>
+                  <input type="radio" id="season-sip-setubal-harvest" name="season-sip-setubal" value="harvest">
+                  <label for="season-sip-setubal-harvest">Harvest</label>
                 </fieldset>
 
                 <div class="guest-selector">
@@ -118,31 +120,30 @@
                 </div>
 
                 <div class="exp-card-actions">
-                  <a href="#" class="button" data-action="book" data-experience="palmela-session">Book This Experience</a>
-                  <a href="experience.html" class="link">Learn More</a>
+                  <a href="#" class="button" data-action="book" data-rezdy-id="sip-setubal">Book This Experience</a>
                 </div>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- CLASSIC 2 — The Palmela Salon -->
-        <article class="exp-card reveal reveal-d1" data-card data-tier="classic">
+        <!-- CLASSIC 2 — Setúbal Indulgence -->
+        <article class="exp-card reveal reveal-d1" id="setubal-indulgence" data-card data-tier="classic">
           <div class="exp-card-media">
             <img src="assets/img/palmela-salon.jpg" alt="A long table lunch in the Setúbal Peninsula" loading="lazy">
           </div>
           <div class="exp-card-body">
             <span class="eyebrow">Setúbal Peninsula</span>
-            <h3>The Palmela Salon.</h3>
+            <h3>Setúbal Indulgence.</h3>
             <p class="exp-card-meta">Full Day</p>
-            <p class="exp-card-desc">A full hosted day balancing producer access, thoughtful tastings, and a long regional lunch.</p>
+            <p class="exp-card-desc">A full hosted day of producer access, thoughtful tastings, and a long regional lunch.</p>
 
-            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-palmela-salon">
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-setubal-indulgence">
               <span class="toggle-text">See pricing for your group</span>
               <span class="toggle-icon" aria-hidden="true"></span>
             </button>
 
-            <div class="exp-card-pricing" id="pricing-palmela-salon"
+            <div class="exp-card-pricing" id="pricing-setubal-indulgence"
                  data-pricing-engine
                  data-tier="classic"
                  data-prices='{"launch":{"3":383,"4":315,"5":275,"6":250,"7":230},"summer":{"3":395,"4":327,"5":285,"6":260,"7":240},"harvest":{"3":415,"4":350,"5":299,"6":270,"7":250}}'>
@@ -150,12 +151,12 @@
 
                 <fieldset class="season-selector">
                   <legend class="visually-hidden">Season</legend>
-                  <input type="radio" id="season-palmela-salon-launch" name="season-palmela-salon" value="launch" checked>
-                  <label for="season-palmela-salon-launch">Launch</label>
-                  <input type="radio" id="season-palmela-salon-summer" name="season-palmela-salon" value="summer">
-                  <label for="season-palmela-salon-summer">Summer</label>
-                  <input type="radio" id="season-palmela-salon-harvest" name="season-palmela-salon" value="harvest">
-                  <label for="season-palmela-salon-harvest">Harvest</label>
+                  <input type="radio" id="season-setubal-indulgence-launch" name="season-setubal-indulgence" value="launch" checked>
+                  <label for="season-setubal-indulgence-launch">Launch</label>
+                  <input type="radio" id="season-setubal-indulgence-summer" name="season-setubal-indulgence" value="summer">
+                  <label for="season-setubal-indulgence-summer">Summer</label>
+                  <input type="radio" id="season-setubal-indulgence-harvest" name="season-setubal-indulgence" value="harvest">
+                  <label for="season-setubal-indulgence-harvest">Harvest</label>
                 </fieldset>
 
                 <div class="guest-selector">
@@ -181,9 +182,38 @@
                 </div>
 
                 <div class="exp-card-actions">
-                  <a href="#" class="button" data-action="book" data-experience="palmela-salon">Book This Experience</a>
-                  <a href="experience.html" class="link">Learn More</a>
+                  <a href="#" class="button" data-action="book" data-rezdy-id="setubal-indulgence">Book This Experience</a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CLASSIC 3 — Anjos & Graça After Dark (fixed price) -->
+        <article class="exp-card exp-card--fixed reveal reveal-d2" id="anjos-graca" data-card data-tier="classic">
+          <div class="exp-card-media">
+            <img src="assets/img/graca-anjos.jpg" alt="Lisbon wine bar at dusk" loading="lazy">
+          </div>
+          <div class="exp-card-body">
+            <span class="eyebrow">Lisbon</span>
+            <h3>Anjos &amp; Graça After Dark.</h3>
+            <p class="exp-card-meta">Walking Experience</p>
+            <p class="exp-card-desc">An urban evening through Lisbon's most authentic neighbourhood wine bars and tables worth knowing.</p>
+
+            <div class="exp-card-fixed-pricing">
+              <div class="pricing-display">
+                <div class="price-block price-block--primary">
+                  <span class="price-eyebrow">Per Person</span>
+                  <span class="price-amount">€85</span>
+                </div>
+                <div class="price-block price-block--secondary">
+                  <span class="price-eyebrow">All-inclusive</span>
+                  <span class="price-amount-sm">3–4 hours</span>
+                </div>
+              </div>
+
+              <div class="exp-card-actions">
+                <a href="#" class="button" data-action="book" data-rezdy-id="anjos-graca">Book This Experience</a>
               </div>
             </div>
           </div>
@@ -214,13 +244,13 @@
     </div>
   </section>
 
-  <!-- 6. RESERVE EXPERIENCE CARDS -->
+  <!-- 6. RESERVE CARDS -->
   <section class="tier-cards tier-cards--reserve" aria-label="Reserve experiences">
     <div class="container">
       <div class="exp-cards-grid">
 
         <!-- RESERVE 1 — Between Vines & Ocean -->
-        <article class="exp-card exp-card--reserve reveal" data-card data-tier="reserve">
+        <article class="exp-card exp-card--reserve reveal" id="between-vines-ocean" data-card data-tier="reserve">
           <div class="exp-card-media">
             <img src="assets/img/atlantic-escape.jpg" alt="Atlantic vineyards in Mafra and Colares" loading="lazy">
           </div>
@@ -276,30 +306,30 @@
                 <p class="pricing-microcopy">Final pricing may vary depending on bespoke inclusions.</p>
 
                 <div class="exp-card-actions">
-                  <a href="#" class="button button--reserve" data-action="design" data-experience="vines-ocean">Design This Experience</a>
+                  <a href="enquire.html?experience=between-vines-ocean&amp;tier=reserve" class="button button--reserve" data-action="design" data-experience="between-vines-ocean">Design This Experience</a>
                 </div>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- RESERVE 2 — The Atlantic Fringe -->
-        <article class="exp-card exp-card--reserve reveal reveal-d1" data-card data-tier="reserve">
+        <!-- RESERVE 2 — Off the Map -->
+        <article class="exp-card exp-card--reserve reveal reveal-d1" id="off-the-map" data-card data-tier="reserve">
           <div class="exp-card-media">
             <img src="assets/img/atlantic-fringe.jpg" alt="Old vines on the Torres Vedras coastline" loading="lazy">
           </div>
           <div class="exp-card-body">
             <span class="eyebrow">Torres Vedras</span>
-            <h3>The Atlantic Fringe.</h3>
+            <h3>Off the Map.</h3>
             <p class="exp-card-meta">Full Day</p>
             <p class="exp-card-desc">A producer-led Atlantic wine day built around direct winemaker access, discovery, and wines most visitors never encounter.</p>
 
-            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-atlantic-fringe">
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-off-the-map">
               <span class="toggle-text">Estimate your investment</span>
               <span class="toggle-icon" aria-hidden="true"></span>
             </button>
 
-            <div class="exp-card-pricing" id="pricing-atlantic-fringe"
+            <div class="exp-card-pricing" id="pricing-off-the-map"
                  data-pricing-engine
                  data-tier="reserve"
                  data-prices='{"launch":{"3":435,"4":362,"5":320,"6":292,"7":270},"summer":{"3":445,"4":372,"5":328,"6":299,"7":277},"harvest":{"3":467,"4":390,"5":345,"6":315,"7":292}}'>
@@ -307,12 +337,12 @@
 
                 <fieldset class="season-selector">
                   <legend class="visually-hidden">Season</legend>
-                  <input type="radio" id="season-atlantic-fringe-launch" name="season-atlantic-fringe" value="launch" checked>
-                  <label for="season-atlantic-fringe-launch">Launch</label>
-                  <input type="radio" id="season-atlantic-fringe-summer" name="season-atlantic-fringe" value="summer">
-                  <label for="season-atlantic-fringe-summer">Summer</label>
-                  <input type="radio" id="season-atlantic-fringe-harvest" name="season-atlantic-fringe" value="harvest">
-                  <label for="season-atlantic-fringe-harvest">Harvest</label>
+                  <input type="radio" id="season-off-the-map-launch" name="season-off-the-map" value="launch" checked>
+                  <label for="season-off-the-map-launch">Launch</label>
+                  <input type="radio" id="season-off-the-map-summer" name="season-off-the-map" value="summer">
+                  <label for="season-off-the-map-summer">Summer</label>
+                  <input type="radio" id="season-off-the-map-harvest" name="season-off-the-map" value="harvest">
+                  <label for="season-off-the-map-harvest">Harvest</label>
                 </fieldset>
 
                 <div class="guest-selector">
@@ -340,7 +370,7 @@
                 <p class="pricing-microcopy">Final pricing may vary depending on bespoke inclusions.</p>
 
                 <div class="exp-card-actions">
-                  <a href="#" class="button button--reserve" data-action="design" data-experience="atlantic-fringe">Design This Experience</a>
+                  <a href="enquire.html?experience=off-the-map&amp;tier=reserve" class="button button--reserve" data-action="design" data-experience="off-the-map">Design This Experience</a>
                 </div>
               </div>
             </div>
@@ -352,18 +382,10 @@
   </section>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-col">
-          <p>hello@viavinho.net</p>
-          <p>Lisbon, Portugal</p>
-        </div>
-        <div class="footer-col footer-col--meta">
-          <p class="footer-meta">RNAAT Registered · Turismo de Portugal</p>
-          <p class="footer-meta">&copy; 2026 Via Vinho</p>
-        </div>
-        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
-      </div>
+    <div class="footer-inner">
+      <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
+      <p>RNAAT Registered · &copy; 2026 Via Vinho</p>
+      <p><a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a></p>
     </div>
   </footer>
 
