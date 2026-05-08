@@ -14,8 +14,10 @@
 
   <!-- ════════════ NAV ════════════ -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo/logo-classic-black.png" alt="Via Vinho" class="nav-logo-img">
+    <a href="index.html" class="nav-logo" aria-label="Via Vinho — home">
+      <img src="assets/logo/logo-classic-black.png" alt="Via Vinho" class="nav-logo-img"
+           onerror="this.parentNode.classList.add('nav-logo--text')">
+      <span class="nav-logo-text">Via Vinho</span>
     </a>
     <ul class="nav-links">
       <li><a href="#classic">Classic</a></li>

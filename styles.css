@@ -9,7 +9,8 @@
   --charcoal:     #1A1A1A;
   --charcoal-2:   #4A4A4A;
   --charcoal-3:   #7A7A7A;
-  --burgundy:     #6B1F2A;
+  --burgundy:     #7A2F3A;
+  --burgundy-deep:#5E2530;
   --hairline:     rgba(26, 26, 26, 0.10);
   --hairline-2:   rgba(26, 26, 26, 0.18);
 
@@ -1252,7 +1253,7 @@ section.section-flush { padding-top: 0; }
 }
 .guest-slider::-webkit-slider-thumb:hover { transform: scale(1.12); }
 .guest-slider:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 6px rgba(107, 31, 42, 0.12);
+  box-shadow: 0 0 0 6px rgba(122, 47, 58, 0.12);
 }
 .guest-slider::-moz-range-thumb {
   width: 16px;
@@ -1455,9 +1456,14 @@ section.section-flush { padding-top: 0; }
    Editorial luxury · Reserve burgundy band · Classic warmer
    ============================================================ */
 
-/* ── Nav: logo image + enquire link ── */
+/* ── Nav: logo (image + text fallback) + enquire link ── */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
 .nav-logo-img {
-  height: 44px;
+  height: 64px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -1466,12 +1472,29 @@ section.section-flush { padding-top: 0; }
 .nav.scrolled .nav-logo-img,
 .nav--light .nav-logo-img {
   filter: none;
-  height: 38px;
+  height: 56px;
 }
+
+/* Text wordmark fallback when image fails to load */
+.nav-logo-text {
+  display: none;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--alabaster);
+  line-height: 1;
+}
+.nav-logo--text .nav-logo-img { display: none !important; }
+.nav-logo--text .nav-logo-text { display: inline-block; }
+.nav.scrolled .nav-logo-text,
+.nav--light .nav-logo-text { color: var(--charcoal); }
+
 @media (max-width: 760px) {
-  .nav-logo-img { height: 38px; }
+  .nav-logo-img { height: 52px; }
   .nav.scrolled .nav-logo-img,
-  .nav--light .nav-logo-img { height: 32px; }
+  .nav--light .nav-logo-img { height: 46px; }
+  .nav-logo-text { font-size: 1.25rem; }
 }
 
 .nav-enquire a {
@@ -1704,7 +1727,7 @@ section.section-flush { padding-top: 0; }
 .classic-intro-inner {
   position: relative;
   z-index: 1;
-  max-width: 740px;
+  max-width: 880px;
 }
 .classic-eyebrow {
   display: inline-flex;
@@ -2031,7 +2054,7 @@ section.section-flush { padding-top: 0; }
 /* ── Quote strip — editorial, no card, no photo ── */
 .quote-strip {
   background: var(--alabaster);
-  padding: clamp(80px, 11vw, 132px) var(--gutter);
+  padding: clamp(60px, 8vw, 100px) var(--gutter);
   text-align: center;
 }
 .quote-strip-inner {
