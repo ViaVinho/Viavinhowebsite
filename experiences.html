@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences — Via Vinho</title>
+  <meta name="description" content="Bookable classics and privately designed reserve wine experiences across Portugal's most compelling regions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Via Vinho</a>
+    <ul class="nav-links">
+      <li><a href="index.html#experiences">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="enquire.html">Enquire</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html#experiences">Classic</a>
+    <a href="reserve.html">Reserve</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="index.html#about">About</a>
+    <a href="enquire.html">Enquire</a>
+  </div>
+
+  <!-- 1. HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="assets/img/atlantic-escape.jpg" alt="Atlantic vineyard landscape at golden hour">
+    </div>
+    <div class="container">
+      <div class="page-hero-content reveal">
+        <span class="eyebrow eyebrow--inverse">Via Vinho Experiences</span>
+        <h1>Experiences shaped around how you like to spend your time.</h1>
+        <p class="page-hero-lede">Bookable classics and privately designed reserve experiences across Portugal's most compelling wine regions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CLASSIC INTRO -->
+  <section class="tier-intro">
+    <div class="container">
+      <div class="tier-intro-inner reveal">
+        <span class="eyebrow">Via Vinho Classic</span>
+        <h2>Bookable Experiences.</h2>
+        <p>Thoughtfully structured wine days with transparent pricing, hosted experiences, and direct booking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CLASSIC EXPERIENCE CARDS -->
+  <section class="tier-cards" aria-label="Classic experiences">
+    <div class="container">
+      <div class="exp-cards-grid">
+
+        <!-- CLASSIC 1 — The Palmela Session -->
+        <article class="exp-card reveal" data-card data-tier="classic">
+          <div class="exp-card-media">
+            <img src="assets/images/food-lunch.jpeg" alt="An intimate half-day table in the Setúbal Peninsula" loading="lazy">
+          </div>
+          <div class="exp-card-body">
+            <span class="eyebrow">Setúbal Peninsula</span>
+            <h3>The Palmela Session.</h3>
+            <p class="exp-card-meta">Half Day</p>
+            <p class="exp-card-desc">A wine-first half day focused on tastings, producer stories, and regional bites without committing to a full day.</p>
+
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-palmela-session">
+              <span class="toggle-text">See pricing for your group</span>
+              <span class="toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <div class="exp-card-pricing" id="pricing-palmela-session"
+                 data-pricing-engine
+                 data-tier="classic"
+                 data-prices='{"launch":{"3":235,"4":185,"5":155,"6":135,"7":125},"summer":{"3":240,"4":190,"5":160,"6":140,"7":130},"harvest":{"3":255,"4":200,"5":170,"6":150,"7":135}}'>
+              <div class="exp-card-pricing-inner">
+
+                <fieldset class="season-selector">
+                  <legend class="visually-hidden">Season</legend>
+                  <input type="radio" id="season-palmela-session-launch" name="season-palmela-session" value="launch" checked>
+                  <label for="season-palmela-session-launch">Launch</label>
+                  <input type="radio" id="season-palmela-session-summer" name="season-palmela-session" value="summer">
+                  <label for="season-palmela-session-summer">Summer</label>
+                  <input type="radio" id="season-palmela-session-harvest" name="season-palmela-session" value="harvest">
+                  <label for="season-palmela-session-harvest">Harvest</label>
+                </fieldset>
+
+                <div class="guest-selector">
+                  <div class="guest-selector-head">
+                    <span class="guest-selector-label">Guests</span>
+                    <span class="guest-selector-value" data-guest-display>4</span>
+                  </div>
+                  <input type="range" class="guest-slider" min="3" max="7" value="4" step="1" aria-label="Number of guests">
+                  <div class="slider-ticks" aria-hidden="true">
+                    <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                  </div>
+                </div>
+
+                <div class="pricing-display" aria-live="polite">
+                  <div class="price-block price-block--primary">
+                    <span class="price-eyebrow">Total Investment</span>
+                    <span class="price-amount" data-price-total>€740</span>
+                  </div>
+                  <div class="price-block price-block--secondary">
+                    <span class="price-eyebrow">Per Person</span>
+                    <span class="price-amount-sm" data-price-per>€185</span>
+                  </div>
+                </div>
+
+                <div class="exp-card-actions">
+                  <a href="#" class="button" data-action="book" data-experience="palmela-session">Book This Experience</a>
+                  <a href="experience.html" class="link">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CLASSIC 2 — The Palmela Salon -->
+        <article class="exp-card reveal reveal-d1" data-card data-tier="classic">
+          <div class="exp-card-media">
+            <img src="assets/img/palmela-salon.jpg" alt="A long table lunch in the Setúbal Peninsula" loading="lazy">
+          </div>
+          <div class="exp-card-body">
+            <span class="eyebrow">Setúbal Peninsula</span>
+            <h3>The Palmela Salon.</h3>
+            <p class="exp-card-meta">Full Day</p>
+            <p class="exp-card-desc">A full hosted day balancing producer access, thoughtful tastings, and a long regional lunch.</p>
+
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-palmela-salon">
+              <span class="toggle-text">See pricing for your group</span>
+              <span class="toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <div class="exp-card-pricing" id="pricing-palmela-salon"
+                 data-pricing-engine
+                 data-tier="classic"
+                 data-prices='{"launch":{"3":383,"4":315,"5":275,"6":250,"7":230},"summer":{"3":395,"4":327,"5":285,"6":260,"7":240},"harvest":{"3":415,"4":350,"5":299,"6":270,"7":250}}'>
+              <div class="exp-card-pricing-inner">
+
+                <fieldset class="season-selector">
+                  <legend class="visually-hidden">Season</legend>
+                  <input type="radio" id="season-palmela-salon-launch" name="season-palmela-salon" value="launch" checked>
+                  <label for="season-palmela-salon-launch">Launch</label>
+                  <input type="radio" id="season-palmela-salon-summer" name="season-palmela-salon" value="summer">
+                  <label for="season-palmela-salon-summer">Summer</label>
+                  <input type="radio" id="season-palmela-salon-harvest" name="season-palmela-salon" value="harvest">
+                  <label for="season-palmela-salon-harvest">Harvest</label>
+                </fieldset>
+
+                <div class="guest-selector">
+                  <div class="guest-selector-head">
+                    <span class="guest-selector-label">Guests</span>
+                    <span class="guest-selector-value" data-guest-display>4</span>
+                  </div>
+                  <input type="range" class="guest-slider" min="3" max="7" value="4" step="1" aria-label="Number of guests">
+                  <div class="slider-ticks" aria-hidden="true">
+                    <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                  </div>
+                </div>
+
+                <div class="pricing-display" aria-live="polite">
+                  <div class="price-block price-block--primary">
+                    <span class="price-eyebrow">Total Investment</span>
+                    <span class="price-amount" data-price-total>€1,260</span>
+                  </div>
+                  <div class="price-block price-block--secondary">
+                    <span class="price-eyebrow">Per Person</span>
+                    <span class="price-amount-sm" data-price-per>€315</span>
+                  </div>
+                </div>
+
+                <div class="exp-card-actions">
+                  <a href="#" class="button" data-action="book" data-experience="palmela-salon">Book This Experience</a>
+                  <a href="experience.html" class="link">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TRANSITION -->
+  <section class="transition transition--page">
+    <div class="container">
+      <div class="reveal">
+        <p>Some days aren't chosen from a menu.</p>
+        <span class="transition-line" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RESERVE INTRO -->
+  <section class="tier-intro">
+    <div class="container">
+      <div class="tier-intro-inner reveal">
+        <span class="eyebrow">Via Vinho Reserve</span>
+        <h2>Privately Designed Experiences.</h2>
+        <p>For guests looking for rarer access, deeper producer relationships, and days shaped more personally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. RESERVE EXPERIENCE CARDS -->
+  <section class="tier-cards tier-cards--reserve" aria-label="Reserve experiences">
+    <div class="container">
+      <div class="exp-cards-grid">
+
+        <!-- RESERVE 1 — Between Vines & Ocean -->
+        <article class="exp-card exp-card--reserve reveal" data-card data-tier="reserve">
+          <div class="exp-card-media">
+            <img src="assets/img/atlantic-escape.jpg" alt="Atlantic vineyards in Mafra and Colares" loading="lazy">
+          </div>
+          <div class="exp-card-body">
+            <span class="eyebrow">Mafra &amp; Colares</span>
+            <h3>Between Vines &amp; Ocean.</h3>
+            <p class="exp-card-meta">Full Day</p>
+            <p class="exp-card-desc">Atlantic vineyards, rare ungrafted Ramisco vines, direct access to the winemaker, and lunch at one of the region's defining tables.</p>
+
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-vines-ocean">
+              <span class="toggle-text">Estimate your investment</span>
+              <span class="toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <div class="exp-card-pricing" id="pricing-vines-ocean"
+                 data-pricing-engine
+                 data-tier="reserve"
+                 data-prices='{"launch":{"3":439,"4":370,"5":325,"6":297,"7":277},"summer":{"3":455,"4":382,"5":337,"6":308,"7":287},"harvest":{"3":480,"4":400,"5":360,"6":320,"7":300}}'>
+              <div class="exp-card-pricing-inner">
+
+                <fieldset class="season-selector">
+                  <legend class="visually-hidden">Season</legend>
+                  <input type="radio" id="season-vines-ocean-launch" name="season-vines-ocean" value="launch" checked>
+                  <label for="season-vines-ocean-launch">Launch</label>
+                  <input type="radio" id="season-vines-ocean-summer" name="season-vines-ocean" value="summer">
+                  <label for="season-vines-ocean-summer">Summer</label>
+                  <input type="radio" id="season-vines-ocean-harvest" name="season-vines-ocean" value="harvest">
+                  <label for="season-vines-ocean-harvest">Harvest</label>
+                </fieldset>
+
+                <div class="guest-selector">
+                  <div class="guest-selector-head">
+                    <span class="guest-selector-label">Guests</span>
+                    <span class="guest-selector-value" data-guest-display>4</span>
+                  </div>
+                  <input type="range" class="guest-slider" min="3" max="7" value="4" step="1" aria-label="Number of guests">
+                  <div class="slider-ticks" aria-hidden="true">
+                    <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                  </div>
+                </div>
+
+                <div class="pricing-display" aria-live="polite">
+                  <div class="price-block price-block--primary">
+                    <span class="price-eyebrow">Estimated Investment</span>
+                    <span class="price-amount" data-price-total>€1,480</span>
+                  </div>
+                  <div class="price-block price-block--secondary">
+                    <span class="price-eyebrow">Per Person</span>
+                    <span class="price-amount-sm" data-price-per>€370</span>
+                  </div>
+                </div>
+
+                <p class="pricing-microcopy">Final pricing may vary depending on bespoke inclusions.</p>
+
+                <div class="exp-card-actions">
+                  <a href="#" class="button button--reserve" data-action="design" data-experience="vines-ocean">Design This Experience</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- RESERVE 2 — The Atlantic Fringe -->
+        <article class="exp-card exp-card--reserve reveal reveal-d1" data-card data-tier="reserve">
+          <div class="exp-card-media">
+            <img src="assets/img/atlantic-fringe.jpg" alt="Old vines on the Torres Vedras coastline" loading="lazy">
+          </div>
+          <div class="exp-card-body">
+            <span class="eyebrow">Torres Vedras</span>
+            <h3>The Atlantic Fringe.</h3>
+            <p class="exp-card-meta">Full Day</p>
+            <p class="exp-card-desc">A producer-led Atlantic wine day built around direct winemaker access, discovery, and wines most visitors never encounter.</p>
+
+            <button class="exp-card-toggle" data-toggle aria-expanded="false" aria-controls="pricing-atlantic-fringe">
+              <span class="toggle-text">Estimate your investment</span>
+              <span class="toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <div class="exp-card-pricing" id="pricing-atlantic-fringe"
+                 data-pricing-engine
+                 data-tier="reserve"
+                 data-prices='{"launch":{"3":435,"4":362,"5":320,"6":292,"7":270},"summer":{"3":445,"4":372,"5":328,"6":299,"7":277},"harvest":{"3":467,"4":390,"5":345,"6":315,"7":292}}'>
+              <div class="exp-card-pricing-inner">
+
+                <fieldset class="season-selector">
+                  <legend class="visually-hidden">Season</legend>
+                  <input type="radio" id="season-atlantic-fringe-launch" name="season-atlantic-fringe" value="launch" checked>
+                  <label for="season-atlantic-fringe-launch">Launch</label>
+                  <input type="radio" id="season-atlantic-fringe-summer" name="season-atlantic-fringe" value="summer">
+                  <label for="season-atlantic-fringe-summer">Summer</label>
+                  <input type="radio" id="season-atlantic-fringe-harvest" name="season-atlantic-fringe" value="harvest">
+                  <label for="season-atlantic-fringe-harvest">Harvest</label>
+                </fieldset>
+
+                <div class="guest-selector">
+                  <div class="guest-selector-head">
+                    <span class="guest-selector-label">Guests</span>
+                    <span class="guest-selector-value" data-guest-display>4</span>
+                  </div>
+                  <input type="range" class="guest-slider" min="3" max="7" value="4" step="1" aria-label="Number of guests">
+                  <div class="slider-ticks" aria-hidden="true">
+                    <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                  </div>
+                </div>
+
+                <div class="pricing-display" aria-live="polite">
+                  <div class="price-block price-block--primary">
+                    <span class="price-eyebrow">Estimated Investment</span>
+                    <span class="price-amount" data-price-total>€1,448</span>
+                  </div>
+                  <div class="price-block price-block--secondary">
+                    <span class="price-eyebrow">Per Person</span>
+                    <span class="price-amount-sm" data-price-per>€362</span>
+                  </div>
+                </div>
+
+                <p class="pricing-microcopy">Final pricing may vary depending on bespoke inclusions.</p>
+
+                <div class="exp-card-actions">
+                  <a href="#" class="button button--reserve" data-action="design" data-experience="atlantic-fringe">Design This Experience</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <p>hello@viavinho.net</p>
+          <p>Lisbon, Portugal</p>
+        </div>
+        <div class="footer-col footer-col--meta">
+          <p class="footer-meta">RNAAT Registered · Turismo de Portugal</p>
+          <p class="footer-meta">&copy; 2026 Via Vinho</p>
+        </div>
+        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

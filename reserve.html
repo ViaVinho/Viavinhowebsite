@@ -1,500 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Via Vinho Reserve — Private Wine Experiences in Portugal</title>
-  <meta name="description" content="Bespoke private wine experiences in Portugal. Your vehicle, your route, your pace. Access to estates not open to the public." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    /* Reserve page overrides — burgundy-forward */
-    body { background: var(--burgundy-deep); }
-
-    .reserve-hero {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-    }
-    .reserve-hero-media {
-      position: absolute;
-      inset: 0;
-    }
-    .reserve-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: saturate(0.8) brightness(0.75);
-    }
-    .reserve-hero-media::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(74, 21, 32, 0.9) 0%,
-        rgba(74, 21, 32, 0.5) 55%,
-        rgba(74, 21, 32, 0.15) 100%
-      );
-      z-index: 1;
-    }
-    .reserve-hero-media::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 280px;
-      background: linear-gradient(to top, var(--burgundy-deep) 0%, transparent 100%);
-      z-index: 2;
-    }
-    .reserve-hero-content {
-      position: absolute;
-      bottom: clamp(80px, 14vh, 140px);
-      left: var(--gutter);
-      z-index: 3;
-      max-width: 640px;
-    }
-
-    /* Reserve experiences section */
-    .reserve-exp-section {
-      background: var(--burgundy-deep);
-      padding: clamp(80px, 12vw, 160px) var(--gutter);
-    }
-    .reserve-exp-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-    .reserve-exp-cards {
-      margin-top: 72px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .reserve-exp-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 480px;
-      overflow: hidden;
-      background: rgba(245, 241, 232, 0.03);
-      border: 1px solid rgba(245, 241, 232, 0.06);
-      transition: background var(--t);
-    }
-    .reserve-exp-card:hover { background: rgba(245, 241, 232, 0.05); }
-    .reserve-exp-card.reverse { direction: rtl; }
-    .reserve-exp-card.reverse > * { direction: ltr; }
-    .reserve-exp-card-image {
-      overflow: hidden;
-    }
-    .reserve-exp-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.85) brightness(0.8);
-      transition: transform 1.2s var(--ease-out), filter var(--t);
-    }
-    .reserve-exp-card:hover .reserve-exp-card-image img {
-      transform: scale(1.04);
-      filter: saturate(0.95) brightness(0.85);
-    }
-    .reserve-exp-card-body {
-      padding: clamp(48px, 6vw, 72px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .reserve-exp-card-tag {
-      font-family: var(--font-sans);
-      font-size: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 28px;
-    }
-    .reserve-exp-card-tag .divider { background: var(--gold); margin-right: 12px; }
-    .reserve-exp-card-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--cream);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 20px;
-    }
-    .reserve-exp-card-desc {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: rgba(245, 241, 232, 0.58);
-      margin-bottom: 36px;
-    }
-    .reserve-exp-card-details {
-      border-top: 1px solid rgba(245, 241, 232, 0.08);
-      padding-top: 28px;
-      margin-bottom: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .reserve-exp-card-detail {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-family: var(--font-sans);
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(245, 241, 232, 0.65);
-    }
-    .reserve-exp-card-detail::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-    .reserve-price-from {
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: rgba(245, 241, 232, 0.35);
-      margin-bottom: 24px;
-    }
-    .reserve-price-from strong {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: var(--cream);
-      margin: 0 4px 0 6px;
-    }
-
-    /* Philosophy section */
-    .reserve-philosophy {
-      background: var(--cream);
-      padding: clamp(80px, 12vw, 160px) var(--gutter);
-    }
-    .reserve-philosophy-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--col-gap);
-      align-items: center;
-    }
-    .reserve-philosophy-image {
-      aspect-ratio: 3/4;
-      overflow: hidden;
-    }
-    .reserve-philosophy-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Enquiry section */
-    .reserve-enquiry {
-      background: var(--burgundy);
-      padding: clamp(80px, 12vw, 140px) var(--gutter);
-      position: relative;
-      overflow: hidden;
-    }
-    .reserve-enquiry::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 70% 30%, rgba(125, 37, 51, 0.7) 0%, transparent 65%);
-    }
-    .reserve-enquiry-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 1080px) {
-      .reserve-exp-card,
-      .reserve-exp-card.reverse { grid-template-columns: 1fr; direction: ltr; }
-      .reserve-exp-card-image { aspect-ratio: 16/9; }
-      .reserve-philosophy-inner { grid-template-columns: 1fr; }
-      .reserve-philosophy-image { aspect-ratio: 4/3; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Via Vinho Reserve — Bespoke Wine Experiences</title>
+  <meta name="description" content="Reserve is for clients who already know what good looks like — and who want something built around them rather than selected from a menu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- NAVIGATION — cream on reserve page since body is dark -->
-  <nav class="nav scrolled" id="nav" style="background:transparent; box-shadow:none;">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name" style="color:var(--cream);">Via Vinho</span>
-      <span class="nav-logo-sub">Lisbon · Wine Experiences</span>
-    </a>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Via Vinho</a>
     <ul class="nav-links">
-      <li><a href="classic.html" style="color:rgba(245,241,232,0.7);">Classic</a></li>
-      <li><a href="reserve.html" style="color:var(--cream);">Reserve</a></li>
-      <li><a href="about.html" style="color:rgba(245,241,232,0.7);">About</a></li>
-      <li><a href="book.html" class="nav-reserve">Enquire privately</a></li>
+      <li><a href="index.html#experiences">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="enquire.html">Enquire</a></li>
     </ul>
-    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="nav-mobile" id="mobile-menu">
-    <a href="classic.html">Classic</a>
+    <a href="index.html#experiences">Classic</a>
     <a href="reserve.html">Reserve</a>
-    <a href="about.html">About</a>
-    <a href="book.html">Book a place</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="index.html#about">About</a>
+    <a href="enquire.html">Enquire</a>
   </div>
 
-  <!-- HERO -->
-  <section class="reserve-hero">
-    <div class="reserve-hero-media">
-      <img src="assets/images/tour-private.jpg" alt="Via Vinho Reserve — private experience" />
+  <section class="hero hero--reserve" id="hero">
+    <div class="hero-bg">
+      <img src="assets/img/barrel-room.jpg" alt="Atmospheric barrel room">
     </div>
-    <div class="reserve-hero-content">
-      <div class="hero-eyebrow" style="margin-bottom:24px;">
-        <span class="divider"></span>
-        <span>Via Vinho Reserve</span>
-      </div>
-      <h1 class="hero-title">
-        An entirely<br />private affair.
-      </h1>
-      <p class="hero-sub">
-        Bespoke wine experiences designed around your palate, your schedule,
-        and your idea of what a perfect day in Portugal should feel like.
-      </p>
-      <div class="hero-actions">
-        <a href="mailto:reserve@viavinho.net" class="btn btn-gold">
-          Enquire privately
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#experiences" class="btn btn-outline-cream">See experiences</a>
-      </div>
-    </div>
-    <span class="hero-scroll" style="color:rgba(245,241,232,0.3);">Scroll</span>
-  </section>
-
-  <!-- RESERVE EXPERIENCES -->
-  <section class="reserve-exp-section" id="experiences">
-    <div class="reserve-exp-inner">
-      <div class="reveal">
-        <div class="eyebrow" style="margin-bottom:16px; color:var(--gold);">
-          <span class="divider" style="background:var(--gold);"></span>Reserve experiences
-        </div>
-        <h2 class="heading-lg" style="color:var(--cream);">Your Portugal.<br />Your terms.</h2>
-      </div>
-      <div class="reserve-exp-cards">
-
-        <!-- Private Day Tour -->
-        <div class="reserve-exp-card reveal">
-          <div class="reserve-exp-card-image">
-            <img src="assets/images/dest-setubal.jpeg" alt="Private wine estate visit" />
-          </div>
-          <div class="reserve-exp-card-body">
-            <div class="reserve-exp-card-tag"><span class="divider"></span>Private day tour</div>
-            <h3 class="reserve-exp-card-title">The Private Day</h3>
-            <p class="reserve-exp-card-desc">
-              Your own vehicle, your own guide, your own itinerary. From estate selection to
-              restaurant reservation — everything is arranged around you. Ideal for couples,
-              families, and anyone who prefers the road entirely to themselves.
-            </p>
-            <div class="reserve-exp-card-details">
-              <div class="reserve-exp-card-detail">2–6 guests — exclusive to your party</div>
-              <div class="reserve-exp-card-detail">Itinerary built around your preferences</div>
-              <div class="reserve-exp-card-detail">Access to estates not open to the public</div>
-              <div class="reserve-exp-card-detail">Private table reserved at every stop</div>
-            </div>
-            <p class="reserve-price-from">From<strong>€280</strong>per person</p>
-            <a href="mailto:reserve@viavinho.net?subject=Private Day Tour" class="btn btn-outline-cream">
-              Enquire about this experience
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Winemaker Access -->
-        <div class="reserve-exp-card reverse reveal">
-          <div class="reserve-exp-card-image">
-            <img src="assets/images/dest-alentejo.jpeg" alt="Winemaker access — barrel room" />
-          </div>
-          <div class="reserve-exp-card-body">
-            <div class="reserve-exp-card-tag"><span class="divider"></span>Exclusive access</div>
-            <h3 class="reserve-exp-card-title" id="alentejo">Winemaker Access</h3>
-            <p class="reserve-exp-card-desc">
-              A tasting led by the winemaker themselves. Behind the cellar door, in the barrel
-              room, or across the family table. Conversations and wines you won't encounter anywhere else.
-              Available in both Setúbal and Alentejo.
-            </p>
-            <div class="reserve-exp-card-details">
-              <div class="reserve-exp-card-detail">Direct access to the winemaking family</div>
-              <div class="reserve-exp-card-detail">Library and vertical tastings on request</div>
-              <div class="reserve-exp-card-detail">Harvest experiences in season</div>
-              <div class="reserve-exp-card-detail">Alentejo overnight option available</div>
-            </div>
-            <p class="reserve-price-from">Price on enquiry</p>
-            <a href="mailto:reserve@viavinho.net?subject=Winemaker Access" class="btn btn-outline-cream">
-              Enquire about this experience
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Anniversary / Honeymoon -->
-        <div class="reserve-exp-card reveal">
-          <div class="reserve-exp-card-image">
-            <img src="assets/images/about-accent.jpeg" alt="Romantic wine experience" />
-          </div>
-          <div class="reserve-exp-card-body">
-            <div class="reserve-exp-card-tag"><span class="divider"></span>Occasions</div>
-            <h3 class="reserve-exp-card-title">Anniversaries &amp; Honeymoons</h3>
-            <p class="reserve-exp-card-desc">
-              Designed for two. A day shaped around a moment that deserves to be extraordinary —
-              from the first estate to the last glass, with every detail considered in advance
-              so that you arrive with nothing to think about except each other.
-            </p>
-            <div class="reserve-exp-card-details">
-              <div class="reserve-exp-card-detail">Fully bespoke to your occasion</div>
-              <div class="reserve-exp-card-detail">Welcome champagne and artisan gifts</div>
-              <div class="reserve-exp-card-detail">Private table with roses or custom arrangement</div>
-              <div class="reserve-exp-card-detail">Hotel recommendations and onwards transfers</div>
-            </div>
-            <p class="reserve-price-from">From<strong>€380</strong>per couple</p>
-            <a href="mailto:reserve@viavinho.net?subject=Anniversary Experience" class="btn btn-outline-cream">
-              Enquire about this experience
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
+    <div class="hero-content">
+      <span class="eyebrow" style="color: rgba(244,249,240,0.85);">Via Vinho Reserve</span>
+      <h1>Designed entirely around you.</h1>
     </div>
   </section>
 
-  <!-- PHILOSOPHY -->
-  <section class="reserve-philosophy">
-    <div class="reserve-philosophy-inner">
-      <div class="reserve-philosophy-image reveal">
-        <img src="assets/images/about-main.jpeg" alt="Via Vinho — tasting room" />
-      </div>
-      <div>
-        <div class="eyebrow reveal" style="margin-bottom:20px;"><span class="divider"></span>The Reserve difference</div>
-        <h2 class="heading-xl reveal" style="color:var(--charcoal); margin-bottom:32px;">
-          No shared tables.<br />No compromises.
-        </h2>
-        <p class="body-lg reveal reveal-delay-1" style="margin-bottom:24px;">
-          Reserve was built for people who already know what they want. It is not a
-          premium version of something else — it is a different kind of experience entirely.
+  <section class="reserve-statement">
+    <div class="grid reveal">
+      <div class="reserve-statement-inner">
+        <span class="eyebrow">A different kind of access.</span>
+        <p class="editorial" style="margin-top: 24px;">
+          Reserve is for clients who already know what good looks like — and
+          who want something built around them rather than selected from a menu.
+          Every detail is personal. Every day is private. Nothing is shared.
         </p>
-        <p class="body-lg reveal reveal-delay-2" style="margin-bottom:40px;">
-          We spend time understanding your palate before we plan anything.
-          What you love, what you want to discover, how you like to move through a day.
-          The itinerary follows from there.
-        </p>
-        <blockquote class="about-pull-quote reveal reveal-delay-3" style="font-size:1.4rem;">
-          "We go to places that don't advertise. Access is the thing we do that no one else can."
-        </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- ENQUIRY CTA -->
-  <section class="reserve-enquiry">
-    <div class="reserve-enquiry-inner">
-      <div class="eyebrow reveal" style="justify-content:center; margin-bottom:24px; color:var(--gold);">
-        <span class="divider" style="background:var(--gold);"></span>Begin the conversation
+  <section class="reserve-pillars">
+    <div class="grid">
+      <div class="reserve-pillar reveal">
+        <h3>Private estate access.</h3>
+        <p>Estates that don't open to the public. Winemakers who don't host tours. We have the relationships — you get the access.</p>
       </div>
-      <h2 class="heading-xl reveal" style="color:var(--cream); margin-bottom:20px; text-align:center;">
-        Tell us what you have in mind.
-      </h2>
-      <p class="body-lg reveal reveal-delay-1" style="color:rgba(245,241,232,0.6); margin-bottom:48px; text-align:center;">
-        Every Reserve experience begins with a conversation.
-        Write to us with your dates, your group, and any thoughts on what you're looking for.
-        We'll take it from there.
-      </p>
-      <div class="reveal reveal-delay-2" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-        <a href="mailto:reserve@viavinho.net" class="btn btn-cream">
-          Write to us
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="classic.html" class="btn btn-outline-cream">See Classic instead</a>
+      <div class="reserve-pillar reveal reveal-d1">
+        <h3>Personal itinerary design.</h3>
+        <p>Your palate, your pace, your interests. We build the day around what matters to you — not around a template.</p>
+      </div>
+      <div class="reserve-pillar reveal reveal-d2">
+        <h3>Founder-hosted throughout.</h3>
+        <p>Nicola personally hosts every Reserve experience. One point of contact. One person who knows every detail.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <section class="reserve-featured">
+    <div class="container">
+      <div class="reserve-featured-inner reveal">
+        <div class="reserve-featured-img">
+          <img src="assets/images/dest-alentejo.jpeg" alt="River landscape in Portugal" loading="lazy">
+        </div>
+        <div class="reserve-featured-text">
+          <span class="eyebrow">Featured</span>
+          <h2>The River.</h2>
+          <p class="editorial">Private sailing the Tagus.</p>
+          <p>A day that begins on the water and ends in a vineyard. The Tagus from a perspective most people never see, followed by a private tasting at an estate accessible only by boat.</p>
+          <a href="enquire.html?tier=reserve" class="link">Enquire about this experience</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="container">
+      <div class="closing-inner reveal">
+        <span class="eyebrow">Begin</span>
+        <h2>Tell us what you're looking for.</h2>
+        <p>The region, the pace, the wine, the occasion. We'll design something around it.</p>
+        <div class="closing-links">
+          <a href="enquire.html?tier=reserve" class="link">Begin a conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Via Vinho</div>
-        <div class="footer-brand-sub">Lisbon · Wine Experiences</div>
-        <p class="footer-tagline">Boutique wine experiences in Portugal's most interesting regions. Based in Lisbon. Operating since 2012.</p>
-        <div class="footer-contact">
-          <a href="mailto:reserve@viavinho.net">reserve@viavinho.net</a>
-          <a href="tel:+351910000000">+351 910 000 000</a>
-        </div>
-      </div>
-      <div>
-        <p class="footer-col-title">Experiences</p>
-        <ul class="footer-links">
-          <li><a href="classic.html">Via Vinho Classic</a></li>
-          <li><a href="reserve.html">Via Vinho Reserve</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Regions</p>
-        <ul class="footer-links">
-          <li><a href="#">Lisbon</a></li>
-          <li><a href="#">Setúbal</a></li>
-          <li><a href="#">Alentejo</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Company</p>
-        <ul class="footer-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="book.html">Book</a></li>
-          <li><a href="mailto:reserve@viavinho.net">Reserve privately</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Via Vinho. All rights reserved.</span>
-      <div class="footer-socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-        <a href="#" aria-label="TripAdvisor"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s0-4 4-4 4 4 4 4"/></svg></a>
+    <div class="container">
+      <div class="footer-inner">
+        <p>info@viavinho.net · +351 968 523 455</p>
+        <p class="footer-meta">RNAAT Registered · Turismo de Portugal · &copy; 2026 Via Vinho</p>
+        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(245,241,232,0.97)';
-        nav.style.boxShadow = '0 1px 0 rgba(26,26,26,0.06)';
-        nav.style.padding = '20px var(--gutter)';
-        nav.querySelector('.nav-logo-name').style.color = 'var(--burgundy)';
-        nav.querySelectorAll('.nav-links a').forEach(a => a.style.color = 'var(--muted)');
-      } else {
-        nav.style.background = 'transparent';
-        nav.style.boxShadow = 'none';
-        nav.style.padding = '32px var(--gutter)';
-        nav.querySelector('.nav-logo-name').style.color = 'var(--cream)';
-      }
-    }, { passive: true });
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('open');
-    });
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquire — Via Vinho</title>
+  <meta name="description" content="Begin a conversation with Via Vinho. Tell us what you're looking for, and we'll design something around it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav nav--light" id="nav">
+    <a href="index.html" class="nav-logo">Via Vinho</a>
+    <ul class="nav-links">
+      <li><a href="index.html#experiences">Classic</a></li>
+      <li><a href="reserve.html">Reserve</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="enquire.html">Enquire</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html#experiences">Classic</a>
+    <a href="reserve.html">Reserve</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="index.html#about">About</a>
+    <a href="enquire.html">Enquire</a>
+  </div>
+
+  <main class="enquiry-page">
+    <section class="enquiry-header">
+      <div class="container">
+        <div class="enquiry-header-inner reveal">
+          <span class="eyebrow">Begin a conversation</span>
+          <h1>Tell us what you're looking for.</h1>
+          <p>The region, the pace, the wine, the occasion. We'll design something around it.</p>
+          <span class="enquiry-context" id="enquiry-context" style="display:none;"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="enquiry-form-section">
+      <div class="container">
+        <form class="enquiry-form reveal" id="enquiry-form"
+              action="https://formsubmit.co/info@viavinho.net" method="POST">
+          <input type="hidden" name="_subject" value="Via Vinho — New Enquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://viavinho.net">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="party">Party size</label>
+              <input type="text" id="party" name="party" placeholder="e.g. 4 adults">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dates">Approximate dates</label>
+              <input type="text" id="dates" name="dates" placeholder="e.g. October 2026">
+            </div>
+            <div class="form-group">
+              <label for="enquiry-interest">Interest</label>
+              <select id="enquiry-interest" name="interest">
+                <option value="">Select…</option>
+                <option value="classic">Classic — bookable experience</option>
+                <option value="reserve">Reserve — bespoke design</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">What would make this perfect?</label>
+            <textarea id="message" name="message" placeholder="Tell us about the occasion, the pace, the wines you love, anything that matters."></textarea>
+          </div>
+
+          <button type="submit" class="button form-submit">Send enquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="enquiry-support">
+      <div class="container">
+        <div class="enquiry-support-inner reveal">
+          <p>Or reach us directly: <a href="mailto:info@viavinho.net">info@viavinho.net</a> · <a href="https://wa.me/351968523455" target="_blank" rel="noopener">WhatsApp</a></p>
+          <p style="font-size: 0.8125rem; color: var(--charcoal-3);">We reply personally within one working day.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p>info@viavinho.net · +351 968 523 455</p>
+        <p class="footer-meta">RNAAT Registered · Turismo de Portugal · &copy; 2026 Via Vinho</p>
+        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

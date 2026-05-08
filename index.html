@@ -1,521 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Via Vinho — Wine Experiences in Lisbon</title>
-  <meta name="description" content="Curated wine experiences in Lisbon and Portugal's finest regions. Two distinct journeys: Via Vinho Classic and Via Vinho Reserve." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Via Vinho — Private Wine Experiences in Portugal</title>
+  <meta name="description" content="Cultural wine immersions across Portugal. Private, hosted, designed around you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Via Vinho</span>
-      <span class="nav-logo-sub">Lisbon · Wine Experiences</span>
-    </a>
+    <a href="index.html" class="nav-logo">Via Vinho</a>
     <ul class="nav-links">
-      <li><a href="classic.html">Classic</a></li>
+      <li><a href="#experiences">Classic</a></li>
       <li><a href="reserve.html">Reserve</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="book.html" class="nav-reserve">Reserve a place</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="enquire.html">Enquire</a></li>
     </ul>
-    <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <button class="nav-burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
-
-  <!-- MOBILE MENU -->
   <div class="nav-mobile" id="mobile-menu">
-    <a href="classic.html">Classic</a>
+    <a href="#experiences">Classic</a>
     <a href="reserve.html">Reserve</a>
-    <a href="about.html">About</a>
-    <a href="book.html">Book a place</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="#about">About</a>
+    <a href="enquire.html">Enquire</a>
   </div>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-media">
-      <video autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-        <source src="assets/videos/hero-reel.mp4" type="video/mp4" />
-        <img src="assets/images/hero-poster.jpg" alt="Wine tour in Portugal" />
+  <!-- 1. HERO — Reserve mood: cinematic, quiet -->
+  <section class="hero hero--left" id="hero">
+    <div class="hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="assets/img/hero-still.jpg">
+        <source src="assets/video/hero-bg.mp4" type="video/mp4">
       </video>
+      <img class="hero-fallback" src="assets/img/hero-still.jpg" alt="" aria-hidden="true">
     </div>
-
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="divider"></span>
-        <span>Lisbon &nbsp;·&nbsp; Wine Country &nbsp;·&nbsp; Since 2012</span>
+      <span class="eyebrow eyebrow--inverse">Cultural Wine Immersions</span>
+      <h1>Private wine experiences,<br>designed around you.</h1>
+      <a href="enquire.html" class="link link--inverse">Design your experience &rarr;</a>
+    </div>
+  </section>
+
+  <!-- 2. POSITIONING — narrow italic serif, no heading -->
+  <section class="statement">
+    <div class="container">
+      <div class="statement-inner reveal">
+        <p class="editorial">
+          Via Vinho is not a tour company.<br>
+          We move within a network of producers, estates, and landscapes that
+          most visitors never see &mdash; and we bring you into it, naturally.<br>
+          Each experience is private, fully hosted, and shaped around how
+          you like to spend your time.
+        </p>
       </div>
-      <h1 class="hero-title">
-        Wine is meant<br />to be discovered.
-      </h1>
-      <p class="hero-sub">
-        Intimate, guided experiences through Portugal's finest wine regions —
-        from Lisbon's cobbled streets to the sun-baked plains of Alentejo.
-      </p>
-      <div class="hero-actions">
-        <a href="classic.html" class="btn btn-gold">
-          Explore experiences
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </section>
+
+  <!-- 3. SIGNALS — 3 columns, no icons -->
+  <section class="signals">
+    <div class="container">
+      <div class="signals-grid">
+        <div class="signal reveal">
+          <h3>Private &amp; Exclusive</h3>
+          <p>Every experience is for your group alone &mdash; no mixed groups, no set routes.</p>
+        </div>
+        <div class="signal reveal reveal-d1">
+          <h3>Fully Hosted</h3>
+          <p>You're with us throughout the day. No handovers. No guesswork.</p>
+        </div>
+        <div class="signal reveal reveal-d2">
+          <h3>Built Around You</h3>
+          <p>We adjust the rhythm, the producers, the moments &mdash; depending on what matters to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TRANSITION — Reserve to Classic -->
+  <section class="transition">
+    <div class="container">
+      <div class="reveal">
+        <p>For those who prefer something already shaped.</p>
+        <span class="transition-line" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 + 6. CLASSIC INTRO + EXPERIENCES GRID -->
+  <section class="experiences" id="experiences">
+    <div class="container">
+
+      <div class="experiences-head reveal">
+        <span class="eyebrow">Via Vinho Classic</span>
+        <h2>A few ways to spend a very good day.</h2>
+        <p>Structured experiences across Lisbon and its surrounding regions &mdash; with transport, tastings, and hosting handled from start to finish.</p>
+      </div>
+
+      <div class="experience-grid">
+
+        <a href="experience.html" class="experience reveal">
+          <div class="experience-image">
+            <img src="assets/img/graca-anjos.jpg" alt="Lisbon wine bar at dusk" loading="lazy">
+          </div>
+          <h3>Graça &amp; Anjos After Dark</h3>
+          <span class="experience-meta">Lisbon · Evening</span>
+          <p class="experience-desc">An evening that moves through neighbourhood wine bars and tables worth knowing &mdash; ending where the night naturally settles.</p>
+          <p class="experience-detail">Evening · All-inclusive</p>
+          <span class="experience-price">From €95 per person</span>
         </a>
-        <a href="about.html" class="btn btn-outline-cream">Our story</a>
-      </div>
-    </div>
 
-    <span class="hero-scroll">Scroll</span>
-  </section>
-
-  <!-- MANIFESTO -->
-  <section class="manifesto">
-    <div class="manifesto-inner">
-      <blockquote class="manifesto-quote reveal">
-        "We go to places that don't advertise.<br />That is the point."
-        <cite>— Via Vinho</cite>
-      </blockquote>
-      <div class="manifesto-stats reveal reveal-delay-2">
-        <div>
-          <span class="stat-num">8</span>
-          <span class="stat-label">Max group size</span>
-        </div>
-        <div>
-          <span class="stat-num">12+</span>
-          <span class="stat-label">Years guiding</span>
-        </div>
-        <div>
-          <span class="stat-num">98%</span>
-          <span class="stat-label">Repeat &amp; referred</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIER INTRO -->
-  <section class="tier-intro">
-    <div class="tier-intro-inner">
-      <div class="eyebrow reveal" style="justify-content:center; margin-bottom:20px;">
-        <span class="divider"></span>Two ways to experience
-      </div>
-      <h2 class="tier-intro-title heading-lg reveal reveal-delay-1">
-        Choose your journey.
-      </h2>
-      <p class="body-lg tier-intro-body reveal reveal-delay-2">
-        Via Vinho offers two distinct experiences, each designed to match a different
-        kind of curiosity. Both are exceptional. Both are personal. Neither is for everyone.
-      </p>
-      <div class="tier-divider reveal reveal-delay-3">
-        <span class="tier-divider-label">Classic &amp; Reserve</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLASSIC TIER -->
-  <section class="classic" id="classic">
-    <div class="classic-inner">
-      <div class="classic-image">
-        <img src="assets/images/tour-signature.jpg" alt="Via Vinho Classic — guided group wine tour" />
-      </div>
-      <div class="classic-content">
-        <div class="classic-tier-badge reveal">
-          <span>Via Vinho Classic</span>
-        </div>
-        <h2 class="classic-title reveal">
-          Wine, conversation,<br />and the roads<br />less taken.
-        </h2>
-        <p class="classic-body reveal reveal-delay-1">
-          Small-group tours through Lisbon's wine scene and the estates of Setúbal —
-          curated for those who want real access, honest expertise, and a table worth lingering at.
-          Maximum eight people. Always.
-        </p>
-        <div class="classic-highlights reveal reveal-delay-2">
-          <div class="classic-highlight">Lisbon walking wine tours — discover the city through its glass</div>
-          <div class="classic-highlight">Setúbal day tours — estate tastings, long lunch, golden hour</div>
-          <div class="classic-highlight">Maximum 8 guests — never a crowd, always a conversation</div>
-          <div class="classic-highlight">WSET-trained guide, English and Portuguese</div>
-        </div>
-        <p class="classic-price reveal reveal-delay-3">
-          From<strong>€95</strong>per person
-        </p>
-        <div class="reveal reveal-delay-3" style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
-          <a href="classic.html" class="btn btn-gold">
-            Explore Classic
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="book.html" class="btn btn-text">Book a place</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESERVE TIER -->
-  <section class="reserve" id="reserve">
-    <div class="reserve-inner">
-      <div class="reserve-content">
-        <div class="reserve-tier-badge reveal">
-          <span>Via Vinho Reserve</span>
-        </div>
-        <h2 class="reserve-title reveal">
-          An entirely<br />private affair.
-        </h2>
-        <p class="reserve-body reveal reveal-delay-1">
-          For those who prefer the road entirely to themselves. Bespoke itineraries built around
-          your palate, your schedule, and your idea of a perfect day in Portugal's wine country.
-          No shared tables. No compromises.
-        </p>
-        <div class="reserve-highlights reveal reveal-delay-2">
-          <div class="reserve-highlight">Your vehicle, your route, your pace</div>
-          <div class="reserve-highlight">Access to estates not open to the public</div>
-          <div class="reserve-highlight">Private tastings with winemakers</div>
-          <div class="reserve-highlight">Curated for anniversaries, honeymoons, and discerning travellers</div>
-        </div>
-        <div class="reserve-actions reveal reveal-delay-3">
-          <a href="reserve.html" class="btn btn-outline-cream">
-            Discover Reserve
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="mailto:reserve@viavinho.net" class="btn btn-text-gold">Enquire privately</a>
-        </div>
-      </div>
-      <div class="reserve-image">
-        <img src="assets/images/tour-private.jpg" alt="Via Vinho Reserve — private wine experience" />
-      </div>
-    </div>
-  </section>
-
-  <!-- DESTINATIONS -->
-  <section class="destinations" id="destinations">
-    <div class="destinations-header reveal">
-      <div class="eyebrow" style="margin-bottom:16px;">
-        <span class="divider"></span>Where we go
-      </div>
-      <h2 class="heading-lg" style="color:var(--charcoal);">Two regions.<br />A lifetime of wine.</h2>
-    </div>
-    <div class="destinations-grid">
-      <div class="dest-card reveal">
-        <div class="dest-card-bg" id="dest-setubal"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <span class="dest-region">Península de Setúbal</span>
-          <h3 class="dest-name">Setúbal</h3>
-          <p class="dest-desc">
-            An hour south of Lisbon, where the Arrábida mountains meet the ocean and Moscatel
-            has been made for centuries. Close, underestimated, extraordinary.
-          </p>
-          <a href="classic.html#setubal" class="dest-link">
-            Discover Setúbal
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-1">
-        <div class="dest-card-bg" id="dest-alentejo"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <span class="dest-region">Alentejo</span>
-          <h3 class="dest-name">Alentejo</h3>
-          <p class="dest-desc">
-            Portugal's great wine interior — vast plains, cork oak forests, and estates of
-            extraordinary character. A longer day. Always worth every hour.
-          </p>
-          <a href="reserve.html#alentejo" class="dest-link">
-            Discover Alentejo
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE EXPERIENCE -->
-  <section class="experience">
-    <div class="experience-inner">
-      <div class="experience-sticky">
-        <div class="eyebrow reveal" style="margin-bottom:20px;">
-          <span class="divider"></span>Every tour includes
-        </div>
-        <h2 class="heading-lg experience-title reveal">Thoughtfully<br />arranged.</h2>
-        <p class="body-lg experience-body reveal reveal-delay-1">
-          Everything is considered before you arrive.
-          No hidden costs. No decisions to stress about on the day.
-          Just the experience.
-        </p>
-        <div class="reveal reveal-delay-2">
-          <a href="classic.html#inclusions" class="btn btn-gold">
-            See full inclusions
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div>
-        <div class="experience-image reveal" style="margin-bottom:32px;">
-          <img src="assets/images/food-lunch.jpeg" alt="Long table lunch at a Portuguese estate" />
-        </div>
-        <div class="inclusions-grid reveal reveal-delay-1">
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Private transport</strong>
-              <span>Door-to-door from Lisbon in a comfortable vehicle</span>
-            </div>
+        <a href="experience.html" class="experience reveal reveal-d1">
+          <div class="experience-image">
+            <img src="assets/img/palmela-salon.jpg" alt="Long table lunch in the Setúbal Peninsula" loading="lazy">
           </div>
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Expert guide</strong>
-              <span>WSET-trained, English, French &amp; Portuguese</span>
-            </div>
-          </div>
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Estate tastings</strong>
-              <span>2–3 handpicked independent estates per tour</span>
-            </div>
-          </div>
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Long table lunch</strong>
-              <span>Unhurried, at the estate or a trusted local restaurant</span>
-            </div>
-          </div>
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Small groups only</strong>
-              <span>Maximum 8 — always intimate, never a crowd</span>
-            </div>
-          </div>
-          <div class="inclusion-item">
-            <div class="inclusion-icon">
-              <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="inclusion-text">
-              <strong>Cellar-price bottles</strong>
-              <span>Purchase directly from estates at producer prices</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="testimonials-header">
-      <div class="eyebrow reveal" style="margin-bottom:20px;">
-        <span class="divider"></span>What guests say
-      </div>
-      <h2 class="heading-lg reveal reveal-delay-1" style="color:var(--cream);">Words we<br />didn't write.</h2>
-    </div>
-    <div class="testimonials-grid">
-
-      <div class="testi-card reveal">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">
-          The best day of our two weeks in Portugal. The guide was extraordinary —
-          knowledgeable without being pedantic, passionate without being performative.
-          We bought six bottles and barely made it home with three.
-        </p>
-        <div class="testi-meta">
-          <div class="testi-avatar">M</div>
-          <div>
-            <span class="testi-name">Margaret &amp; David K.</span>
-            <span class="testi-detail">San Francisco · Setúbal Day Tour</span>
-          </div>
-          <span class="testi-platform">TripAdvisor</span>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">
-          We have done wine tours in Burgundy and Tuscany. This was better.
-          Smaller, more personal, and genuinely educational without ever being dull.
-          Book it without hesitation.
-        </p>
-        <div class="testi-meta">
-          <div class="testi-avatar">S</div>
-          <div>
-            <span class="testi-name">Sophie L.</span>
-            <span class="testi-detail">London · Reserve Experience</span>
-          </div>
-          <span class="testi-platform">Google</span>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">
-          I organised this for a corporate group of twelve. Everyone arrived as colleagues.
-          Everyone left as friends. The long table lunch sealed it.
-          Exceptional, flawlessly run.
-        </p>
-        <div class="testi-meta">
-          <div class="testi-avatar">A</div>
-          <div>
-            <span class="testi-name">Antoine R.</span>
-            <span class="testi-detail">Paris · Corporate Day</span>
-          </div>
-          <span class="testi-platform">TripAdvisor</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-inner">
-      <div class="eyebrow cta-eyebrow reveal">
-        <span class="divider"></span>Begin your experience
-      </div>
-      <h2 class="cta-title reveal">
-        Portugal is waiting.<br />So is the wine.
-      </h2>
-      <p class="cta-body reveal reveal-delay-1">
-        Spaces are limited to keep every tour exactly as it should be.
-        Reserve your place, or get in touch to design something entirely your own.
-      </p>
-      <div class="cta-btns reveal reveal-delay-2">
-        <a href="book.html" class="btn btn-gold">
-          Reserve a place
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <h3>The Palmela Salon</h3>
+          <span class="experience-meta">Setúbal · Full Day</span>
+          <p class="experience-desc">A full day between the vineyards and the Atlantic &mdash; including time at the table, not just in the glass.</p>
+          <p class="experience-detail">Full Day · All-inclusive</p>
+          <span class="experience-price">From €280 per person</span>
         </a>
-        <a href="mailto:info@viavinho.net" class="btn btn-outline-gold">Get in touch</a>
+
+        <a href="experience.html" class="experience reveal">
+          <div class="experience-image">
+            <img src="assets/img/atlantic-escape.jpg" alt="Atlantic coast vineyard landscape" loading="lazy">
+          </div>
+          <h3>Atlantic Escape</h3>
+          <span class="experience-meta">Mafra · Full Day</span>
+          <p class="experience-desc">Coastal vineyards, open landscapes, and producers working close to the edge of the Atlantic.</p>
+          <p class="experience-detail">Full Day · All-inclusive</p>
+          <span class="experience-price">From €260 per person</span>
+        </a>
+
+        <a href="experience.html" class="experience reveal reveal-d1">
+          <div class="experience-image">
+            <img src="assets/img/atlantic-fringe.jpg" alt="Hand holding wine glass among vines" loading="lazy">
+          </div>
+          <h3>The Atlantic Fringe</h3>
+          <span class="experience-meta">Torres Vedras · Full Day</span>
+          <p class="experience-desc">A quieter stretch of coastline &mdash; where small producers and old vines shape a different side of Portuguese wine.</p>
+          <p class="experience-detail">Full Day · All-inclusive</p>
+          <span class="experience-price">From €240 per person</span>
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- 7. FOUNDER — asymmetric 2-column -->
+  <section class="founder" id="about">
+    <div class="grid reveal">
+      <div class="founder-inner" style="grid-column: 1 / -1;">
+        <div class="founder-image">
+          <img src="assets/img/nicola.jpg" alt="Nicola, Via Vinho founder" loading="lazy">
+        </div>
+        <div class="founder-text">
+          <span class="eyebrow">Your Host</span>
+          <h2>Nicola.</h2>
+          <p>I started Via Vinho to share a side of Portugal that doesn't reveal itself easily &mdash; the producers, places, and conversations that sit just beneath the surface.</p>
+          <p>When you join, you're not passed between guides. I'm there &mdash; shaping the day as it unfolds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL CTA — dark background -->
+  <section class="cta-dark">
+    <div class="container">
+      <div class="cta-dark-inner reveal">
+        <h2>Tell me what you have in mind.</h2>
+        <p>The region, the pace, the kind of day you're looking for &mdash; we'll take it from there.</p>
+        <div class="cta-dark-buttons">
+          <a href="mailto:hello@viavinho.net" class="cta-dark-button">Email Us</a>
+          <a href="https://wa.me/351968523455" class="cta-dark-button" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
   <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Via Vinho</div>
-        <div class="footer-brand-sub">Lisbon · Wine Experiences</div>
-        <p class="footer-tagline">
-          Boutique wine experiences in Portugal's most interesting regions.
-          Based in Lisbon. Operating since 2012.
-        </p>
-        <div class="footer-contact">
-          <a href="mailto:info@viavinho.net">info@viavinho.net</a>
-          <a href="tel:+351910000000">+351 910 000 000</a>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <p>hello@viavinho.net</p>
+          <p>Lisbon, Portugal</p>
         </div>
-      </div>
-      <div>
-        <p class="footer-col-title">Experiences</p>
-        <ul class="footer-links">
-          <li><a href="classic.html">Via Vinho Classic</a></li>
-          <li><a href="reserve.html">Via Vinho Reserve</a></li>
-          <li><a href="classic.html#lisbon">Lisbon Wine Walk</a></li>
-          <li><a href="classic.html#setubal">Setúbal Day Tour</a></li>
-          <li><a href="reserve.html">Private Experience</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Regions</p>
-        <ul class="footer-links">
-          <li><a href="#">Lisbon</a></li>
-          <li><a href="#">Setúbal</a></li>
-          <li><a href="#">Alentejo</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Company</p>
-        <ul class="footer-links">
-          <li><a href="about.html">About Via Vinho</a></li>
-          <li><a href="about.html#story">Our story</a></li>
-          <li><a href="book.html">Book a place</a></li>
-          <li><a href="mailto:reserve@viavinho.net">Reserve privately</a></li>
-          <li><a href="mailto:info@viavinho.net">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Via Vinho. All rights reserved. · Lisbon, Portugal</span>
-      <div class="footer-socials">
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.5" fill="rgba(245,241,232,0.38)" stroke="none"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="TripAdvisor">
-          <svg viewBox="0 0 24 24" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M8 14s0-4 4-4 4 4 4 4"/>
-          </svg>
-        </a>
+        <div class="footer-col footer-col--meta">
+          <p class="footer-meta">RNAAT Registered · Turismo de Portugal</p>
+          <p class="footer-meta">&copy; 2026 Via Vinho</p>
+        </div>
+        <a href="https://instagram.com/viavinho" target="_blank" rel="noopener" class="footer-social">Instagram</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Nav scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-
-    // Destination backgrounds
-    const BASE = 'assets/images/';
-    const destSetubal = document.getElementById('dest-setubal');
-    const destAlentejo = document.getElementById('dest-alentejo');
-    if (destSetubal) destSetubal.style.backgroundImage = `url('${BASE}dest-setubal.jpeg')`;
-    if (destAlentejo) destAlentejo.style.backgroundImage = `url('${BASE}dest-alentejo.jpeg')`;
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  </script>
-
+  <script src="main.js"></script>
 </body>
 </html>

@@ -3,3 +3,11 @@
 media_files.txt
 viavinho-redesign.html
 .vercel
+
+# CRM — sensitive files
+credentials.json
+token.json
+CRM/raw_data/
+__pycache__/
+*.pyc
+.vscode/
