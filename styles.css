@@ -1684,43 +1684,118 @@ section.section-flush { padding-top: 0; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Reserve positioning — burgundy band, restrained ── */
-.reserve-position {
+/* ── Reserve showcase — category explainer (burgundy band) ── */
+.reserve-showcase {
   background: var(--burgundy);
-  padding: clamp(64px, 9vw, 100px) var(--gutter) clamp(40px, 6vw, 64px);
+  padding: clamp(72px, 10vw, 128px) 0 clamp(48px, 7vw, 88px);
 }
-.reserve-position-inner {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+.reserve-showcase-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  column-gap: clamp(48px, 7vw, 96px);
+  row-gap: clamp(40px, 6vw, 64px);
+  align-items: start;
 }
-.reserve-eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.66rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(244, 249, 240, 0.55);
-  margin-bottom: 32px;
+.reserve-showcase-left { max-width: 480px; }
+.reserve-showcase-left .eyebrow {
+  color: rgba(244, 249, 240, 0.62);
+  margin-bottom: var(--space-3);
 }
-.reserve-editorial {
+.reserve-showcase-headline {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  font-weight: 300;
+  font-size: clamp(1.875rem, 3.2vw, 2.8rem);
+  font-weight: 400;
   font-style: italic;
-  line-height: 1.65;
-  letter-spacing: -0.005em;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   color: var(--alabaster);
+  margin: 0 0 var(--space-3);
+}
+.reserve-showcase-lede {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(244, 249, 240, 0.85);
+  max-width: 460px;
 }
 
-/* ── Reserve signals — clickable, subtle hover ── */
+.reserve-showcase-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 44px) clamp(32px, 5vw, 56px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.reserve-showcase-points li {
+  position: relative;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244, 249, 240, 0.18);
+}
+.reserve-showcase-points li::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--alabaster);
+}
+.showcase-point-title {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--alabaster);
+  margin: 0 0 10px;
+}
+.showcase-point-desc {
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: rgba(244, 249, 240, 0.92);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .reserve-showcase-grid { grid-template-columns: 1fr; }
+  .reserve-showcase-points { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ── Featured Reserve experiences — sub-section after showcase ── */
 .reserve-signals {
   background: var(--burgundy);
-  padding: 0 var(--gutter) clamp(56px, 8vw, 96px);
+  padding: clamp(40px, 5vw, 64px) var(--gutter) clamp(72px, 10vw, 112px);
 }
 .reserve-signals-inner {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
+}
+.reserve-signals-head {
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 40px);
+  padding-top: clamp(16px, 3vw, 32px);
+  border-top: 1px solid rgba(244, 249, 240, 0.18);
+}
+.reserve-signals-head .eyebrow {
+  color: rgba(244, 249, 240, 0.55);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.reserve-signals-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--alabaster);
+  margin: 0;
 }
 .reserve-signal {
   display: block;
