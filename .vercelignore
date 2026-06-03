@@ -1,0 +1,28 @@
+# Vercel deploy filter — ship ONLY the website.
+# Whitelist style: ignore everything, then re-include the web files.
+
+*
+
+# Web files — keep these
+!index.html
+!robots.txt
+!sitemap.xml
+!found.html
+!.vercelignore
+
+# Web directories — keep these
+!css
+!css/**
+!js
+!js/**
+!logos
+!logos/**
+!assets
+!assets/**
+
+# Explicitly re-exclude noise that could slip back in
+.DS_Store
+**/.DS_Store
+.vercel
+.git
+node_modules

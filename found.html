@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="googlebot" content="noindex" />
+  <title>Via Vinho</title>
+  <!-- No OG tags. No social preview. Intentional. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest:      #1F3D2B;
+      --forest-deep: #152B1E;
+      --forest-mid:  #2A5039;
+      --cream:       #F5F1E8;
+      --cream-dark:  #EDE8DA;
+      --gold:        #C6A96B;
+      --gold-light:  #D8BF8A;
+      --charcoal:    #1A1A1A;
+      --muted:       #7A7066;
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-sans:   'Jost', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100%;
+      font-family: var(--font-sans);
+      background: var(--forest-deep);
+      color: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .page {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow */
+    .page::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(198,169,107,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(245,241,232,0.35);
+      position: fixed;
+      top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    /* ── Card ── */
+    .card {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.9s cubic-bezier(0.25,0.1,0.25,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Eyebrow / type badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .badge::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ── Headline ── */
+    .headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 9vw, 4rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .headline em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    /* ── Body ── */
+    .body-text {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(245,241,232,0.68);
+      margin-bottom: 40px;
+    }
+
+    /* ── Offer block — shown for Access / Reward types ── */
+    .offer {
+      border: 1px solid rgba(198,169,107,0.35);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .offer::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--forest-deep);
+      padding: 0 8px;
+    }
+    .offer-text {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+    .offer-code {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(198,169,107,0.4);
+      padding: 8px 16px;
+    }
+
+    /* ── CTA button ── */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--forest-deep);
+      padding: 15px 32px;
+      border-radius: 3px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(245,241,232,0.12);
+      margin: 40px 0;
+    }
+
+    /* ── Last updated + signature ── */
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .updated {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(245,241,232,0.28);
+    }
+    .updated strong {
+      font-weight: 400;
+      color: rgba(245,241,232,0.45);
+    }
+    .secret-note {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: rgba(245,241,232,0.2);
+    }
+
+    /* ── Bottom vine ornament ── */
+    .ornament {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(198,169,107,0.3), transparent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wordmark">Via Vinho.</div>
+
+  <main class="page">
+    <div class="card">
+
+      <!--
+        ════════════════════════════════════════
+        CONTENT SLOT — edit this section monthly
+        Types: Access · Knowledge · Reward · Mystery
+        ════════════════════════════════════════
+      -->
+
+      <!-- CURRENT TYPE: Access -->
+      <p class="badge">Access</p>
+
+      <h1 class="headline">
+        Three spots.<br /><em>This Saturday.</em>
+      </h1>
+
+      <p class="body-text">
+        We had a last-minute cancellation on this weekend's Alentejo private tour.
+        Three seats opened up. We're not advertising it anywhere. Just here.
+      </p>
+
+      <div class="offer" data-label="Your offer">
+        <p class="offer-text">
+          "Reserve any of the three spots at the standard rate —
+          but mention the word <em>found</em> at checkout and we'll add
+          a bottle of our current winemaker obsession to your welcome tray."
+        </p>
+        <span class="offer-code">Say: found</span>
+      </div>
+
+      <a href="mailto:info@viavinho.net?subject=Found%20%E2%80%94%20Saturday%20tour" class="cta">
+        Claim a spot
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <!--
+        ════════════════════════════════════════
+        END CONTENT SLOT
+        ════════════════════════════════════════
+      -->
+
+      <div class="divider"></div>
+
+      <div class="meta">
+        <span class="updated">Updated <strong id="updated-label">3 days ago</strong></span>
+        <span class="secret-note">Tell no one.</span>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="ornament"></div>
+
+  <!--
+    ════════════════════════════════════════
+    EDITOR NOTES (remove before publishing)
+    ════════════════════════════════════════
+
+    Four content types to rotate through:
+
+    TYPE 1 — ACCESS
+    badge:    Access
+    headline: Three spots. This Saturday.
+    body:     Cancellation / limited window copy
+    offer:    Specific availability + keyword at checkout
+    cta:      "Claim a spot" → mailto
+
+    TYPE 2 — KNOWLEDGE
+    badge:    Winemaker Notes
+    headline: This month we can't stop thinking about [grape].
+    body:     3–4 sentences. Why this grape, this region, this moment.
+              No offer. No CTA. Just knowledge.
+    offer:    (remove entirely)
+    cta:      (remove entirely)
+
+    TYPE 3 — REWARD
+    badge:    For you
+    headline: Show this screen. Free pour.
+    body:     Short. Warm. Specific to the location/event.
+    offer:    "Show this screen at the door [date/venue]. No questions asked."
+    cta:      "Get directions" → maps link   OR   (no CTA)
+
+    TYPE 4 — MYSTERY
+    badge:    (remove)
+    headline: Just a photo. Or a single sentence. No CTA. No offer.
+    body:     "38.0742° N, 8.9267° W. Sunset. Last Thursday."
+    offer:    (remove)
+    cta:      (remove)
+    Note:     Replace headline/body/offer blocks with a full-bleed
+              <img> or a single <p class="headline"> line. Pure vibe.
+
+    UPDATING THE DATE LABEL:
+    Change the LAST_UPDATED constant below, or just edit the
+    #updated-label text directly in the HTML.
+
+    URL ROTATION:
+    Every ~12 months, move to /found-[year] and let the old URL go dark.
+    Update the QR code sticker. The hunt continues.
+
+    NEVER:
+    · Link to this page from anywhere on viavinho.net
+    · Add share buttons or social links
+    · Submit the URL to a sitemap
+    · Remove the noindex meta tags
+
+    ════════════════════════════════════════
+  -->
+
+  <script>
+    // Auto-calculate "X days ago" from a hardcoded last-updated date.
+    // Just update LAST_UPDATED when you refresh the content.
+    const LAST_UPDATED = '2026-04-12'; // ← change this each time you update
+
+    const label = document.getElementById('updated-label');
+    if (label) {
+      const diff = Math.floor(
+        (Date.now() - new Date(LAST_UPDATED).getTime()) / (1000 * 60 * 60 * 24)
+      );
+      if (diff === 0) label.textContent = 'today';
+      else if (diff === 1) label.textContent = '1 day ago';
+      else label.textContent = `${diff} days ago`;
+    }
+  </script>
+
+</body>
+</html>

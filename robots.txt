@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /found
+Disallow: /found.html
+
+Sitemap: https://www.viavinho.net/sitemap.xml

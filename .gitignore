@@ -1,5 +1,33 @@
+# macOS / OS noise
 .DS_Store
+
+# Vercel CLI state — do not commit
+.vercel
+
+# Legacy / non-deploy
 *.command
 media_files.txt
 viavinho-redesign.html
-.vercel
+
+# Secrets — NEVER commit
+credentials.json
+token.json
+
+# Python tooling (CRM scripts live alongside website but aren't deployed)
+__pycache__/
+*.pyc
+requirements.txt
+*.py
+
+# Editor / IDE / Claude workspace state
+.vscode/
+.claude/
+ViavVinho.code-workspace
+
+# Non-website workspaces in this repo
+Automations/
+CRM/
+Reports/
+Templates/
+VS Workspace/
+vvos/
