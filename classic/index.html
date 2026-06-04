@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Via Vinho Classic — Private Wine Days in Lisbon &amp; Setúbal</title>
+  <meta name="description" content="Bookable private wine experiences in Lisbon and the Setúbal Peninsula. Fully hosted, transport included, maximum 8 guests. From €85 per person." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viavinho.net/classic/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://viavinho.net/classic/" />
+  <meta property="og:title" content="Via Vinho Classic — Private Wine Days in Lisbon &amp; Setúbal" />
+  <meta property="og:description" content="Bookable private wine experiences in Lisbon and the Setúbal Peninsula. Fully hosted, transport included, maximum 8 guests." />
+  <meta property="og:image" content="https://viavinho.net/assets/images/setubal-private-wine-tour-vineyard-walk-portugal.jpg" />
+  <meta property="og:site_name" content="Via Vinho" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- Classic page styles -->
+  <style>
+
+    /* ─── PAGE HERO ─── */
+    .classic-hero {
+      background: var(--alabaster);
+      padding: clamp(120px, 16vw, 180px) var(--gutter) clamp(64px, 8vw, 100px);
+      text-align: center;
+    }
+    .classic-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ch-40);
+      margin-bottom: 28px;
+    }
+    .classic-hero-eyebrow::before,
+    .classic-hero-eyebrow::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--burgundy);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+    .classic-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--burgundy);
+      margin-bottom: 24px;
+    }
+    .classic-hero-sub {
+      font-family: var(--font-sans);
+      font-size: clamp(0.88rem, 1.5vw, 1rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ch-70);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ─── DISTINCTION PILLARS ─── */
+    .classic-pillars {
+      background: var(--alabaster);
+      padding: 0 var(--gutter) clamp(64px, 10vw, 96px);
+      border-bottom: 1px solid var(--ch-10);
+    }
+    .classic-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .classic-pillar::before {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--burgundy);
+      margin: 0 auto 24px;
+    }
+    .classic-pillar-title {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .classic-pillar-body {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ch-70);
+    }
+    @media (max-width: 600px) {
+      .classic-pillars-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ─── EXPERIENCE COLLECTION ─── */
+    .classic-collection-section {
+      background: var(--alabaster);
+      padding: clamp(64px, 10vw, 100px) var(--gutter) clamp(80px, 12vw, 120px);
+    }
+    .classic-collection-header {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 64px);
+    }
+    .classic-collection-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .classic-collection-header p {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--ch-40);
+      letter-spacing: 0.04em;
+    }
+    .classic-collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* ─── CLASSIC CARD ─── */
+    .cc-card {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+    .cc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(26,26,26,0.08);
+    }
+    .cc-card-img {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      background: var(--ch-10);
+    }
+    .cc-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .cc-card:hover .cc-card-img img {
+      transform: scale(1.04);
+    }
+    .cc-card-body {
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .cc-card-region {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+    .cc-card-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .cc-card-desc {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ch-70);
+      margin-bottom: 0;
+      flex: 1;
+    }
+    .cc-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--ch-10);
+      padding-top: 20px;
+      margin-top: 24px;
+    }
+    .cc-card-price {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      line-height: 1;
+    }
+    .cc-card-cta {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(107,31,42,0.25);
+      padding-bottom: 2px;
+      transition: border-color 150ms ease, color 150ms ease;
+    }
+    .cc-card-cta:hover {
+      border-color: var(--burgundy);
+      color: var(--burgundy-deep);
+    }
+    @media (max-width: 960px) {
+      .classic-collection-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .classic-collection-grid { grid-template-columns: 1fr; }
+      .cc-card-img { height: 200px; }
+    }
+
+    /* ─── PARTNERS STRIP ─── */
+    .partners-section {
+      background: var(--charcoal);
+      padding: clamp(48px, 7vw, 72px) var(--gutter);
+    }
+    .partners-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(244,249,240,0.3);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .partners-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px 56px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    /* Logo images — greyscale, inverted to show on dark */
+    .partner-logo {
+      height: 44px;
+      width: auto;
+      opacity: 0.55;
+      filter: brightness(0) invert(1);
+      transition: opacity 250ms ease;
+    }
+    .partner-logo:hover { opacity: 0.9; }
+    /* Text fallback — for partners without a logo file yet */
+    .partner-name {
+      font-family: var(--font-serif);
+      font-size: 0.82rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: rgba(244,249,240,0.45);
+      white-space: nowrap;
+      transition: color 250ms ease;
+    }
+    .partner-name:hover { color: rgba(244,249,240,0.85); }
+
+    /* ─── AUTHORITY STRIP ─── */
+    .authority-section {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(244,249,240,0.08);
+      padding: 32px var(--gutter);
+    }
+    .authority-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .authority-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .authority-logo {
+      height: 32px;
+      width: auto;
+      opacity: 0.5;
+      filter: brightness(0) invert(1);
+    }
+    .authority-text {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244,249,240,0.4);
+      white-space: nowrap;
+    }
+
+    /* ─── PAGE CTA ─── */
+    .classic-cta {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(244,249,240,0.06);
+      padding: clamp(56px, 8vw, 96px) var(--gutter);
+      text-align: center;
+    }
+    .classic-cta-rule {
+      width: 40px;
+      height: 1px;
+      background: rgba(244,249,240,0.2);
+      margin: 0 auto 28px;
+    }
+    .classic-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--alabaster);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .classic-cta p {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(244,249,240,0.5);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .classic-cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav class="nav" id="main-nav">
+    <a href="/" class="nav-logo">
+      <img src="../logos/ViaVinho_LogoDesign_Classic_White.png"
+           alt="Via Vinho"
+           class="nav-logo-img nav-logo-white" />
+      <img src="../logos/logo_reserve_burgundy.png"
+           alt=""
+           class="nav-logo-img nav-logo-colored"
+           aria-hidden="true" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/classic/" aria-current="page">Classic</a></li>
+      <li><a href="/reserve/">Reserve</a></li>
+      <li><a href="/regions/">Regions</a></li>
+      <li><a href="/about/">About</a></li>
+      <li class="nav-enquire"><a href="/#enquire">Enquire</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="classic-hero">
+    <p class="classic-hero-eyebrow">Via Vinho Classic</p>
+    <h1>A few ways to spend<br />a very good day.</h1>
+    <p class="classic-hero-sub reveal">
+      Private wine days across Lisbon, the Setúbal Peninsula, and
+      Portugal's Atlantic wine regions. From neighbourhood evenings
+      to full-day estate experiences.
+    </p>
+  </section>
+
+
+  <!-- ══════════════ DISTINCTION PILLARS ══════════════ -->
+  <section class="classic-pillars">
+    <div class="classic-pillars-grid reveal">
+      <div class="classic-pillar">
+        <p class="classic-pillar-title">Bookable &amp; priced</p>
+        <p class="classic-pillar-body">Every Classic experience has a set price and can be confirmed in a single message. No waiting, no back-and-forth.</p>
+      </div>
+      <div class="classic-pillar">
+        <p class="classic-pillar-title">Your group only</p>
+        <p class="classic-pillar-body">Maximum eight guests. Your people, your pace. No shared groups, ever.</p>
+      </div>
+      <div class="classic-pillar">
+        <p class="classic-pillar-title">All-inclusive</p>
+        <p class="classic-pillar-body">Transport, estate visits, tastings, meals, and hosting from start to finish. Nothing left to arrange.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ EXPERIENCE COLLECTION ══════════════ -->
+  <section class="classic-collection-section">
+
+    <div class="classic-collection-header reveal">
+      <h2>The Experiences</h2>
+      <p>Click into any experience for the full itinerary, inclusions, and pricing.</p>
+    </div>
+
+    <div class="classic-collection-grid">
+
+      <!-- ─── GRAÇA & ANJOS AFTER DARK ─── -->
+      <article class="cc-card reveal">
+        <div class="cc-card-img">
+          <img src="../assets/images/graca-anjos-wine-tour-portugal-natural-wine-tasting.jpg"
+               alt="Guests on a private wine walk through Graça and Anjos in Lisbon, Portugal"
+               loading="lazy" />
+        </div>
+        <div class="cc-card-body">
+          <p class="cc-card-region">Lisbon · Evening</p>
+          <h2 class="cc-card-name">Graça &amp; Anjos After Dark</h2>
+          <p class="cc-card-desc">
+            Four handpicked stops through Lisbon's most characterful
+            neighbourhoods. Neighbourhood wine bars, honest petiscos,
+            good conversation.
+          </p>
+          <div class="cc-card-footer">
+            <span class="cc-card-price">From €85</span>
+            <a href="../classic/graca-anjos-after-dark/" class="cc-card-cta">
+              Explore Experience →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── SIP THE SETÚBAL STORY ─── -->
+      <article class="cc-card reveal reveal-d1">
+        <div class="cc-card-img">
+          <img src="../assets/images/sip-the-setubal-story-hosted-wine-tasting-setubal-peninsula.jpg"
+               alt="Private wine tasting at a family estate on the Setúbal Peninsula, Portugal"
+               loading="lazy" />
+        </div>
+        <div class="cc-card-body">
+          <p class="cc-card-region">Setúbal Peninsula · Half Day</p>
+          <h2 class="cc-card-name">Sip the Setúbal Story</h2>
+          <p class="cc-card-desc">
+            An afternoon in one of Portugal's most underrated wine regions.
+            A family estate, unhurried tastings, and the story behind
+            the Setúbal Peninsula's quietly extraordinary wines.
+          </p>
+          <div class="cc-card-footer">
+            <span class="cc-card-price">From €125</span>
+            <a href="../classic/sip-the-setubal-story/" class="cc-card-cta">
+              Explore Experience →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── SETÚBAL INDULGENCE ─── -->
+      <article class="cc-card reveal reveal-d2">
+        <div class="cc-card-img">
+          <img src="../assets/images/setubal-indulgence-private-wine-tour-lunch-toast.jpg"
+               alt="Guests toasting at a private full-day wine experience in the Setúbal Peninsula"
+               loading="lazy" />
+        </div>
+        <div class="cc-card-body">
+          <p class="cc-card-region">Setúbal Peninsula · Full Day</p>
+          <h2 class="cc-card-name">Setúbal Indulgence</h2>
+          <p class="cc-card-desc">
+            Two private estate visits, a long lunch with regional cuisine,
+            and a proper introduction to the wines that have shaped the
+            Setúbal Peninsula for centuries.
+          </p>
+          <div class="cc-card-footer">
+            <span class="cc-card-price">From €230</span>
+            <a href="../classic/setubal-indulgence/" class="cc-card-cta">
+              Explore Experience →
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════ PARTNERS ══════════════ -->
+  <section class="partners-section">
+    <p class="partners-eyebrow">Our Producers &amp; Partners</p>
+    <div class="partners-logos">
+      <!-- Replace each <span> with <img class="partner-logo" src="..." alt="..."> when logo files are ready -->
+      <span class="partner-name">Filipe Palhoça Vinhos</span>
+      <span class="partner-name">Quinta de Alcube</span>
+      <span class="partner-name">Herdade do Menir</span>
+      <span class="partner-name">Fernão Pó Adega-Winery</span>
+      <span class="partner-name">Quinta Catralvos</span>
+      <span class="partner-name">Venâncio da Costa Lima</span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ AUTHORITY ══════════════ -->
+  <section class="authority-section">
+    <div class="authority-inner">
+      <div class="authority-item">
+        <!-- <img class="authority-logo" src="../assets/images/turismo-portugal-logo.png" alt="Turismo de Portugal"> -->
+        <span class="authority-text">Turismo de Portugal</span>
+      </div>
+      <div class="authority-item">
+        <span class="authority-text">RNAAT 959/2024</span>
+      </div>
+      <div class="authority-item">
+        <!-- <img class="authority-logo" src="../assets/images/kayak-guides-badge.png" alt="KAYAK Guides"> -->
+        <span class="authority-text">KAYAK Guides · Lisbon</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="classic-cta">
+    <div class="classic-cta-rule"></div>
+    <h2 class="reveal">Have something else in mind?</h2>
+    <p class="reveal reveal-d1">
+      Tell us what you're looking for — the region, the kind of day,
+      the group. We'll take it from there.
+    </p>
+    <div class="classic-cta-buttons reveal reveal-d2">
+      <a href="mailto:hello@viavinho.net?subject=Classic%20Enquiry"
+         class="btn-ghost-dark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email us
+      </a>
+      <a href="https://wa.me/351913368129?text=Hi%20Via%20Vinho%2C%20I%27d%20like%20to%20enquire%20about%20a%20Classic%20experience."
+         class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
+      <p>RNAAT 959/2024 · © 2026 Via Vinho</p>
+      <p><a href="https://instagram.com/viavinho" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </footer>
+
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

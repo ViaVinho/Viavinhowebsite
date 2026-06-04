@@ -3,4 +3,4 @@ Allow: /
 Disallow: /found
 Disallow: /found.html
 
-Sitemap: https://www.viavinho.net/sitemap.xml
+Sitemap: https://viavinho.net/sitemap.xml

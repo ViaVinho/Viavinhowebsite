@@ -4,17 +4,23 @@
 ═══════════════════════════════════════════════════════════ */
 
 // ── Nav scroll state ──
-// Adds .scrolled class at 80px — triggers logo + background transition
+// Adds .scrolled class at 80px — triggers logo + background transition.
+// On pages without a dark hero (.hero), starts in scrolled state immediately.
 const nav = document.getElementById('main-nav');
 const navLogoText = nav.querySelector('.nav-logo-text');
+const hasHero = !!document.querySelector('.hero');
+
+if (!hasHero) nav.classList.add('scrolled');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 80) {
     nav.classList.add('scrolled');
     if (navLogoText) navLogoText.style.color = 'var(--burgundy)';
   } else {
-    nav.classList.remove('scrolled');
-    if (navLogoText) navLogoText.style.color = 'var(--alabaster)';
+    if (hasHero) {
+      nav.classList.remove('scrolled');
+      if (navLogoText) navLogoText.style.color = 'var(--alabaster)';
+    }
   }
 }, { passive: true });
 
