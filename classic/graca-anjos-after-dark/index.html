@@ -167,6 +167,17 @@
     .xp-ph--dark span { color: rgba(244,249,240,0.4); }
 
 
+    /* ════════ NAV LOGO — page-scoped override ════════
+       Shrink ~20% from the homepage's 130px so the experience-page
+       hero eyebrow + headline don't crowd the nav. */
+    .nav-logo-img               { height: 100px; }
+    .nav.scrolled .nav-logo-img { height: 50px; }
+    @media (max-width: 640px) {
+      .nav-logo-img               { height: 72px; }
+      .nav.scrolled .nav-logo-img { height: 40px; }
+    }
+
+
     /* ════════ HERO ════════
        Editorial format — shorter than full-bleed so the page pulls
        users into content quickly. Image fills via .xp-hero-img,

@@ -203,6 +203,18 @@
     .xp-ph--dark span { color: rgba(244,249,240,0.4); }
 
 
+    /* ════════ NAV LOGO — page-scoped override ════════
+       Homepage uses a 130px logo for brand presence on full-bleed hero.
+       Experience pages have shorter heroes (60vh), so shrink ~20% here
+       to clear the hero eyebrow + headline. */
+    .nav-logo-img               { height: 100px; }
+    .nav.scrolled .nav-logo-img { height: 50px; }
+    @media (max-width: 640px) {
+      .nav-logo-img               { height: 72px; }
+      .nav.scrolled .nav-logo-img { height: 40px; }
+    }
+
+
     /* ════════ HERO ════════
        Editorial format — shorter than full-bleed so the page pulls
        users into content quickly. Image fills via .xp-hero-img,
