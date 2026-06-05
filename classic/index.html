@@ -369,10 +369,25 @@
       display: flex;
       flex-direction: column;
       transition: transform 300ms ease, box-shadow 300ms ease;
+      position: relative;
+      cursor: pointer;
     }
     .cc-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 40px rgba(26,26,26,0.08);
+    }
+    /* Stretched-link pattern: the existing .cc-card-cta covers the whole card
+       via ::after, so clicking anywhere on the card navigates to the experience
+       page. Interactive controls (slider) lift above with a higher z-index. */
+    .cc-card-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .cc-card .cc-group {
+      position: relative;
+      z-index: 2;
     }
     .cc-card-img {
       width: 100%;
