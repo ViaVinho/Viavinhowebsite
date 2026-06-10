@@ -131,7 +131,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <!-- Shared styles -->
-  <link rel="stylesheet" href="../../css/styles.css" />
+  <style id="critical">:root{--burgundy:#6B1F2A;--burgundy-deep:#561929;--alabaster:#F4F9F0;--charcoal:#1A1A1A;--ab-80:rgba(244,249,240,0.80);--ab-55:rgba(244,249,240,0.55);--ab-30:rgba(244,249,240,0.30);--ab-12:rgba(244,249,240,0.12);--ab-07:rgba(244,249,240,0.07);--ch-70:rgba(26,26,26,0.70);--ch-40:rgba(26,26,26,0.40);--ch-20:rgba(26,26,26,0.20);--ch-10:rgba(26,26,26,0.10);--font-serif:'Lora',Georgia,serif;--font-sans:'Poppins',system-ui,sans-serif;--gutter:clamp(28px,6vw,80px);--max-w:1280px}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{font-size:16px;scroll-behavior:smooth}body{font-family:var(--font-sans);background:var(--alabaster);color:var(--charcoal);-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:32px var(--gutter);transition:background 350ms ease,padding 350ms ease,box-shadow 350ms ease}.nav.scrolled{background:rgba(244,249,240,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:20px var(--gutter);box-shadow:0 1px 0 var(--ch-10)}.nav-logo{display:flex;align-items:center;position:relative}.nav-logo-img{height:130px;width:auto;transition:opacity 350ms ease,height 350ms ease;display:block}.nav-logo-white{opacity:1;position:relative;z-index:1}.nav-logo-colored{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;z-index:2}.nav.scrolled .nav-logo-img{height:56px}.nav.scrolled .nav-logo-white{opacity:0}.nav.scrolled .nav-logo-colored{opacity:1}.nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,40px);list-style:none}.nav-links a{font-family:var(--font-sans);font-size:0.69rem;font-weight:300;letter-spacing:0.13em;text-transform:uppercase;color:var(--ab-80);transition:color 150ms ease}.nav.scrolled .nav-links a{color:var(--ch-70)}.nav-links a:hover{color:var(--alabaster)}.nav.scrolled .nav-links a:hover{color:var(--charcoal)}.nav-enquire a{color:var(--alabaster)!important;border-bottom:1px solid var(--ab-30);padding-bottom:2px;transition:border-color 150ms ease!important}.nav-enquire a:hover{border-color:var(--alabaster)!important}.nav.scrolled .nav-enquire a{color:var(--burgundy)!important;border-color:var(--burgundy)!important;opacity:0.7}.nav.scrolled .nav-enquire a:hover{opacity:1}@media (max-width:640px){.nav-logo-img{height:90px}.nav.scrolled .nav-logo-img{height:44px}}@media (max-width:760px){.nav-links{display:none}}</style>
+  <link rel="stylesheet" href="../../css/styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../../css/styles.css"></noscript>
 
   <!-- Experience-page template styles (self-contained) -->
   <style>
@@ -155,7 +157,7 @@
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ch-40);
+      color: var(--ch-70);
       text-align: center;
       padding: 0 16px;
     }
@@ -308,12 +310,12 @@
       font-weight: 300;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ch-40);
+      color: var(--ch-70);
     }
-    .xp-breadcrumb a { color: var(--ch-40); transition: color 150ms ease; }
+    .xp-breadcrumb a { color: var(--ch-70); transition: color 150ms ease; }
     .xp-breadcrumb a:hover { color: var(--burgundy); }
     .xp-breadcrumb li[aria-current] { color: var(--burgundy); }
-    .xp-breadcrumb li + li::before { content: '/'; margin-right: 8px; color: var(--ch-20); }
+    .xp-breadcrumb li + li::before { content: '/'; margin-right: 8px; color: var(--ch-70); }
 
 
     /* ════════ SECTION SCAFFOLD ════════ */
@@ -329,7 +331,7 @@
       font-weight: 300;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--ch-40);
+      color: var(--ch-70);
       margin-bottom: 24px;
     }
     .xp-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--burgundy); flex-shrink: 0; }
@@ -518,7 +520,7 @@
       font-size: clamp(0.82rem, 1.2vw, 0.92rem);
       font-weight: 300;
       line-height: 1.6;
-      color: var(--ch-40);
+      color: var(--ch-70);
       text-align: center;
       max-width: 600px;
       margin: clamp(40px, 5vw, 64px) auto 0;
@@ -583,7 +585,7 @@
       font-weight: 300;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ch-40);
+      color: var(--ch-70);
       margin-bottom: 26px;
     }
     .xp-price-headline {
@@ -597,21 +599,21 @@
       font-family: var(--font-sans);
       font-size: 0.7rem;
       font-weight: 300;
-      color: var(--ch-40);
+      color: var(--ch-70);
       margin-left: 8px;
     }
     .xp-price-total {
       font-family: var(--font-sans);
       font-size: 0.78rem;
       font-weight: 300;
-      color: var(--ch-40);
+      color: var(--ch-70);
       margin-top: 10px;
     }
 
     /* Slider (mirrors the collection-page component) */
     .xp-group { margin: 30px auto 32px; max-width: 360px; }
     .xp-group-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
-    .xp-group-label { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ch-40); }
+    .xp-group-label { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ch-70); }
     .xp-group-count { font-family: var(--font-sans); font-size: 0.74rem; font-weight: 300; color: var(--ch-70); }
     .xp-group-count .xp-group-n { color: var(--burgundy); font-weight: 600; }
     .xp-group-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 2px; background: var(--ch-10); outline: none; cursor: pointer; margin: 0; }
@@ -625,7 +627,7 @@
       font-size: 0.72rem;
       font-weight: 300;
       line-height: 1.6;
-      color: var(--ch-40);
+      color: var(--ch-70);
       margin-top: 20px;
     }
 
@@ -730,7 +732,7 @@
       gap: 14px;
     }
     .xp-sticky-price { font-family: var(--font-serif); font-size: 1.1rem; color: var(--burgundy); line-height: 1.1; }
-    .xp-sticky-price small { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 300; color: var(--ch-40); display: block; letter-spacing: 0.04em; }
+    .xp-sticky-price small { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 300; color: var(--ch-70); display: block; letter-spacing: 0.04em; }
     @media (max-width: 760px) {
       .xp-sticky { display: flex; }
       body { padding-bottom: 76px; }
@@ -757,14 +759,16 @@
   <!-- ══════════════ NAV (shared pattern) ══════════════ -->
   <nav class="nav" id="main-nav">
     <a href="/" class="nav-logo">
-      <img src="../../logos/ViaVinho_LogoDesign_Classic_White.png" alt="Via Vinho" class="nav-logo-img nav-logo-white" />
-      <img src="../../logos/logo_reserve_burgundy.png" alt="" class="nav-logo-img nav-logo-colored" aria-hidden="true" />
+      <img src="../../logos/ViaVinho_LogoDesign_Classic_White.png" alt="Via Vinho" class="nav-logo-img nav-logo-white" width="3508" height="2481" />
+      <img src="../../logos/logo_reserve_burgundy.png" alt="" class="nav-logo-img nav-logo-colored" aria-hidden="true" width="1758" height="1092" />
     </a>
     <ul class="nav-links">
       <li><a href="/classic/" aria-current="page">Classic</a></li>
       <li class="nav-enquire"><a href="/#enquire">Enquire</a></li>
     </ul>
   </nav>
+
+  <main id="content">
 
 
   <!-- ══════════════ 1 · HERO ══════════════ -->
@@ -979,7 +983,24 @@
   </section>
 
 
-  <!-- ══════════════ 9 · RELATED EXPERIENCES ══════════════ -->
+  <!-- ══════════════ 9 · FINAL CTA ══════════════ -->
+  <section class="xp-final" id="enquire-cta">
+    <div class="xp-final-rule"></div>
+    <h2 class="reveal">Discover the Lisbon locals know.</h2>
+    <p class="reveal reveal-d1">Tell us your dates and group size — we'll secure your evening in Graça and Anjos.</p>
+    <div class="xp-final-ctas reveal reveal-d2">
+      <a href="/#enquire" class="btn-ghost-dark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Enquire
+      </a>
+      <a href="https://wa.me/351913368129" class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ 10 · RELATED EXPERIENCES ══════════════ -->
   <section class="xp-section">
     <div class="xp-wide" style="text-align:center; margin-bottom: clamp(28px,4vw,44px);">
       <p class="xp-eyebrow xp-eyebrow--center">More Classic experiences</p>
@@ -1010,23 +1031,6 @@
   </section>
 
 
-  <!-- ══════════════ 10 · FINAL CTA ══════════════ -->
-  <section class="xp-final" id="enquire-cta">
-    <div class="xp-final-rule"></div>
-    <h2 class="reveal">Discover the Lisbon locals know.</h2>
-    <p class="reveal reveal-d1">Tell us your dates and group size — we'll secure your evening in Graça and Anjos.</p>
-    <div class="xp-final-ctas reveal reveal-d2">
-      <a href="/#enquire" class="btn-ghost-dark">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Enquire
-      </a>
-      <a href="https://wa.me/351913368129" class="btn-ghost-dark" target="_blank" rel="noopener noreferrer">
-        WhatsApp
-      </a>
-    </div>
-  </section>
-
-
   <!-- ══════════════ MOBILE STICKY CTA ══════════════ -->
   <div class="xp-sticky">
     <div class="xp-sticky-price">€80<small>per person</small></div>
@@ -1035,6 +1039,8 @@
 
 
   <!-- ══════════════ FOOTER (shared) ══════════════ -->
+  </main>
+
   <footer class="footer">
     <div class="footer-inner">
       <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
