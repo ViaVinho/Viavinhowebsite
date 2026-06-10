@@ -21,6 +21,8 @@
 !assets/**
 !classic
 !classic/**
+!reserve
+!reserve/**
 
 # Explicitly re-exclude noise that could slip back in
 .DS_Store

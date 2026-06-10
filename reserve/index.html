@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       VIA VINHO — RESERVE
+       Premium tier. Private, relationship-led experiences and
+       fully bespoke wine journeys across Portugal.
+       Regional landing pages are handled separately.
+       Imagery: /assets/images/reserve/ (slots reserved for CLS-safety)
+  ══════════════════════════════════════════════════════════ -->
+
+  <!-- SEO + GEO -->
+  <title>Reserve — Private Wine Experiences &amp; Bespoke Journeys · Via Vinho</title>
+  <meta name="description" content="Via Vinho Reserve — private wine experiences and bespoke journeys across Portugal, created through long-standing relationships with the winemakers and estates behind the wine. By arrangement, on request." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viavinho.net/reserve/" />
+
+  <!-- Preload hero (LCP) -->
+  <link rel="preload" as="image"
+        href="/assets/images/reserve/private-winery-access-portugal.webp"
+        fetchpriority="high" />
+
+  <!-- Geo signals -->
+  <meta name="geo.region" content="PT-11" />
+  <meta name="geo.placename" content="Lisbon, Portugal" />
+  <meta name="geo.position" content="38.7223;-9.1393" />
+  <meta name="ICBM" content="38.7223, -9.1393" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://viavinho.net/reserve/" />
+  <meta property="og:title" content="Reserve — Private Wine Experiences &amp; Bespoke Journeys · Via Vinho" />
+  <meta property="og:description" content="The premium tier — private wine experiences and bespoke journeys, created through long-standing relationships with winemakers, estates and local producers across Portugal." />
+  <meta property="og:image" content="https://viavinho.net/assets/images/reserve/private-winery-access-portugal.webp" />
+  <meta property="og:site_name" content="Via Vinho" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reserve — Private Wine Experiences &amp; Bespoke Journeys · Via Vinho" />
+  <meta name="twitter:description" content="Private wine experiences and bespoke journeys across Portugal — built around relationships with the winemakers and estates behind the wine." />
+  <meta name="twitter:image" content="https://viavinho.net/assets/images/reserve/private-winery-access-portugal.webp" />
+
+  <!-- STRUCTURED DATA — BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://viavinho.net/" },
+      { "@type": "ListItem", "position": 2, "name": "Reserve", "item": "https://viavinho.net/reserve/" }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — Service (premium + bespoke tier, enquiry-led, no fixed price) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Via Vinho Reserve — Private Wine Experiences &amp; Bespoke Journeys",
+    "serviceType": "Private and bespoke wine experiences",
+    "description": "Via Vinho Reserve: private wine experiences and bespoke journeys across Portugal. Offered on request and built around long-standing relationships with winemakers, estates and local producers.",
+    "url": "https://viavinho.net/reserve/",
+    "provider": { "@id": "https://viavinho.net/#organization" },
+    "areaServed": { "@type": "Country", "name": "Portugal" },
+    "audience": { "@type": "Audience", "audienceType": "Private travellers, couples, small private groups" }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — ImageGallery (captions + descriptions for each Reserve image) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Via Vinho Reserve — Imagery",
+    "url": "https://viavinho.net/reserve/",
+    "associatedMedia": [
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://viavinho.net/assets/images/reserve/private-winery-access-portugal.webp",
+        "name": "Private Winery Access Portugal",
+        "caption": "Private access to Portugal's wine world through Via Vinho Reserve.",
+        "description": "Guests arriving for a private winery experience in Portugal through Via Vinho Reserve."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://viavinho.net/assets/images/reserve/colares-private-wine-experience.webp",
+        "name": "Colares Private Wine Experience",
+        "caption": "Discover Europe's oldest ungrafted vineyards on a private journey through Colares.",
+        "description": "Walking through historic ungrafted vineyards in Colares, Portugal."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://viavinho.net/assets/images/reserve/torres-vedras-winemaker-experience.webp",
+        "name": "Torres Vedras Winemaker Experience",
+        "caption": "Meet the producers shaping Portugal's Atlantic wine frontier.",
+        "description": "Private wine tasting with a winemaker in Torres Vedras, Portugal."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://viavinho.net/assets/images/reserve/private-winemaker-lunch-portugal.webp",
+        "name": "Private Winemaker Lunch Portugal",
+        "caption": "Long lunches, cellar conversations and wines shared directly by those who make them.",
+        "description": "Guests sharing a private tasting and conversation with a Portuguese winemaker."
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://viavinho.net/assets/images/reserve/bespoke-wine-journey-portugal-private-cellar.webp",
+        "name": "Bespoke Wine Journey Portugal | Private Cellar Experience",
+        "caption": "Every Reserve journey begins with a conversation. Private tastings, hidden cellars, and experiences shaped entirely around your interests.",
+        "description": "A bespoke wine journey through Portugal, offering private access to wineries, exclusive tastings, and tailor-made experiences designed around each guest."
+      }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — Reserve experiences (ItemList — keep in sync with the carousel below) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Via Vinho Reserve experiences",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "TouristTrip", "name": "Colares Reserve", "description": "A private day in Colares, where ungrafted vines grow in Atlantic sand — among the oldest surviving in Europe. Full day from Lisbon with private estate access.", "url": "https://viavinho.net/reserve/" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "TouristTrip", "name": "Atlantic Fringe", "description": "A private full day among the Atlantic wine producers of Torres Vedras, near Lisbon. Two estates, a long seasonal lunch, producer-led.", "url": "https://viavinho.net/reserve/" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "TouristTrip", "name": "At the Winemaker's Table", "description": "A private invitation into the working life of a Portuguese estate — long lunches, cellar conversations, and wines shared directly by the people who make them.", "url": "https://viavinho.net/reserve/" } }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap"></noscript>
+
+  <style>
+    :root{--burgundy:#6B1F2A;--burgundy-deep:#561929;--alabaster:#F4F9F0;--charcoal:#1A1A1A;--ab-80:rgba(244,249,240,0.80);--ab-62:rgba(244,249,240,0.62);--ab-55:rgba(244,249,240,0.55);--ab-30:rgba(244,249,240,0.30);--ab-18:rgba(244,249,240,0.18);--ch-70:rgba(26,26,26,0.70);--ch-55:rgba(26,26,26,0.62);--ch-40:rgba(26,26,26,0.48);--ch-20:rgba(26,26,26,0.20);--ch-10:rgba(26,26,26,0.10);--font-serif:'Lora',Georgia,serif;--font-sans:'Poppins',system-ui,sans-serif;--gutter:clamp(28px,6vw,80px);--max-w:1280px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:16px;scroll-behavior:smooth}
+    body{font-family:var(--font-sans);background:var(--alabaster);color:var(--charcoal);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:32px var(--gutter);transition:background 350ms ease,padding 350ms ease,box-shadow 350ms ease}
+    .nav.scrolled{background:rgba(244,249,240,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:20px var(--gutter);box-shadow:0 1px 0 var(--ch-10)}
+    .nav-logo{display:flex;align-items:center;position:relative}
+    .nav-logo-img{height:120px;width:auto;transition:opacity 350ms ease,height 350ms ease;display:block}
+    .nav-logo-white{opacity:1;position:relative;z-index:1}
+    .nav-logo-colored{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;z-index:2}
+    .nav.scrolled .nav-logo-img{height:54px}
+    .nav.scrolled .nav-logo-white{opacity:0}
+    .nav.scrolled .nav-logo-colored{opacity:1}
+    .nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,40px);list-style:none}
+    .nav-links a{font-family:var(--font-sans);font-size:0.69rem;font-weight:300;letter-spacing:0.13em;text-transform:uppercase;color:var(--ab-80);transition:color 150ms ease}
+    .nav.scrolled .nav-links a{color:var(--ch-70)}
+    .nav-links a:hover{color:var(--alabaster)}
+    .nav.scrolled .nav-links a:hover{color:var(--charcoal)}
+    .nav-links a.is-current{color:var(--alabaster);border-bottom:1px solid var(--ab-30);padding-bottom:2px}
+    .nav.scrolled .nav-links a.is-current{color:var(--burgundy);border-color:var(--burgundy)}
+
+    /* HERO */
+    .rsv-hero{position:relative;width:100%;height:92svh;min-height:600px;overflow:hidden;background:var(--charcoal)}
+    .rsv-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.62}
+    .rsv-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(26,26,26,0.82) 0%,rgba(26,26,26,0.5) 50%,rgba(26,26,26,0.2) 100%);z-index:1}
+    .rsv-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,var(--alabaster) 0%,transparent 100%);z-index:2}
+    .rsv-hero-inner{position:absolute;bottom:16%;left:var(--gutter);right:var(--gutter);z-index:3;max-width:780px}
+    .rsv-hero-label{font-family:var(--font-sans);font-size:0.68rem;font-weight:300;letter-spacing:0.24em;text-transform:uppercase;color:var(--ab-55);margin-bottom:22px}
+    .rsv-hero-h1{font-family:var(--font-serif);font-size:clamp(2.5rem,5.8vw,4.4rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--alabaster);margin-bottom:24px}
+    .rsv-hero-lead{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.3rem);font-weight:400;line-height:1.6;color:var(--ab-80);max-width:600px;margin-bottom:34px}
+    .rsv-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.72rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--alabaster);border-bottom:1px solid var(--ab-30);padding-bottom:3px;transition:border-color 200ms ease}
+    .rsv-cta:hover{border-color:var(--alabaster)}
+
+    /* SECTION SHELL */
+    .rsv-section{padding:clamp(72px,11vw,132px) 0}
+    .rsv-eyebrow{font-family:var(--font-sans);font-size:0.66rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:24px}
+
+    /* POSITIONING (What Reserve Is) */
+    .rsv-position{text-align:center}
+    .rsv-position-inner{max-width:740px;margin:0 auto}
+    .rsv-position-prose{font-family:var(--font-serif);font-size:clamp(1.22rem,2.3vw,1.62rem);font-weight:400;line-height:1.62;color:var(--charcoal)}
+    .rsv-position-prose em{font-style:italic;color:var(--burgundy)}
+    .rsv-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);max-width:840px;margin:clamp(44px,6vw,64px) auto 0}
+    .rsv-pillar{text-align:center}
+    .rsv-pillar-rule{width:34px;height:1px;background:var(--ch-20);margin:0 auto 16px}
+    .rsv-pillar h3{font-family:var(--font-serif);font-size:1.12rem;font-weight:400;margin-bottom:8px}
+    .rsv-pillar p{font-family:var(--font-sans);font-size:0.86rem;font-weight:300;line-height:1.6;color:var(--ch-55)}
+
+    /* RESERVE COLLECTION (carousel, on burgundy) */
+    .rsv-collection{background:var(--burgundy);overflow:hidden}
+    .rsv-coll-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,56px)}
+    .rsv-coll-head .rsv-eyebrow{color:var(--ab-62)}
+    .rsv-coll-head h2{font-family:var(--font-serif);font-size:clamp(1.95rem,3.8vw,2.9rem);font-weight:400;line-height:1.18;color:var(--alabaster);margin-bottom:18px}
+    .rsv-coll-head p{font-family:var(--font-sans);font-size:1rem;font-weight:300;line-height:1.7;color:var(--ab-80);font-style:italic}
+
+    /* Carousel — pure scroll-snap, no library. Cards stay HTML source of truth. */
+    .rsv-carousel{position:relative}
+    .rsv-carousel-track{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:calc((100% - 56px) / 3);  /* 3 visible, 28px gap × 2 */
+      gap:28px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding-bottom:4px;  /* room for card shadow if added */
+    }
+    .rsv-carousel-track::-webkit-scrollbar{display:none}
+    .rsv-carousel-track > .rsv-card{scroll-snap-align:start}
+    .rsv-card{background:var(--alabaster);border-radius:3px;overflow:hidden;display:flex;flex-direction:column}
+    .rsv-card-media{width:100%;aspect-ratio:3/2;min-height:200px;background:var(--burgundy-deep);overflow:hidden}
+    .rsv-card-media img{width:100%;height:100%;object-fit:cover}
+    .rsv-card-body{padding:30px 30px 28px;display:flex;flex-direction:column;flex:1}
+    .rsv-card-label{font-family:var(--font-sans);font-size:0.6rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px}
+    .rsv-card-title{font-family:var(--font-serif);font-size:1.55rem;font-weight:400;line-height:1.2;margin-bottom:16px}
+    .rsv-card-desc{font-family:var(--font-sans);font-size:0.92rem;font-weight:300;line-height:1.72;color:var(--ch-70);flex:1}
+    .rsv-card-tag{font-family:var(--font-sans);font-size:0.62rem;font-weight:400;letter-spacing:0.05em;color:var(--ch-55);margin-top:20px}
+    .rsv-card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--ch-10)}
+    .rsv-card-price{font-family:var(--font-serif);font-size:1.12rem;font-weight:400;color:var(--charcoal);font-style:italic}
+    .rsv-card-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:0.62rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--burgundy);border:1px solid var(--ch-20);padding:10px 16px;border-radius:2px;transition:background 180ms ease,color 180ms ease,border-color 180ms ease}
+    .rsv-card-cta:hover{background:var(--burgundy);color:var(--alabaster);border-color:var(--burgundy)}
+
+    /* Carousel nav (arrows) */
+    .rsv-carousel-nav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:36px}
+    .rsv-carousel-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid var(--ab-30);background:transparent;color:var(--alabaster);border-radius:50%;cursor:pointer;transition:background 180ms ease,border-color 180ms ease,opacity 180ms ease;-webkit-appearance:none;appearance:none}
+    .rsv-carousel-btn:hover:not([disabled]){background:var(--alabaster);color:var(--burgundy);border-color:var(--alabaster)}
+    .rsv-carousel-btn[disabled]{opacity:0.3;cursor:default}
+    .rsv-carousel-btn svg{display:block}
+    .rsv-carousel-status{font-family:var(--font-sans);font-size:0.7rem;font-weight:400;letter-spacing:0.14em;color:var(--ab-62);min-width:48px;text-align:center}
+
+    /* WHY RESERVE EXISTS (story) */
+    .rsv-story{background:var(--alabaster);border-top:1px solid var(--ch-10)}
+    .rsv-story-inner{max-width:720px;margin:0 auto;text-align:center}
+    .rsv-story-lead{font-family:var(--font-serif);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:400;font-style:italic;line-height:1.25;color:var(--burgundy);margin-bottom:36px;letter-spacing:-0.01em}
+    .rsv-story-prose p{font-family:var(--font-serif);font-size:clamp(1.02rem,1.6vw,1.18rem);font-weight:400;line-height:1.78;color:var(--ch-70);margin-bottom:22px}
+    .rsv-story-prose p:last-child{margin-bottom:0}
+    .rsv-story-coda{color:var(--charcoal)!important;font-style:italic;margin-top:34px!important;padding-top:30px;border-top:1px solid var(--ch-10)}
+
+    /* BESPOKE (closing block — full-bleed bg image + overlay) */
+    .rsv-bespoke{position:relative;background:var(--charcoal);color:var(--alabaster);text-align:center;overflow:hidden;isolation:isolate}
+    .rsv-bespoke-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.32;z-index:0}
+    .rsv-bespoke::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,0.78) 0%,rgba(26,26,26,0.62) 100%);z-index:1}
+    .rsv-bespoke .container{position:relative;z-index:2}
+    .rsv-bespoke-inner{max-width:720px;margin:0 auto}
+    .rsv-bespoke .rsv-eyebrow{color:var(--ab-62)}
+    .rsv-bespoke h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,2.9rem);font-weight:400;line-height:1.16;color:var(--alabaster);margin-bottom:24px}
+    .rsv-bespoke p{font-family:var(--font-sans);font-size:1.04rem;font-weight:300;line-height:1.78;color:var(--ab-80);margin-bottom:18px}
+    .rsv-bespoke-emphasis{font-family:var(--font-serif)!important;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.3rem)!important;color:var(--alabaster)!important;margin:8px auto 28px!important;max-width:560px}
+    .rsv-bespoke-tag{font-family:var(--font-sans);font-size:0.64rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--ab-55);margin-bottom:38px}
+    .rsv-bespoke-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+    .rsv-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.72rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--alabaster);border:1px solid var(--ab-30);padding:15px 28px;border-radius:2px;transition:background 200ms ease,color 200ms ease,border-color 200ms ease;cursor:pointer}
+    .rsv-btn:hover{background:var(--alabaster);color:var(--charcoal);border-color:var(--alabaster)}
+
+    /* LUXURY DISCOVERY FORM */
+    .rsv-form-section{background:var(--alabaster);border-top:1px solid var(--ch-10)}
+    .rsv-form-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,56px)}
+    .rsv-form-head h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:400;line-height:1.2;margin-bottom:16px}
+    .rsv-form-head p{font-family:var(--font-sans);font-size:0.96rem;font-weight:300;line-height:1.7;color:var(--ch-70)}
+    .rsv-form{max-width:780px;margin:0 auto}
+    .rsv-form-row{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:26px}
+    .rsv-field{display:flex;flex-direction:column}
+    .rsv-field-label{font-family:var(--font-sans);font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ch-55);margin-bottom:10px}
+    .rsv-field input,
+    .rsv-field select,
+    .rsv-field textarea{font-family:var(--font-sans);font-size:0.95rem;font-weight:300;color:var(--charcoal);background:transparent;border:none;border-bottom:1px solid var(--ch-20);padding:8px 0 10px;outline:none;transition:border-color 180ms ease;border-radius:0;-webkit-appearance:none;appearance:none}
+    .rsv-field select{background-image:linear-gradient(45deg,transparent 50%,var(--ch-55) 50%),linear-gradient(135deg,var(--ch-55) 50%,transparent 50%);background-position:calc(100% - 14px) 50%,calc(100% - 8px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:24px;cursor:pointer}
+    .rsv-field input:focus,
+    .rsv-field select:focus,
+    .rsv-field textarea:focus{border-bottom-color:var(--burgundy)}
+    .rsv-field textarea{resize:vertical;min-height:90px;padding-top:10px}
+    .rsv-fieldset{margin-bottom:26px;border:none}
+    .rsv-fieldset legend{font-family:var(--font-sans);font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ch-55);margin-bottom:14px;padding:0}
+    .rsv-chips{display:flex;flex-wrap:wrap;gap:10px}
+    .rsv-chip{position:relative}
+    .rsv-chip input{position:absolute;opacity:0;pointer-events:none}
+    .rsv-chip span{display:inline-block;font-family:var(--font-sans);font-size:0.72rem;font-weight:400;letter-spacing:0.04em;color:var(--ch-70);background:transparent;border:1px solid var(--ch-20);padding:9px 16px;border-radius:2px;cursor:pointer;transition:background 160ms ease,color 160ms ease,border-color 160ms ease}
+    .rsv-chip input:checked + span{background:var(--burgundy);color:var(--alabaster);border-color:var(--burgundy)}
+    .rsv-chip input:focus-visible + span{outline:2px solid var(--burgundy);outline-offset:2px}
+    .rsv-form-submit{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:14px;margin-top:36px}
+    .rsv-form-submit button{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.74rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--alabaster);background:var(--burgundy);border:1px solid var(--burgundy);padding:17px 38px;border-radius:2px;cursor:pointer;transition:background 200ms ease}
+    .rsv-form-submit button:hover{background:var(--burgundy-deep);border-color:var(--burgundy-deep)}
+    .rsv-form-submit small{font-family:var(--font-sans);font-size:0.7rem;font-weight:300;color:var(--ch-55)}
+
+    /* FOOTER */
+    .footer{background:var(--alabaster);padding:48px var(--gutter);border-top:1px solid var(--ch-10)}
+    .footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;font-family:var(--font-sans);font-size:0.78rem;font-weight:300;color:var(--ch-55)}
+    .footer-inner a{color:var(--burgundy)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}
+
+    /* RESPONSIVE */
+    @media (max-width:1000px){
+      .rsv-carousel-track{grid-auto-columns:calc((100% - 28px) / 2)}  /* 2 visible */
+    }
+    @media (max-width:860px){.rsv-pillars{grid-template-columns:1fr;gap:34px;max-width:420px}}
+    @media (max-width:640px){
+      .nav-logo-img{height:84px}
+      .nav.scrolled .nav-logo-img{height:44px}
+      .rsv-carousel-track{grid-auto-columns:88%}  /* 1 visible, with peek */
+      .rsv-form-row{grid-template-columns:1fr;gap:22px}
+    }
+    @media (max-width:760px){.nav-links{gap:18px}.nav-links a{font-size:0.6rem}}
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .rsv-carousel-track{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <a href="/" class="nav-logo" aria-label="Via Vinho — home">
+      <img src="/logos/ViaVinho_LogoDesign_Classic_White.png" alt="Via Vinho"
+           class="nav-logo-img nav-logo-white" width="3508" height="2481" />
+      <img src="/logos/logo_reserve_burgundy.png" alt=""
+           class="nav-logo-img nav-logo-colored" aria-hidden="true" width="1758" height="1092" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/classic/">Classic</a></li>
+      <li><a href="/reserve/" class="is-current" aria-current="page">Reserve</a></li>
+      <li><a href="#discovery">Enquire</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
+
+    <!-- ══════════════ 1 · HERO ══════════════ -->
+    <section class="rsv-hero" id="hero">
+      <img class="rsv-hero-img"
+           src="/assets/images/reserve/private-winery-access-portugal.webp"
+           alt="Guests arriving for a private winery experience in Portugal through Via Vinho Reserve"
+           title="Private Winery Access Portugal"
+           width="1280" height="854" fetchpriority="high" decoding="async" />
+      <div class="rsv-hero-inner">
+        <p class="rsv-hero-label">Via Vinho Reserve</p>
+        <h1 class="rsv-hero-h1">Portugal's wine world,<br />opened privately.</h1>
+        <p class="rsv-hero-lead">Reserve is Via Vinho's premium collection of private wine experiences and bespoke journeys, created through long-standing relationships with winemakers, estates and local producers across Portugal.</p>
+        <a href="#discovery" class="rsv-cta">Begin a Conversation
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════ 2 · WHAT RESERVE IS ══════════════ -->
+    <section class="rsv-section rsv-position">
+      <div class="container">
+        <div class="rsv-position-inner">
+          <p class="rsv-eyebrow reveal">What Reserve Is</p>
+          <p class="rsv-position-prose reveal reveal-d1">Reserve is Via Vinho's premium tier. The same private, small-group spirit as Classic — but in rarer places, with deeper access, and run only by arrangement. A handful of defined experiences for those who want something more, and fully bespoke journeys designed from nothing. <em>Less a booking than a conversation.</em></p>
+        </div>
+        <div class="rsv-pillars">
+          <div class="rsv-pillar reveal"><div class="rsv-pillar-rule"></div><h3>Entirely Private</h3><p>Your party only, never shared, never rushed.</p></div>
+          <div class="rsv-pillar reveal reveal-d1"><div class="rsv-pillar-rule"></div><h3>Deeper Access</h3><p>Cellars and winemakers most visitors never reach.</p></div>
+          <div class="rsv-pillar reveal reveal-d2"><div class="rsv-pillar-rule"></div><h3>By Arrangement</h3><p>Offered on request, paced entirely to you.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 3 · RESERVE COLLECTION (carousel) ══════════════
+         Cards are plain HTML — adding a new experience is one <article>
+         block plus a matching JSON-LD entry above. The carousel JS auto-
+         counts cards and updates arrows/status accordingly.
+    ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-section rsv-collection" id="experiences">
+      <div class="container">
+        <div class="rsv-coll-head reveal">
+          <p class="rsv-eyebrow">Reserve Collection</p>
+          <h2>Small groups, rarer places.</h2>
+          <p>Examples of what Reserve can become. Each offered privately, each available only by arrangement.</p>
+        </div>
+
+        <div class="rsv-carousel" aria-roledescription="carousel" aria-label="Reserve experiences">
+          <div class="rsv-carousel-track" id="rsv-track" tabindex="0">
+
+            <article class="rsv-card reveal">
+              <div class="rsv-card-media">
+                <img src="/assets/images/reserve/colares-private-wine-experience.webp"
+                     alt="Walking through historic ungrafted vineyards in Colares, Portugal"
+                     title="Colares Private Wine Experience"
+                     width="1200" height="800" loading="lazy" decoding="async" />
+              </div>
+              <div class="rsv-card-body">
+                <p class="rsv-card-label">Colares · Atlantic Coast</p>
+                <h3 class="rsv-card-title">Colares Reserve</h3>
+                <p class="rsv-card-desc">Ungrafted vines on Atlantic sand — among the oldest surviving in Europe. A region that operates on its own terms and makes wines like nothing else in Portugal. The right context makes all the difference.</p>
+                <p class="rsv-card-tag">Full day from Lisbon · Private estate access</p>
+                <div class="rsv-card-foot">
+                  <span class="rsv-card-price">On Request</span>
+                  <a href="#discovery" class="rsv-card-cta">Enquire
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="rsv-card reveal reveal-d1">
+              <div class="rsv-card-media">
+                <img src="/assets/images/reserve/torres-vedras-winemaker-experience.webp"
+                     alt="Private wine tasting with a winemaker in Torres Vedras, Portugal"
+                     title="Torres Vedras Winemaker Experience"
+                     width="1200" height="800" loading="lazy" decoding="async" />
+              </div>
+              <div class="rsv-card-body">
+                <p class="rsv-card-label">Torres Vedras</p>
+                <h3 class="rsv-card-title">Atlantic Fringe</h3>
+                <p class="rsv-card-desc">A full day among the Atlantic wine producers of Torres Vedras, near Lisbon. Two estates, a long lunch of seasonal Portuguese cuisine, and wines that taste like the coast they come from.</p>
+                <p class="rsv-card-tag">Full day from Lisbon · Producer-led</p>
+                <div class="rsv-card-foot">
+                  <span class="rsv-card-price">On Request</span>
+                  <a href="#discovery" class="rsv-card-cta">Enquire
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="rsv-card reveal reveal-d2">
+              <div class="rsv-card-media">
+                <img src="/assets/images/reserve/private-winemaker-lunch-portugal.webp"
+                     alt="Guests sharing a private tasting and conversation with a Portuguese winemaker"
+                     title="Private Winemaker Lunch Portugal"
+                     width="1200" height="800" loading="lazy" decoding="async" />
+              </div>
+              <div class="rsv-card-body">
+                <p class="rsv-card-label">Private · By Arrangement</p>
+                <h3 class="rsv-card-title">At the Winemaker's Table</h3>
+                <p class="rsv-card-desc">Long lunches, cellar conversations, and wines shared directly by those who make them. An invitation into the working life of the estate — informal, generous, hosted by the producer themselves.</p>
+                <p class="rsv-card-tag">Private · Hosted by the producer · By arrangement</p>
+                <div class="rsv-card-foot">
+                  <span class="rsv-card-price">On Request</span>
+                  <a href="#discovery" class="rsv-card-cta">Enquire
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Add new <article class="rsv-card">…</article> blocks here as the
+                 Collection grows. Carousel arrows + responsive sizing handle the rest. -->
+
+          </div>
+
+          <div class="rsv-carousel-nav" aria-label="Carousel controls">
+            <button type="button" class="rsv-carousel-btn" id="rsv-prev" aria-label="Previous experience">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+            </button>
+            <span class="rsv-carousel-status" id="rsv-status" aria-live="polite">1 / 3</span>
+            <button type="button" class="rsv-carousel-btn" id="rsv-next" aria-label="Next experience">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 4 · WHY RESERVE EXISTS ══════════════ -->
+    <section class="rsv-section rsv-story">
+      <div class="container">
+        <div class="rsv-story-inner">
+          <p class="rsv-eyebrow reveal">Why Reserve Exists</p>
+          <p class="rsv-story-lead reveal reveal-d1">Some of the most memorable experiences we arranged never belonged on a booking page.</p>
+          <div class="rsv-story-prose">
+            <p class="reveal reveal-d1">A lunch with a winemaker after the cellar tour had ended. A tasting in a private room usually closed to visitors. A day spent walking the vineyards with the family who farm them.</p>
+            <p class="reveal reveal-d2">Conversations turned into invitations, and invitations became experiences that could only happen through trust and relationships.</p>
+            <p class="rsv-story-coda reveal reveal-d2">Reserve grew from those moments. It exists for travellers who want something slower, deeper, and more personal than a standard wine tour.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 5 · BESPOKE JOURNEYS ══════════════ -->
+    <section class="rsv-section rsv-bespoke" id="bespoke">
+      <img class="rsv-bespoke-img"
+           src="/assets/images/reserve/bespoke-wine-journey-portugal-private-cellar.webp"
+           alt="Guests enjoying a private wine tasting in a historic Portuguese wine cellar as part of a bespoke wine journey."
+           title="Bespoke Wine Journey Portugal | Private Cellar Experience"
+           width="1600" height="900" loading="lazy" decoding="async" />
+      <div class="container">
+        <div class="rsv-bespoke-inner">
+          <p class="rsv-eyebrow reveal">Bespoke Journeys</p>
+          <h2 class="reveal reveal-d1">Or begin from a blank page.</h2>
+          <p class="reveal reveal-d1">No set route, no fixed group, no itinerary off a shelf. You tell us what draws you to Portugal's wine culture — a region, a grape, a feeling, an estate you've heard of — and we design the journey around that.</p>
+          <p class="rsv-bespoke-emphasis reveal reveal-d2">Multi-day programmes, private estate access, and exclusive tastings with Portugal's most respected winemakers — shaped entirely around your interests, your pace, and the level of access you're after.</p>
+          <p class="rsv-bespoke-tag reveal reveal-d2">Multi-day · Fully custom · Portugal-wide · On Request</p>
+          <div class="rsv-bespoke-ctas reveal reveal-d3">
+            <a href="#discovery" class="rsv-btn">Design Your Experience
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/351913368129" class="rsv-btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 6 · TELL US ABOUT THE JOURNEY (discovery form) ══════════════ -->
+    <section class="rsv-section rsv-form-section" id="discovery">
+      <div class="container">
+        <div class="rsv-form-head reveal">
+          <p class="rsv-eyebrow">Begin the Conversation</p>
+          <h2>Tell us about the journey you're imagining.</h2>
+          <p>A few questions help us shape the right experience around your interests, your pace, and the people you'd most like to meet.</p>
+        </div>
+
+        <!-- Posts to FormSubmit (no backend; forwards to hello@viavinho.net).
+             One-time activation: the first real submission sends a confirmation email
+             to that address — click the link in it once and the form is live.
+             To keep data fully in-house instead, swap the action for a Vercel function. -->
+        <form class="rsv-form reveal reveal-d1"
+              action="https://formsubmit.co/hello@viavinho.net"
+              method="POST"
+              aria-label="Reserve discovery enquiry">
+
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="New Reserve enquiry — Via Vinho" />
+          <input type="hidden" name="_next" value="https://viavinho.net/thank-you/" />
+          <input type="hidden" name="_template" value="table" />
+          <!-- Honeypot — bots fill this, humans never see it -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+          <div class="rsv-form-row">
+            <label class="rsv-field">
+              <span class="rsv-field-label">Your name</span>
+              <input type="text" name="Name" required autocomplete="name" />
+            </label>
+            <label class="rsv-field">
+              <span class="rsv-field-label">Email</span>
+              <input type="email" name="Email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <div class="rsv-form-row">
+            <label class="rsv-field">
+              <span class="rsv-field-label">Preferred travel dates</span>
+              <input type="text" name="Travel dates" placeholder="e.g. Late September 2026" />
+            </label>
+            <label class="rsv-field">
+              <span class="rsv-field-label">Group size</span>
+              <input type="number" name="Group size" min="1" max="12" inputmode="numeric" />
+            </label>
+          </div>
+
+          <div class="rsv-form-row">
+            <label class="rsv-field">
+              <span class="rsv-field-label">Wine knowledge</span>
+              <select name="Wine knowledge">
+                <option value="">Select…</option>
+                <option>Curious — new to Portuguese wine</option>
+                <option>Enthusiast — drink widely, taste often</option>
+                <option>Collector — depth in specific regions</option>
+                <option>Trade / sommelier</option>
+              </select>
+            </label>
+            <label class="rsv-field">
+              <span class="rsv-field-label">Desired pace</span>
+              <select name="Pace">
+                <option value="">Select…</option>
+                <option>Slow — one place, properly</option>
+                <option>Standard — two estates a day</option>
+                <option>Immersive — full days, deep access</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="rsv-fieldset">
+            <legend>What are you most interested in?</legend>
+            <div class="rsv-chips">
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Wine &amp; Food" /><span>Wine &amp; Food</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Winemaking" /><span>Winemaking</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Vineyards" /><span>Vineyards</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="History &amp; Culture" /><span>History &amp; Culture</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Architecture" /><span>Architecture</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Private Access" /><span>Private Access</span></label>
+              <label class="rsv-chip"><input type="checkbox" name="Interests" value="Open to suggestions" /><span>Open to suggestions</span></label>
+            </div>
+          </fieldset>
+
+          <label class="rsv-field">
+            <span class="rsv-field-label">Anything else we should know</span>
+            <textarea name="Notes" rows="4" placeholder="A grape you love, a producer you've heard of, a moment you're trying to recreate…"></textarea>
+          </label>
+
+          <div class="rsv-form-submit">
+            <button type="submit">Begin the Conversation
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <small>Or reach us directly on <a href="https://wa.me/351913368129" target="_blank" rel="noopener noreferrer" style="color:var(--burgundy);text-decoration:underline">WhatsApp</a>.</small>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
+      <p>RNAAT 959/2024 · © 2026 Via Vinho</p>
+      <p><a href="https://instagram.com/viavinho" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      /* Nav scroll state */
+      var nav=document.getElementById('main-nav');
+      var onScroll=function(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+      /* Reveal-on-scroll */
+      if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+        document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+      } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+
+      /* Reserve Collection carousel */
+      var track=document.getElementById('rsv-track');
+      var prev=document.getElementById('rsv-prev');
+      var next=document.getElementById('rsv-next');
+      var statusEl=document.getElementById('rsv-status');
+      if(track && prev && next){
+        var cards=track.querySelectorAll('.rsv-card');
+        var step=function(){
+          var first=track.querySelector('.rsv-card');
+          if(!first) return 0;
+          var w=first.getBoundingClientRect().width;
+          var gap=parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap||'0');
+          return w + gap;
+        };
+        var currentIndex=function(){
+          var s=step(); if(s===0) return 0;
+          return Math.round(track.scrollLeft / s);
+        };
+        var navWrap=prev.parentElement;
+        var updateNav=function(){
+          var max=track.scrollWidth - track.clientWidth;
+          /* Hide arrows + counter when everything fits (e.g. 3 cards on desktop) */
+          if(navWrap){ navWrap.style.display = max > 1 ? '' : 'none'; }
+          var atStart=track.scrollLeft <= 1;
+          var atEnd=track.scrollLeft >= max - 1;
+          prev.disabled=atStart;
+          next.disabled=atEnd;
+          if(statusEl){ statusEl.textContent=(currentIndex()+1)+' / '+cards.length; }
+        };
+        prev.addEventListener('click',function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+        next.addEventListener('click',function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
+        track.addEventListener('scroll',function(){ updateNav(); },{passive:true});
+        window.addEventListener('resize',updateNav);
+        updateNav();
+      }
+    })();
+  </script>
+
+</body>
+</html>
