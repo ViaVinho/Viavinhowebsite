@@ -61,7 +61,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Via Vinho Reserve — Private Wine Experiences &amp; Bespoke Journeys",
+    "name": "Via Vinho Reserve — Private Wine Experiences & Bespoke Journeys",
     "serviceType": "Private and bespoke wine experiences",
     "description": "Via Vinho Reserve: private wine experiences and bespoke journeys across Portugal. Offered on request and built around long-standing relationships with winemakers, estates and local producers.",
     "url": "https://viavinho.net/reserve/",
@@ -128,6 +128,22 @@
       { "@type": "ListItem", "position": 1, "item": { "@type": "TouristTrip", "name": "Colares Reserve", "description": "A private day in Colares, where ungrafted vines grow in Atlantic sand — among the oldest surviving in Europe. Full day from Lisbon with private estate access.", "url": "https://viavinho.net/reserve/" } },
       { "@type": "ListItem", "position": 2, "item": { "@type": "TouristTrip", "name": "Atlantic Fringe", "description": "A private full day among the Atlantic wine producers of Torres Vedras, near Lisbon. Two estates, a long seasonal lunch, producer-led.", "url": "https://viavinho.net/reserve/" } },
       { "@type": "ListItem", "position": 3, "item": { "@type": "TouristTrip", "name": "At the Winemaker's Table", "description": "A private invitation into the working life of a Portuguese estate — long lunches, cellar conversations, and wines shared directly by the people who make them.", "url": "https://viavinho.net/reserve/" } }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — FAQPage (text mirrors the on-page FAQ exactly) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How is Reserve different from Classic?", "acceptedAnswer": { "@type": "Answer", "text": "Classic is our core collection of private wine experiences at set prices — the simplest way into Portuguese wine. Reserve is the premium tier: smaller groups, rarer regions and estates, deeper access, and the option to design something entirely bespoke. Every Reserve experience is arranged personally and priced on request." } },
+      { "@type": "Question", "name": "Why are Reserve experiences priced on request?", "acceptedAnswer": { "@type": "Answer", "text": "Because no two are alike. The price depends on your group size, the season, how far we travel and the level of access involved — so rather than publish a figure that rarely fits, we quote precisely for what you want once we've spoken. It begins as a conversation, not a checkout." } },
+      { "@type": "Question", "name": "How far ahead should I book?", "acceptedAnswer": { "@type": "Answer", "text": "As a guide, reach out at least two weeks ahead — and a little earlier for harvest season in September and October. Larger groups of more than twelve guests need at least three weeks' notice, as the access takes longer to arrange. Whatever your dates, we'll tell you honestly what's possible." } },
+      { "@type": "Question", "name": "Can you arrange multi-day journeys?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's exactly what our Bespoke Journeys are for: multi-day programmes across several regions, with private estate access and tastings arranged around your pace, your interests and the level of access you're after. Accommodation and logistics can be guided as part of the planning." } },
+      { "@type": "Question", "name": "How large can the group be?", "acceptedAnswer": { "@type": "Answer", "text": "Almost any size can be accommodated — from a couple to a larger private party. Reserve is built around intimate groups, but bigger gatherings and corporate parties are welcome; groups of more than twelve simply need at least three weeks' notice so we can secure the access and the table." } },
+      { "@type": "Question", "name": "Where in Portugal do you operate?", "acceptedAnswer": { "@type": "Answer", "text": "We're based in Lisbon and host experiences across the surrounding wine regions — the Setúbal Peninsula, Colares on the Atlantic coast, and Torres Vedras — with bespoke journeys reaching further across Portugal." } }
     ]
   }
   </script>
@@ -259,6 +275,18 @@
     .rsv-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.72rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--alabaster);border:1px solid var(--ab-30);padding:15px 28px;border-radius:2px;transition:background 200ms ease,color 200ms ease,border-color 200ms ease;cursor:pointer}
     .rsv-btn:hover{background:var(--alabaster);color:var(--charcoal);border-color:var(--alabaster)}
 
+    /* FAQ */
+    .rsv-faq-section{background:var(--alabaster);border-top:1px solid var(--ch-10)}
+    .rsv-faq-head{text-align:center;max-width:600px;margin:0 auto clamp(36px,5vw,52px)}
+    .rsv-faq-head h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:400;line-height:1.2}
+    .rsv-faq{max-width:760px;margin:0 auto}
+    .rsv-faq-item{border-bottom:1px solid var(--ch-10)}
+    .rsv-faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-family:var(--font-serif);font-size:clamp(1.06rem,1.7vw,1.22rem);font-weight:400;color:var(--charcoal)}
+    .rsv-faq-item summary::-webkit-details-marker{display:none}
+    .rsv-faq-item summary::after{content:'+';font-family:var(--font-sans);font-size:1.4rem;font-weight:300;line-height:1;color:var(--burgundy);flex-shrink:0}
+    .rsv-faq-item[open] summary::after{content:'\2013'}
+    .rsv-faq-answer{padding:0 0 26px;font-family:var(--font-sans);font-size:0.96rem;font-weight:300;line-height:1.75;color:var(--ch-70);max-width:660px}
+
     /* LUXURY DISCOVERY FORM */
     .rsv-form-section{background:var(--alabaster);border-top:1px solid var(--ch-10)}
     .rsv-form-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,56px)}
@@ -345,7 +373,7 @@
            width="1280" height="854" fetchpriority="high" decoding="async" />
       <div class="rsv-hero-inner">
         <p class="rsv-hero-label">Via Vinho Reserve</p>
-        <h1 class="rsv-hero-h1">Portugal's wine world,<br />opened privately.</h1>
+        <h1 class="rsv-hero-h1">An invitation into<br />Portugal's wine world.</h1>
         <p class="rsv-hero-lead">Reserve is Via Vinho's premium collection of private wine experiences and bespoke journeys, created through long-standing relationships with winemakers, estates and local producers across Portugal.</p>
         <a href="#discovery" class="rsv-cta">Begin a Conversation
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -504,7 +532,43 @@
       </div>
     </section>
 
-    <!-- ══════════════ 6 · TELL US ABOUT THE JOURNEY (discovery form) ══════════════ -->
+    <!-- ══════════════ 6 · FREQUENTLY ASKED ══════════════ -->
+    <section class="rsv-section rsv-faq-section" id="faq">
+      <div class="container">
+        <div class="rsv-faq-head reveal">
+          <p class="rsv-eyebrow">Questions, Answered</p>
+          <h2>Good to know.</h2>
+        </div>
+        <div class="rsv-faq reveal reveal-d1">
+          <details class="rsv-faq-item">
+            <summary>How is Reserve different from Classic?</summary>
+            <div class="rsv-faq-answer">Classic is our core collection of private wine experiences at set prices — the simplest way into Portuguese wine. Reserve is the premium tier: smaller groups, rarer regions and estates, deeper access, and the option to design something entirely bespoke. Every Reserve experience is arranged personally and priced on request.</div>
+          </details>
+          <details class="rsv-faq-item">
+            <summary>Why are Reserve experiences priced on request?</summary>
+            <div class="rsv-faq-answer">Because no two are alike. The price depends on your group size, the season, how far we travel and the level of access involved — so rather than publish a figure that rarely fits, we quote precisely for what you want once we've spoken. It begins as a conversation, not a checkout.</div>
+          </details>
+          <details class="rsv-faq-item">
+            <summary>How far ahead should I book?</summary>
+            <div class="rsv-faq-answer">As a guide, reach out at least two weeks ahead — and a little earlier for harvest season in September and October. Larger groups of more than twelve guests need at least three weeks' notice, as the access takes longer to arrange. Whatever your dates, we'll tell you honestly what's possible.</div>
+          </details>
+          <details class="rsv-faq-item">
+            <summary>Can you arrange multi-day journeys?</summary>
+            <div class="rsv-faq-answer">Yes — that's exactly what our Bespoke Journeys are for: multi-day programmes across several regions, with private estate access and tastings arranged around your pace, your interests and the level of access you're after. Accommodation and logistics can be guided as part of the planning.</div>
+          </details>
+          <details class="rsv-faq-item">
+            <summary>How large can the group be?</summary>
+            <div class="rsv-faq-answer">Almost any size can be accommodated — from a couple to a larger private party. Reserve is built around intimate groups, but bigger gatherings and corporate parties are welcome; groups of more than twelve simply need at least three weeks' notice so we can secure the access and the table.</div>
+          </details>
+          <details class="rsv-faq-item">
+            <summary>Where in Portugal do you operate?</summary>
+            <div class="rsv-faq-answer">We're based in Lisbon and host experiences across the surrounding wine regions — the Setúbal Peninsula, Colares on the Atlantic coast, and Torres Vedras — with bespoke journeys reaching further across Portugal.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ 7 · TELL US ABOUT THE JOURNEY (discovery form) ══════════════ -->
     <section class="rsv-section rsv-form-section" id="discovery">
       <div class="container">
         <div class="rsv-form-head reveal">
