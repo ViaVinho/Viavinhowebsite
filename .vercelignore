@@ -25,6 +25,8 @@
 !reserve/**
 !thank-you
 !thank-you/**
+!about
+!about/**
 
 # Explicitly re-exclude noise that could slip back in
 .DS_Store
