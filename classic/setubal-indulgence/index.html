@@ -204,8 +204,11 @@
        users into content quickly. Image fills via .xp-hero-img,
        overlay handled by inherited .hero::before gradient + bottom dissolve. */
     .xp-hero {
-      height: clamp(440px, 60vh, 640px);
-      min-height: 0;                /* override .hero base min-height: 640px */
+      height: auto;                 /* override .hero base height: 100svh */
+      min-height: clamp(440px, 60vh, 640px);   /* grows when the hero copy is tall — never clips, never overflows up into the nav */
+      display: flex;
+      align-items: flex-end;        /* copy bottom-anchored on tall heroes; hero grows under it on short ones */
+      padding: 0 var(--gutter);
       background: #1d1d1d;
     }
     .xp-hero-img {
@@ -223,19 +226,17 @@
       height: 240px;
     }
     .xp-hero-inner {
-      position: absolute;
-      left: var(--gutter);
-      right: var(--gutter);
-      top: clamp(180px, 24vh, 240px);     /* nav clearance (logo + padding) */
-      bottom: clamp(40px, 6vh, 80px);
+      position: relative;
       z-index: 3;
+      width: 100%;
       max-width: 820px;
+      padding-top: clamp(160px, 22vh, 220px);   /* clears the fixed nav (logo + padding) */
+      padding-bottom: clamp(40px, 6vh, 80px);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
     }
     @media (max-width: 640px) {
-      .xp-hero-inner { top: clamp(140px, 18vh, 170px); bottom: auto; justify-content: flex-start; padding-bottom: 24px; }
+      .xp-hero-inner { padding-top: clamp(120px, 16vh, 150px); padding-bottom: 24px; }
     }
     .xp-hero-eyebrow {
       font-family: var(--font-sans);
