@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/classic/sip-the-setubal-story",
+      "destination": "/classic/savour-the-setubal-story/",
+      "permanent": true
+    },
+    {
+      "source": "/classic/sip-the-setubal-story/",
+      "destination": "/classic/savour-the-setubal-story/",
+      "permanent": true
+    }
+  ]
+}

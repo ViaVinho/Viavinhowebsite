@@ -25,8 +25,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://viavinho.net/classic/sip-the-setubal-story/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>https://viavinho.net/privacy/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://viavinho.net/classic/savour-the-setubal-story/</loc>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
