@@ -664,6 +664,16 @@
     .xp-group-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
     .xp-group-slider::-moz-range-thumb { width: 16px; height: 16px; border: none; border-radius: 50%; background: var(--burgundy); cursor: pointer; }
     .xp-group-slider::-moz-range-track { height: 2px; background: var(--ch-10); }
+    .xp-book-card { max-width: 440px; margin: 0 auto; background: var(--alabaster); border: 1px solid var(--ch-10); border-radius: 4px; padding: clamp(26px,4vw,40px) clamp(20px,4vw,38px); text-align: center; }
+    .xp-toggle { display: flex; gap: 4px; background: rgba(26,26,26,0.05); border: 1px solid var(--ch-10); border-radius: 3px; padding: 4px; margin-bottom: 30px; }
+    .xp-toggle-btn { flex: 1; font-family: var(--font-sans); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ch-55); background: transparent; border: none; border-radius: 2px; padding: 12px 6px; cursor: pointer; transition: background 180ms ease, color 180ms ease; }
+    .xp-toggle-btn.is-active { background: var(--burgundy); color: var(--alabaster); }
+    .xp-book-eyebrow { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ch-55); margin-bottom: 14px; }
+    .xp-book-headline { font-family: var(--font-serif); font-size: clamp(2.4rem,7vw,3.2rem); font-weight: 400; line-height: 1; color: var(--burgundy); margin-bottom: 6px; }
+    .xp-book-headline small { display: block; font-family: var(--font-sans); font-size: 0.64rem; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch-55); margin-top: 10px; }
+    .xp-book-note { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--ch-70); max-width: 300px; margin: 18px auto 22px; }
+    .xp-rezdy { display: flex; justify-content: center; margin-top: 6px; }
+    .xp-rezdy iframe { width: 300px; max-width: 100%; border: none; }
     .xp-price-cta { margin-top: 30px; }
     .xp-price-foot {
       font-family: var(--font-sans);
@@ -1089,41 +1099,41 @@
       <h2 class="xp-section-title">Your group, your price.</h2>
     </div>
 
-    <!-- ░░ MODE A — SLIDER (Setúbal experiences). Default. ░░
-         Set data-prices to the experience's Direct per-person tiers. -->
-    <div class="xp-price-card reveal">
-      <p class="xp-price-label">Price per person by group size</p>
-      <p class="xp-price-from">From <span>€250</span> <small>per person</small></p>
+    <!-- Booking: scheduled (shared, Rezdy 753970) vs private (slider + Rezdy 754071) -->
+    <div class="xp-book-card reveal">
+      <div class="xp-toggle" role="tablist" aria-label="Booking type">
+        <button class="xp-toggle-btn is-active" id="bk-sched-btn" role="tab" aria-selected="true" aria-controls="bk-sched" data-panel="bk-sched">Scheduled departure</button>
+        <button class="xp-toggle-btn" id="bk-priv-btn" role="tab" aria-selected="false" aria-controls="bk-priv" data-panel="bk-priv">Private group</button>
+      </div>
 
-      <div class="xp-group" data-prices="2:552,3:424,4:350,5:300,6:270,7:250">
-        <div class="xp-group-head">
-          <span class="xp-group-label">Group size</span>
-          <span class="xp-group-count"><span class="xp-group-n">4</span> guests</span>
+      <div class="xp-book-panel" id="bk-sched" role="tabpanel" aria-labelledby="bk-sched-btn">
+        <p class="xp-book-eyebrow">Join a fixed departure</p>
+        <p class="xp-book-headline"><span>€380</span><small>per person</small></p>
+        <p class="xp-book-note">A small shared group of fellow travellers. Pick an open date below and book in seconds.</p>
+        <div class="xp-rezdy">
+          <iframe seamless width="300" height="660" frameborder="0" class="rezdy" loading="lazy" title="Book a scheduled Setúbal Indulgence departure" src="https://viavinho.rezdy.com/calendarWidget/753970?iframe=true"></iframe>
         </div>
-        <input type="range" class="xp-group-slider" min="2" max="7" step="1" value="4" aria-label="Group size" />
       </div>
 
-      <p class="xp-price-headline"><span class="xp-pp-val">€350</span><small>per person</small></p>
-      <p class="xp-price-total"><span class="xp-total">€1,400 total · 4 guests</span></p>
-
-      <div class="xp-price-cta">
-        <a href="/#enquire" class="btn-classic">Enquire to book <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="xp-book-panel" id="bk-priv" role="tabpanel" aria-labelledby="bk-priv-btn" hidden>
+        <p class="xp-book-eyebrow">Just your group, your date</p>
+        <div class="xp-group" data-prices="2:530,3:440,4:395,5:375,6:360,7:350">
+          <div class="xp-group-head">
+            <span class="xp-group-label">Group size</span>
+            <span class="xp-group-count"><span class="xp-group-n">4</span> guests</span>
+          </div>
+          <input type="range" class="xp-group-slider" min="2" max="7" step="1" value="4" aria-label="Group size" />
+        </div>
+        <p class="xp-price-headline"><span class="xp-pp-val">€395</span><small>per person</small></p>
+        <p class="xp-price-total"><span class="xp-total">€1,580 total · 4 guests</span></p>
+        <p class="xp-book-note">Never shared with other guests. Choose any open date below.</p>
+        <div class="xp-rezdy">
+          <iframe seamless width="300" height="660" frameborder="0" class="rezdy" loading="lazy" title="Book a private Setúbal Indulgence experience" src="https://viavinho.rezdy.com/calendarWidget/754071?iframe=true"></iframe>
+        </div>
       </div>
-      <p class="xp-price-foot">[All-inclusive · transport, tastings, meals and hosting · no booking fees]</p>
+
+      <p class="xp-price-foot">All-inclusive · transport, tastings, meals and hosting · no booking fees</p>
     </div>
-
-    <!-- ░░ MODE B — FIXED PRICE (Graça walking experience).
-         Delete MODE A above and use this block instead.
-    <div class="xp-price-card reveal">
-      <p class="xp-price-label">Price per person</p>
-      <p class="xp-price-headline">€85<small>per person</small></p>
-      <p class="xp-price-total">Up to 10 guests</p>
-      <div class="xp-price-cta">
-        <a href="/#enquire" class="btn-classic">Enquire to book →</a>
-      </div>
-      <p class="xp-price-foot">[All-inclusive · no booking fees]</p>
-    </div>
-    ░░ -->
   </section>
 
 
@@ -1276,6 +1286,26 @@
         document.addEventListener('keydown',function(e){if(e.key==='Escape'&&burger.getAttribute('aria-expanded')==='true')setOpen(false);});
       })();
   </script>
+  <!-- Booking toggle: scheduled vs private -->
+  <script>
+    (function(){
+      var btns=document.querySelectorAll('.xp-toggle-btn');
+      if(!btns.length)return;
+      btns.forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var id=btn.getAttribute('data-panel');
+          document.querySelectorAll('.xp-toggle-btn').forEach(function(b){
+            var on=b===btn;
+            b.classList.toggle('is-active',on);
+            b.setAttribute('aria-selected',on?'true':'false');
+          });
+          document.querySelectorAll('.xp-book-panel').forEach(function(p){ p.hidden=(p.id!==id); });
+        });
+      });
+    })();
+  </script>
+  <!-- Rezdy widget loader (resizes booking iframes) -->
+  <script defer src="https://viavinho.rezdy.com/pluginJs"></script>
   <script defer src="/js/analytics-consent.js"></script>
 </body>
 </html>
