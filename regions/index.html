@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       VIA VINHO — DISCOVER PORTUGAL (WINE REGIONS HUB)
+       Editorial gateway to the regions. Setúbal live; others phased.
+       Imagery slots under /assets/images/regions/ (CLS-safe).
+  ══════════════════════════════════════════════════════════ -->
+
+  <!-- SEO + GEO -->
+  <title>Wine Regions Near Lisbon: A Guide | Via Vinho</title>
+  <meta name="description" content="Discover Portugal's wine regions within reach of Lisbon: Setúbal, Colares, Torres Vedras and Alenquer. A curated, editorial guide to each region, and the private wine experiences within them." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://viavinho.net/regions/" />
+
+  <!-- Preload hero (LCP) -->
+  <link rel="preload" as="image"
+        href="/assets/images/regions/portugal-wine-regions-near-lisbon-arrabida-coast.webp"
+        fetchpriority="high" />
+
+  <!-- Geo signals -->
+  <meta name="geo.region" content="PT-11" />
+  <meta name="geo.placename" content="Lisbon, Portugal" />
+  <meta name="geo.position" content="38.7223;-9.1393" />
+  <meta name="ICBM" content="38.7223, -9.1393" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://viavinho.net/regions/" />
+  <meta property="og:title" content="Discover Portugal: Wine Regions Near Lisbon" />
+  <meta property="og:description" content="Portugal isn't one wine destination. A curated, editorial guide to the regions Via Vinho hosts in: Setúbal, Colares, Torres Vedras and Alenquer." />
+  <meta property="og:image" content="https://viavinho.net/assets/images/regions/portugal-wine-regions-near-lisbon-arrabida-coast.webp" />
+  <meta property="og:site_name" content="Via Vinho" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Discover Portugal: Wine Regions Near Lisbon" />
+  <meta name="twitter:description" content="A curated guide to the Portuguese wine regions within reach of Lisbon, and how to taste each one with Via Vinho." />
+  <meta name="twitter:image" content="https://viavinho.net/assets/images/regions/portugal-wine-regions-near-lisbon-arrabida-coast.webp" />
+
+  <!-- STRUCTURED DATA — BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://viavinho.net/" },
+      { "@type": "ListItem", "position": 2, "name": "Discover Portugal", "item": "https://viavinho.net/regions/" }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — ItemList of regions -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Portuguese wine regions near Lisbon",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Setúbal" },
+      { "@type": "ListItem", "position": 2, "name": "Colares" },
+      { "@type": "ListItem", "position": 3, "name": "Torres Vedras" },
+      { "@type": "ListItem", "position": 4, "name": "Alenquer" }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA — FAQPage (mirrors the on-page FAQ exactly) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which wine regions are near Lisbon?", "acceptedAnswer": { "@type": "Answer", "text": "Several sit within an easy drive: Setúbal and the Arrábida hills to the south, Colares on the Atlantic coast beside Sintra, and Torres Vedras and Alenquer to the north. Via Vinho works within a chosen handful rather than the whole country." } },
+      { "@type": "Question", "name": "Which region is best for a wine day trip from Lisbon?", "acceptedAnswer": { "@type": "Answer", "text": "Setúbal is the easiest and most rewarding, around forty minutes south, with Moscatel de Setúbal, family estates and the Arrábida coast all in one relaxed day." } },
+      { "@type": "Question", "name": "Why does Via Vinho work within only a few regions?", "acceptedAnswer": { "@type": "Answer", "text": "Because our days are built on genuine relationships with the families behind the wine. We would rather know a handful of regions deeply than pass through many. Quality over quantity." } }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;600&display=swap"></noscript>
+
+  <style>
+    /* MOBILE NAV — hamburger + fullscreen overlay */
+    .nav-burger{display:none;width:44px;height:36px;padding:8px 6px;background:transparent;border:0;cursor:pointer;flex-direction:column;justify-content:space-between;z-index:110;-webkit-appearance:none;appearance:none}
+    .nav-burger span{display:block;width:100%;height:1.5px;background:var(--alabaster);transition:transform 250ms ease,opacity 200ms ease,background 250ms ease;transform-origin:center}
+    .nav.scrolled .nav-burger span{background:var(--charcoal)}
+    .nav-burger[aria-expanded="true"] span{background:var(--alabaster)}
+    .nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+    .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+    .nav-mobile-menu{position:fixed;inset:0;background:var(--charcoal);z-index:99;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 280ms ease}
+    .nav-mobile-menu[aria-hidden="false"]{opacity:1;pointer-events:auto}
+    .nav-mobile-menu ul{list-style:none;text-align:center;margin:0;padding:0}
+    .nav-mobile-menu li{margin:clamp(14px,3vw,24px) 0}
+    .nav-mobile-menu a{font-family:var(--font-serif);font-size:clamp(1.6rem,5vw,2.4rem);font-weight:400;font-style:italic;color:var(--alabaster);letter-spacing:-0.01em;text-decoration:none}
+    .nav-mobile-menu a:hover{color:var(--burgundy)}
+    @media (max-width:760px){.nav-burger{display:flex}.nav-links{display:none!important}}
+
+    :root{--burgundy:#6B1F2A;--burgundy-deep:#561929;--alabaster:#F4F9F0;--charcoal:#1A1A1A;--ab-80:rgba(244,249,240,0.80);--ab-62:rgba(244,249,240,0.62);--ab-55:rgba(244,249,240,0.55);--ab-30:rgba(244,249,240,0.30);--ab-18:rgba(244,249,240,0.18);--ch-70:rgba(26,26,26,0.70);--ch-55:rgba(26,26,26,0.62);--ch-40:rgba(26,26,26,0.48);--ch-20:rgba(26,26,26,0.20);--ch-10:rgba(26,26,26,0.10);--font-serif:'Lora',Georgia,serif;--font-sans:'Poppins',system-ui,sans-serif;--gutter:clamp(28px,6vw,80px);--max-w:1280px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:16px;scroll-behavior:smooth}
+    body{font-family:var(--font-sans);background:var(--alabaster);color:var(--charcoal);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:32px var(--gutter);transition:background 350ms ease,padding 350ms ease,box-shadow 350ms ease}
+    .nav.scrolled{background:rgba(244,249,240,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:20px var(--gutter);box-shadow:0 1px 0 var(--ch-10)}
+    .nav-logo{display:flex;align-items:center;position:relative}
+    .nav-logo-img{height:120px;width:auto;transition:opacity 350ms ease,height 350ms ease;display:block}
+    .nav-logo-white{opacity:1;position:relative;z-index:1}
+    .nav-logo-colored{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;z-index:2}
+    .nav.scrolled .nav-logo-img{height:54px}
+    .nav.scrolled .nav-logo-white{opacity:0}
+    .nav.scrolled .nav-logo-colored{opacity:1}
+    .nav-links{display:flex;align-items:center;gap:clamp(16px,2.6vw,36px);list-style:none}
+    .nav-links a{font-family:var(--font-sans);font-size:0.69rem;font-weight:300;letter-spacing:0.13em;text-transform:uppercase;color:var(--ab-80);transition:color 150ms ease;white-space:nowrap}
+    .nav.scrolled .nav-links a{color:var(--ch-70)}
+    .nav-links a:hover{color:var(--alabaster)}
+    .nav.scrolled .nav-links a:hover{color:var(--charcoal)}
+    .nav-links a.is-current{color:var(--alabaster);border-bottom:1px solid var(--ab-30);padding-bottom:2px}
+    .nav.scrolled .nav-links a.is-current{color:var(--burgundy);border-color:var(--burgundy)}
+
+    /* HERO */
+    .abt-hero{position:relative;width:100%;height:78svh;min-height:520px;overflow:hidden;background:var(--charcoal)}
+    .abt-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 68%;opacity:0.82}
+    .abt-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(26,26,26,0.68) 0%,rgba(26,26,26,0.38) 50%,rgba(26,26,26,0.08) 100%);z-index:1}
+    .abt-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,var(--alabaster) 0%,transparent 100%);z-index:2}
+    .abt-hero-inner{position:absolute;bottom:16%;left:var(--gutter);right:var(--gutter);z-index:3;max-width:800px}
+    .abt-hero-label{font-family:var(--font-sans);font-size:0.68rem;font-weight:300;letter-spacing:0.24em;text-transform:uppercase;color:var(--ab-55);margin-bottom:22px}
+    .abt-hero-h1{font-family:var(--font-serif);font-size:clamp(2.5rem,5.8vw,4.4rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--alabaster);margin-bottom:24px}
+    .abt-hero-lead{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.3rem);font-weight:400;line-height:1.6;color:var(--ab-80);max-width:670px}
+
+    /* SECTION SHELL */
+    .abt-section{padding:clamp(72px,11vw,132px) 0}
+    .abt-eyebrow{font-family:var(--font-sans);font-size:0.66rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:24px}
+    .abt-story{text-align:center}
+    .abt-story-inner{max-width:720px;margin:0 auto}
+    .abt-story h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:400;line-height:1.2;margin-bottom:32px}
+    .abt-prose p{font-family:var(--font-serif);font-size:clamp(1.04rem,1.6vw,1.2rem);font-weight:400;line-height:1.78;color:var(--ch-70);margin-bottom:22px}
+    .abt-prose p:last-child{margin-bottom:0}
+    .abt-prose em{font-style:italic;color:var(--burgundy)}
+
+    /* FEATURED REGIONS — burgundy gallery */
+    .rg-section{background:linear-gradient(to bottom, var(--alabaster) 0%, rgba(244,249,240,0) 90px), radial-gradient(125% 85% at 50% 0%, #74232F 0%, var(--burgundy) 48%, var(--burgundy-deep) 100%);color:var(--alabaster);padding:clamp(100px,14vw,180px) 0 clamp(74px,10vw,120px)}
+    .rg-head{text-align:center;max-width:640px;margin:0 auto clamp(46px,6vw,68px)}
+    .rg-head .abt-eyebrow{color:var(--ab-62)}
+    .rg-head h2{font-family:var(--font-serif);font-size:clamp(2rem,3.8vw,2.9rem);font-weight:400;line-height:1.15;color:var(--alabaster)}
+    .rg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,3vw,40px);max-width:1040px;margin:0 auto}
+    .rg-card{display:flex;flex-direction:column;background:var(--alabaster);border-radius:3px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.24);transition:box-shadow 250ms ease,transform 250ms ease}
+    .rg-card:hover{box-shadow:0 26px 60px rgba(0,0,0,0.34);transform:translateY(-4px)}
+    .rg-card:nth-child(even){margin-top:clamp(28px,4vw,56px)}
+    .rg-card-media{width:100%;aspect-ratio:16/10;min-height:200px;background:var(--burgundy-deep);overflow:hidden}
+    .rg-card-media img{width:100%;height:100%;object-fit:cover}
+    .rg-card-body{padding:30px 30px 32px;display:flex;flex-direction:column;flex:1;color:var(--charcoal)}
+    .rg-card-region{font-family:var(--font-sans);font-size:0.6rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px}
+    .rg-card-name{font-family:var(--font-serif);font-size:1.9rem;font-weight:400;line-height:1.1;margin-bottom:12px}
+    .rg-card-line{font-family:var(--font-serif);font-style:italic;font-size:1.06rem;line-height:1.42;color:var(--burgundy);margin-bottom:14px}
+    .rg-card-desc{font-family:var(--font-sans);font-size:0.92rem;font-weight:300;line-height:1.72;color:var(--ch-70);margin-bottom:22px;flex:1}
+    .rg-card-cta{font-family:var(--font-sans);font-size:0.66rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--burgundy);display:inline-flex;align-items:center;gap:8px}
+
+    /* SENSE OF PLACE — atlas map + comparison (cream) */
+    .rg-place{text-align:center;padding-top:clamp(44px,6vw,76px)}
+    .rg-place-head{max-width:660px;margin:0 auto}
+    .rg-place-head h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:400;line-height:1.2;margin-bottom:18px}
+    .rg-place-head p{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.05rem,1.7vw,1.24rem);font-weight:400;line-height:1.55;color:var(--burgundy)}
+    .rg-map{max-width:760px;margin:clamp(40px,6vw,60px) auto 0}
+    .rg-map svg{width:100%;height:auto;display:block}
+    .rg-compare{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,34px);max-width:1080px;margin:clamp(48px,6vw,72px) auto 0;text-align:left}
+    .rg-comp{border-top:2px solid var(--burgundy);padding-top:22px}
+    .rg-comp-name{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;line-height:1.1;margin-bottom:20px;color:var(--charcoal)}
+    .rg-comp-row{margin-bottom:16px}
+    .rg-comp-row:last-child{margin-bottom:0}
+    .rg-comp-label{font-family:var(--font-sans);font-size:0.56rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:5px}
+    .rg-comp-val{font-family:var(--font-sans);font-size:0.9rem;font-weight:300;line-height:1.5;color:var(--ch-70)}
+
+    /* WHY WE CHOSE (dark band) */
+    .rg-why{background:var(--charcoal);color:var(--alabaster);text-align:center}
+    .rg-why .abt-eyebrow{color:var(--ab-62)}
+    .rg-why-inner{max-width:720px;margin:0 auto}
+    .rg-why-lead{font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2.15rem);font-weight:400;font-style:italic;line-height:1.34;color:var(--alabaster);margin-bottom:28px;letter-spacing:-0.01em}
+    .rg-why-prose p{font-family:var(--font-sans);font-size:clamp(0.98rem,1.5vw,1.08rem);font-weight:300;line-height:1.8;color:var(--ab-80)}
+
+    /* FAQ */
+    .abt-faq-section{background:var(--alabaster);border-top:1px solid var(--ch-10)}
+    .abt-faq-head{text-align:center;max-width:600px;margin:0 auto clamp(36px,5vw,52px)}
+    .abt-faq-head h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:400;line-height:1.2}
+    .abt-faq{max-width:760px;margin:0 auto}
+    .abt-faq-item{border-bottom:1px solid var(--ch-10)}
+    .abt-faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-family:var(--font-serif);font-size:clamp(1.06rem,1.7vw,1.22rem);font-weight:400;color:var(--charcoal)}
+    .abt-faq-item summary::-webkit-details-marker{display:none}
+    .abt-faq-item summary::after{content:'+';font-family:var(--font-sans);font-size:1.4rem;font-weight:300;line-height:1;color:var(--burgundy);flex-shrink:0}
+    .abt-faq-item[open] summary::after{content:'\2013'}
+    .abt-faq-answer{padding:0 0 26px;font-family:var(--font-sans);font-size:0.96rem;font-weight:300;line-height:1.75;color:var(--ch-70);max-width:660px}
+
+    /* CLOSING CTA */
+    .abt-cta{background:var(--charcoal);color:var(--alabaster);text-align:center}
+    .abt-cta-inner{max-width:640px;margin:0 auto}
+    .abt-cta .abt-eyebrow{color:var(--ab-62)}
+    .abt-cta h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,2.9rem);font-weight:400;line-height:1.16;color:var(--alabaster);margin-bottom:22px}
+    .abt-cta p{font-family:var(--font-sans);font-size:1.04rem;font-weight:300;line-height:1.75;color:var(--ab-80);margin-bottom:38px}
+    .abt-cta-ctas{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+    .abt-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.72rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--alabaster);border:1px solid var(--ab-30);padding:15px 26px;border-radius:2px;transition:background 200ms ease,color 200ms ease,border-color 200ms ease}
+    .abt-btn:hover{background:var(--alabaster);color:var(--charcoal);border-color:var(--alabaster)}
+
+    /* FOOTER */
+    .footer{background:var(--alabaster);padding:48px var(--gutter);border-top:1px solid var(--ch-10)}
+    .footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;font-family:var(--font-sans);font-size:0.78rem;font-weight:300;color:var(--ch-55)}
+    .footer-inner a{color:var(--burgundy)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}
+
+    @media (max-width:820px){.rg-compare{grid-template-columns:1fr 1fr;gap:32px}}
+    @media (max-width:640px){.nav{padding:14px var(--gutter)}.nav-logo-img{height:56px}.nav.scrolled .nav-logo-img{height:36px}}
+    @media (max-width:600px){.rg-grid{grid-template-columns:1fr;max-width:440px}.rg-card:nth-child(even){margin-top:0}}
+    @media (max-width:480px){.rg-compare{grid-template-columns:1fr;max-width:360px}}
+    @media (max-width:760px){.nav-links{gap:14px}.nav-links a{font-size:0.56rem;letter-spacing:0.1em}}
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <a href="/" class="nav-logo" aria-label="Via Vinho home">
+      <img src="/logos/ViaVinho_LogoDesign_Classic_White.png" alt="Via Vinho"
+           class="nav-logo-img nav-logo-white" width="3508" height="2481" />
+      <img src="/logos/logo_reserve_burgundy.png" alt=""
+           class="nav-logo-img nav-logo-colored" aria-hidden="true" width="1758" height="1092" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/classic/">Classic</a></li>
+      <li><a href="/reserve/">Reserve</a></li>
+      <li><a href="/regions/" class="is-current" aria-current="page">Discover Portugal</a></li>
+      <li><a href="/about/">Our Story</a></li>
+      <li><a href="/#enquire">Enquire</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+    <ul>
+      <li><a href="/classic/">Classic</a></li>
+      <li><a href="/reserve/">Reserve</a></li>
+      <li><a href="/regions/">Discover Portugal</a></li>
+      <li><a href="/about/">Our Story</a></li>
+      <li><a href="/#enquire">Enquire</a></li>
+    </ul>
+  </div>
+
+  <main id="content">
+
+    <!-- HERO -->
+    <section class="abt-hero" id="hero">
+      <img class="abt-hero-img"
+           src="/assets/images/regions/portugal-wine-regions-near-lisbon-arrabida-coast.webp"
+           alt="Panoramic view of the Arrábida coastline near Lisbon, showcasing one of Portugal's distinctive wine regions."
+           title="Arrábida Coast overlooking Portugal's Setúbal wine region"
+           width="1600" height="1000" fetchpriority="high" decoding="async" />
+      <div class="abt-hero-inner">
+        <p class="abt-hero-label">Discover Portugal</p>
+        <h1 class="abt-hero-h1">Portugal, one region at a time.</h1>
+        <p class="abt-hero-lead">Portugal isn't one wine destination. Every region tells its own story through landscape, climate and the people who shape it. We build our experiences around those places, not around a checklist.</p>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="abt-section abt-story">
+      <div class="container">
+        <div class="abt-story-inner">
+          <p class="abt-eyebrow reveal">Not one destination</p>
+          <h2 class="reveal reveal-d1">A few regions, known deeply.</h2>
+          <div class="abt-prose">
+            <p class="reveal reveal-d1">From Atlantic vineyards rooted in sand to limestone hills, mountain estates and hidden family wineries, each region is a completely different expression of Portuguese wine. Within an hour of Lisbon in almost any direction, it changes entirely.</p>
+            <p class="reveal reveal-d1">We have chosen to work within only a handful, the places where we know the families and the land by name. <em>Quality over quantity,</em> and every day hosted in person.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED REGIONS (burgundy gallery) -->
+    <section class="abt-section rg-section">
+      <div class="container">
+        <div class="rg-head reveal">
+          <p class="abt-eyebrow">Where to begin</p>
+          <h2>Choose your landscape.</h2>
+        </div>
+        <div class="rg-grid">
+
+          <!-- Setúbal (live) -->
+          <article class="rg-card reveal">
+            <div class="rg-card-media">
+              <img src="/assets/images/regions/setubal-peninsula/setubal-vineyards-serra-da-arrabida-near-lisbon-portugal.webp"
+                   alt="Vineyards on the Setúbal Peninsula with the Serra da Arrábida mountains near Lisbon, Portugal."
+                   title="Setúbal vineyards beneath the Serra da Arrábida near Lisbon" loading="lazy" decoding="async" width="1000" height="625" />
+            </div>
+            <div class="rg-card-body">
+              <p class="rg-card-region">40 minutes south of Lisbon</p>
+              <h3 class="rg-card-name">Setúbal</h3>
+              <p class="rg-card-line">Where generous hospitality meets exceptional wine.</p>
+              <p class="rg-card-desc">Family estates, the Arrábida hills, fresh seafood and some of Portugal's most welcoming wineries, all within easy reach of the city.</p>
+              <a href="/classic/" class="rg-card-cta">Explore Setúbal
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Colares (phased) -->
+          <article class="rg-card reveal reveal-d1">
+            <div class="rg-card-media">
+              <img src="/assets/images/regions/colares/colares-vineyard-with-pena-palace-sintra-portugal.webp"
+                   alt="Vineyard and traditional farmhouse with Pena Palace overlooking the Sintra hills near Portugal's Colares wine region."
+                   title="Colares vineyard beneath Pena Palace in Sintra" loading="lazy" decoding="async" width="1000" height="625"
+                   style="object-position:center 26%" />
+            </div>
+            <div class="rg-card-body">
+              <p class="rg-card-region">Atlantic coast, by Sintra</p>
+              <h3 class="rg-card-name">Colares</h3>
+              <p class="rg-card-line">Where Atlantic vines meet fairytale hills.</p>
+              <p class="rg-card-desc">Ancient ungrafted vines rooted in Atlantic sand, sea winds off the dunes, and one of the rarest wine regions in Europe.</p>
+              <a href="/reserve/" class="rg-card-cta">Available via Reserve
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Torres Vedras (phased) -->
+          <article class="rg-card reveal">
+            <div class="rg-card-media">
+              <img src="/assets/images/regions/torres-vedras/torres-vedras-vineyard-atlantic-wine-country-near-lisbon-portugal.webp"
+                   alt="Vineyard in the Torres Vedras wine region near Lisbon, Portugal, with wildflowers and vineyard dogs in a working family estate."
+                   title="Torres Vedras vineyard in Portugal's Atlantic wine country" loading="lazy" decoding="async" width="1000" height="625" />
+            </div>
+            <div class="rg-card-body">
+              <p class="rg-card-region">The coastal north</p>
+              <h3 class="rg-card-name">Torres Vedras</h3>
+              <p class="rg-card-line">Atlantic character, without the crowds.</p>
+              <p class="rg-card-desc">Cool coastal vineyards, independent producers and long cellar lunches, in a corner of the wine country most visitors overlook.</p>
+              <a href="/reserve/" class="rg-card-cta">Available via Reserve
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Alenquer (phased) -->
+          <article class="rg-card reveal reveal-d1">
+            <div class="rg-card-media">
+              <img src="/assets/images/regions/alenquer/alenquer-vineyards-lisbon-wine-region-portugal.webp"
+                   alt="Rolling vineyards in Portugal's Alenquer wine region, just north of Lisbon, with limestone hills and traditional stone walls."
+                   title="Alenquer Vineyards | Lisbon Wine Region | Via Vinho" loading="lazy" decoding="async" width="1000" height="625" />
+            </div>
+            <div class="rg-card-body">
+              <p class="rg-card-region">North of Lisbon</p>
+              <h3 class="rg-card-name">Alenquer</h3>
+              <p class="rg-card-line">Rolling hills and elegant winemaking.</p>
+              <p class="rg-card-desc">Historic estates, limestone soils and refined wines just north of the city, with autumnal vineyards and long lunches over the valley.</p>
+              <a href="/reserve/" class="rg-card-cta">Available via Reserve
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SENSE OF PLACE — atlas map + comparison -->
+    <section class="abt-section rg-place">
+      <div class="container">
+        <div class="rg-place-head reveal">
+          <p class="abt-eyebrow">Genuinely different places</p>
+          <h2>Four regions. Four personalities.</h2>
+          <p>All within an hour of Lisbon, and each nothing like the next.</p>
+        </div>
+
+        <figure class="rg-map reveal reveal-d1" aria-label="Illustrated map of the wine regions around Lisbon and their approximate drive times">
+          <svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>The wine regions around Lisbon and the Tagus estuary</title>
+            <rect x="11" y="11" width="738" height="538" fill="none" stroke="#6B1F2A" stroke-width="1" opacity="0.35"/>
+            <rect x="19" y="19" width="722" height="522" fill="none" stroke="#6B1F2A" stroke-width="0.5" opacity="0.25"/>
+            <!-- Tagus estuary water -->
+            <path d="M360,352 L420,344 L520,306 L600,255 L628,188 L640,196 L614,300 L540,394 L440,412 L358,390 Z" fill="#6B1F2A" fill-opacity="0.07"/>
+            <!-- Atlantic coast + north bank of the Tagus -->
+            <path d="M250,66 C180,120 132,190 122,258 C116,312 138,332 168,344 C240,352 316,352 360,352 C412,349 500,312 574,258 C606,232 622,208 632,186" fill="none" stroke="#6B1F2A" stroke-width="1.4" opacity="0.55" stroke-linecap="round"/>
+            <!-- south bank of the Tagus estuary -->
+            <path d="M358,390 C430,410 500,404 560,372 C598,350 620,300 636,206" fill="none" stroke="#6B1F2A" stroke-width="1.1" opacity="0.45" stroke-linecap="round"/>
+            <text x="52" y="300" fill="#6B1F2A" font-family="Lora, Georgia, serif" font-style="italic" font-size="16" opacity="0.55" text-anchor="middle" transform="rotate(-90 52 300)">Atlantic Ocean</text>
+            <text x="508" y="356" fill="#6B1F2A" font-family="Lora, Georgia, serif" font-style="italic" font-size="15" opacity="0.5" text-anchor="middle">Rio Tejo</text>
+            <g stroke="#6B1F2A" stroke-width="1" stroke-dasharray="2.5 5.5" opacity="0.55">
+              <line x1="398" y1="334" x2="312" y2="112"/>
+              <line x1="398" y1="334" x2="491" y2="136"/>
+              <line x1="398" y1="334" x2="171" y2="286"/>
+              <line x1="398" y1="334" x2="582" y2="452"/>
+            </g>
+            <circle cx="398" cy="334" r="7" fill="#6B1F2A"/>
+            <circle cx="398" cy="334" r="14" fill="none" stroke="#6B1F2A" stroke-width="1" opacity="0.5"/>
+            <text x="418" y="340" fill="#1A1A1A" font-family="Lora, Georgia, serif" font-size="20">Lisboa</text>
+            <circle cx="308" cy="107" r="4.5" fill="#6B1F2A"/>
+            <text x="296" y="103" fill="#1A1A1A" font-family="Lora, Georgia, serif" font-size="16" text-anchor="end">Torres Vedras</text>
+            <text x="296" y="121" fill="#6B1F2A" font-family="Poppins, sans-serif" font-size="10.5" letter-spacing="1.5" text-anchor="end">55 MIN</text>
+            <circle cx="495" cy="131" r="4.5" fill="#6B1F2A"/>
+            <text x="509" y="128" fill="#1A1A1A" font-family="Lora, Georgia, serif" font-size="16">Alenquer</text>
+            <text x="509" y="146" fill="#6B1F2A" font-family="Poppins, sans-serif" font-size="10.5" letter-spacing="1.5">50 MIN</text>
+            <circle cx="165" cy="285" r="4.5" fill="#6B1F2A"/>
+            <text x="179" y="282" fill="#1A1A1A" font-family="Lora, Georgia, serif" font-size="16">Colares</text>
+            <text x="179" y="300" fill="#6B1F2A" font-family="Poppins, sans-serif" font-size="10.5" letter-spacing="1.5">45 MIN</text>
+            <circle cx="585" cy="457" r="4.5" fill="#6B1F2A"/>
+            <text x="599" y="454" fill="#1A1A1A" font-family="Lora, Georgia, serif" font-size="16">Setúbal</text>
+            <text x="599" y="472" fill="#6B1F2A" font-family="Poppins, sans-serif" font-size="10.5" letter-spacing="1.5">40 MIN</text>
+            <g transform="translate(686,96)" opacity="0.7">
+              <circle r="22" fill="none" stroke="#6B1F2A" stroke-width="0.8"/>
+              <path d="M0,-19 L4.5,0 L0,19 L-4.5,0 Z" fill="#6B1F2A"/>
+              <text x="0" y="-27" fill="#6B1F2A" font-family="Poppins, sans-serif" font-size="9" text-anchor="middle" letter-spacing="1">N</text>
+            </g>
+          </svg>
+        </figure>
+
+        <div class="rg-compare reveal reveal-d1">
+          <div class="rg-comp">
+            <p class="rg-comp-name">Setúbal</p>
+            <div class="rg-comp-row"><p class="rg-comp-label">Known for</p><p class="rg-comp-val">Hospitality &amp; seafood</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">From Lisbon</p><p class="rg-comp-val">40 minutes</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">Atmosphere</p><p class="rg-comp-val">Warm &amp; generous</p></div>
+          </div>
+          <div class="rg-comp">
+            <p class="rg-comp-name">Colares</p>
+            <div class="rg-comp-row"><p class="rg-comp-label">Known for</p><p class="rg-comp-val">Ancient sand-grown vines</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">From Lisbon</p><p class="rg-comp-val">45 minutes</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">Atmosphere</p><p class="rg-comp-val">Wild Atlantic</p></div>
+          </div>
+          <div class="rg-comp">
+            <p class="rg-comp-name">Alenquer</p>
+            <div class="rg-comp-row"><p class="rg-comp-label">Known for</p><p class="rg-comp-val">Limestone &amp; elegant reds</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">From Lisbon</p><p class="rg-comp-val">50 minutes</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">Atmosphere</p><p class="rg-comp-val">Refined countryside</p></div>
+          </div>
+          <div class="rg-comp">
+            <p class="rg-comp-name">Torres Vedras</p>
+            <div class="rg-comp-row"><p class="rg-comp-label">Known for</p><p class="rg-comp-val">Coastal freshness</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">From Lisbon</p><p class="rg-comp-val">55 minutes</p></div>
+            <div class="rg-comp-row"><p class="rg-comp-label">Atmosphere</p><p class="rg-comp-val">Quiet discovery</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WE CHOSE THESE REGIONS -->
+    <section class="abt-section rg-why">
+      <div class="container">
+        <div class="rg-why-inner">
+          <p class="abt-eyebrow reveal">Why these regions</p>
+          <p class="rg-why-lead reveal reveal-d1">Not the most famous names, simply the ones we know best.</p>
+          <div class="rg-why-prose">
+            <p class="reveal reveal-d1">They aren't Portugal's most famous wine regions. They're the places we've returned to again and again, until the families know us by name. That is what lets us open doors a coach tour never could, and it is why we would rather host a few regions deeply than pass through many.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="abt-section abt-faq-section" id="faq">
+      <div class="container">
+        <div class="abt-faq-head reveal">
+          <p class="abt-eyebrow">Good to know</p>
+          <h2>Wine near Lisbon, answered.</h2>
+        </div>
+        <div class="abt-faq reveal reveal-d1">
+          <details class="abt-faq-item">
+            <summary>Which wine regions are near Lisbon?</summary>
+            <div class="abt-faq-answer">Several sit within an easy drive: Setúbal and the Arrábida hills to the south, Colares on the Atlantic coast beside Sintra, and Torres Vedras and Alenquer to the north. Via Vinho works within a chosen handful rather than the whole country.</div>
+          </details>
+          <details class="abt-faq-item">
+            <summary>Which region is best for a wine day trip from Lisbon?</summary>
+            <div class="abt-faq-answer">Setúbal is the easiest and most rewarding, around forty minutes south, with Moscatel de Setúbal, family estates and the Arrábida coast all in one relaxed day.</div>
+          </details>
+          <details class="abt-faq-item">
+            <summary>Why does Via Vinho work within only a few regions?</summary>
+            <div class="abt-faq-answer">Because our days are built on genuine relationships with the families behind the wine. We would rather know a handful of regions deeply than pass through many. Quality over quantity.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="abt-section abt-cta" id="enquire-cta">
+      <div class="container">
+        <div class="abt-cta-inner">
+          <p class="abt-eyebrow reveal">Ready when you are</p>
+          <h2 class="reveal reveal-d1">Fall for a region. We will host the rest.</h2>
+          <p class="reveal reveal-d1">Whether you're drawn to Atlantic coastlines, historic estates or long vineyard lunches, we'll build a day that feels entirely your own.</p>
+          <div class="abt-cta-ctas reveal reveal-d2">
+            <a href="/classic/" class="abt-btn">Explore Setúbal</a>
+            <a href="/reserve/" class="abt-btn">Browse Reserve</a>
+            <a href="/#enquire" class="abt-btn">Enquire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>hello@viavinho.net &nbsp;·&nbsp; Lisbon, Portugal</p>
+      <p>RNAAT 959/2024 · © 2026 Via Vinho &nbsp;·&nbsp; <a href="/privacy/">Privacy</a></p>
+      <p><a href="https://instagram.com/viavinho" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var nav=document.getElementById('main-nav');
+      var onScroll=function(){ if(window.scrollY>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+      if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+        document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+      } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+    })();
+  </script>
+
+  <script>
+      /* Mobile nav toggle */
+      (function(){
+        var burger=document.querySelector('.nav-burger');
+        var menu=document.querySelector('.nav-mobile-menu');
+        if(!burger||!menu) return;
+        var setOpen=function(open){
+          burger.setAttribute('aria-expanded',open?'true':'false');
+          menu.setAttribute('aria-hidden',open?'false':'true');
+          document.body.style.overflow=open?'hidden':'';
+        };
+        burger.addEventListener('click',function(){
+          setOpen(burger.getAttribute('aria-expanded')!=='true');
+        });
+        menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+        document.addEventListener('keydown',function(e){if(e.key==='Escape'&&burger.getAttribute('aria-expanded')==='true')setOpen(false);});
+      })();
+  </script>
+  <script defer src="/js/analytics-consent.js"></script>
+</body>
+</html>
