@@ -27,6 +27,10 @@
 !thank-you/**
 !about
 !about/**
+!regions
+!regions/**
+!privacy
+!privacy/**
 
 # Explicitly re-exclude noise that could slip back in
 .DS_Store
