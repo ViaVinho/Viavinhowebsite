@@ -9,6 +9,18 @@
       "source": "/classic/sip-the-setubal-story/",
       "destination": "/classic/savour-the-setubal-story/",
       "permanent": true
-    }
+    },
+
+    { "source": "/tours/setubal-full-day",       "destination": "/classic/savour-the-setubal-story/", "permanent": true },
+    { "source": "/tours/setubal-full-day/",      "destination": "/classic/savour-the-setubal-story/", "permanent": true },
+    { "source": "/tours/setubal-half-day-tour",  "destination": "/classic/savour-the-setubal-story/", "permanent": true },
+    { "source": "/tours/setubal-half-day-tour/", "destination": "/classic/savour-the-setubal-story/", "permanent": true },
+    { "source": "/tours/private-tour-full-day",  "destination": "/classic/setubal-indulgence/",        "permanent": true },
+    { "source": "/tours/private-tour-full-day/", "destination": "/classic/setubal-indulgence/",        "permanent": true },
+
+    { "source": "/tours",                 "destination": "/classic/", "permanent": true },
+    { "source": "/tours/:path*",          "destination": "/classic/", "permanent": true },
+    { "source": "/service-page",          "destination": "/classic/", "permanent": true },
+    { "source": "/service-page/:path*",   "destination": "/classic/", "permanent": true }
   ]
 }
