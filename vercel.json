@@ -12,6 +12,20 @@
     { "source": "/tours/wine-walking-tour",      "destination": "/classic/graca-anjos-after-dark/",    "statusCode": 301 },
     { "source": "/tours/wine-walking-tour/",     "destination": "/classic/graca-anjos-after-dark/",    "statusCode": 301 },
 
+    { "source": "/service-page/discover-setubal-group-tour",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/service-page/discover-setubal-group-tour/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+
+    { "source": "/post",           "destination": "/regions/", "statusCode": 301 },
+    { "source": "/post/:path*",    "destination": "/regions/", "statusCode": 301 },
+    { "source": "/blog",           "destination": "/regions/", "statusCode": 301 },
+    { "source": "/blog/:path*",    "destination": "/regions/", "statusCode": 301 },
+    { "source": "/blog-feed.xml",  "destination": "/",         "statusCode": 301 },
+
+    { "source": "/bookings",        "destination": "/classic/", "statusCode": 301 },
+    { "source": "/bookings/:path*", "destination": "/classic/", "statusCode": 301 },
+    { "source": "/privacy-policy",  "destination": "/privacy/", "statusCode": 301 },
+    { "source": "/privacy-policy/", "destination": "/privacy/", "statusCode": 301 },
+
     { "source": "/tours",                 "destination": "/classic/", "statusCode": 301 },
     { "source": "/tours/:path*",          "destination": "/classic/", "statusCode": 301 },
     { "source": "/service-page",          "destination": "/classic/", "statusCode": 301 },
