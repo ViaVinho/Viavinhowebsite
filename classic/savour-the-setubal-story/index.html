@@ -1323,8 +1323,10 @@
       });
     })();
   </script>
-  <!-- Rezdy widget loader (resizes booking iframes) -->
-  <script defer src="https://viavinho.rezdy.com/pluginJs"></script>
+  <!-- Rezdy pluginJs intentionally NOT loaded: its auto-resize also
+       scrolled the parent page to the top when the second (private)
+       widget initialised on panel switch. The iframe fits the full
+       widget at its fixed height, so the resize helper isn't needed. -->
   <script defer src="/js/analytics-consent.js"></script>
 </body>
 </html>

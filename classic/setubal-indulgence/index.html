@@ -848,7 +848,7 @@
     <div class="xp-hero-inner">
       <p class="xp-hero-eyebrow">Setúbal Peninsula · Full Day</p>
       <h1 class="xp-hero-title">Setúbal Indulgence</h1>
-      <p class="xp-hero-lead">A private full-day wine tour from Lisbon through Portugal's Setúbal wine region — two boutique family wineries, an in-depth tasting, a long regional lunch, and time among the vines.</p>
+      <p class="xp-hero-lead">A full-day wine tour from Lisbon through Portugal's Setúbal wine region — two boutique family wineries, an in-depth tasting, a long regional lunch, and time among the vines.</p>
 
       <div class="xp-hero-ctas">
         <a href="#pricing" class="btn-classic">Check availability <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -1310,8 +1310,10 @@
       });
     })();
   </script>
-  <!-- Rezdy widget loader (resizes booking iframes) -->
-  <script defer src="https://viavinho.rezdy.com/pluginJs"></script>
+  <!-- Rezdy pluginJs intentionally NOT loaded: its auto-resize also
+       scrolled the parent page to the top when the second (private)
+       widget initialised on panel switch. The iframe fits the full
+       widget at its fixed height, so the resize helper isn't needed. -->
   <script defer src="/js/analytics-consent.js"></script>
 </body>
 </html>
