@@ -5,8 +5,8 @@
 
     { "source": "/tours/setubal-full-day",       "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
     { "source": "/tours/setubal-full-day/",      "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
-    { "source": "/tours/setubal-half-day-tour",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
-    { "source": "/tours/setubal-half-day-tour/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/tours/setubal-half-day-tour",  "destination": "/classic/", "statusCode": 301 },
+    { "source": "/tours/setubal-half-day-tour/", "destination": "/classic/", "statusCode": 301 },
     { "source": "/tours/private-tour-full-day",  "destination": "/classic/setubal-indulgence/",        "statusCode": 301 },
     { "source": "/tours/private-tour-full-day/", "destination": "/classic/setubal-indulgence/",        "statusCode": 301 },
     { "source": "/tours/wine-walking-tour",      "destination": "/classic/graca-anjos-after-dark/",    "statusCode": 301 },
@@ -14,6 +14,8 @@
 
     { "source": "/service-page/discover-setubal-group-tour",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
     { "source": "/service-page/discover-setubal-group-tour/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/service-page/private-tour",  "destination": "/classic/setubal-indulgence/", "statusCode": 301 },
+    { "source": "/service-page/private-tour/", "destination": "/classic/setubal-indulgence/", "statusCode": 301 },
 
     { "source": "/post",           "destination": "/regions/", "statusCode": 301 },
     { "source": "/post/:path*",    "destination": "/regions/", "statusCode": 301 },
