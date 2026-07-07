@@ -43,50 +43,156 @@
   <meta name="twitter:description" content="A private Setúbal wine tour from Lisbon: door-to-door pickup, hosted tastings at family estates, lunch, and the wines Lisbon keeps to itself." />
   <meta name="twitter:image" content="https://viavinho.net/assets/images/experiences/sip-the-setubal-story/arrabida-coastal-viewpoint-setubal-portugal.webp" />
 
-  <!-- ░░ STRUCTURED DATA — BreadcrumbList · fill on final pass ░░ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://viavinho.net/" },
-      { "@type": "ListItem", "position": 2, "name": "Classic", "item": "https://viavinho.net/classic/" },
-      { "@type": "ListItem", "position": 3, "name": "Savour the Setúbal Story", "item": "https://viavinho.net/classic/savour-the-setubal-story/" }
-    ]
-  }
-  </script>
 
-  <!-- ░░ STRUCTURED DATA — TouristTrip (the experience) · fill on final pass ░░ -->
+
+  <!-- ░░ STRUCTURED DATA — consolidated @graph (Org · Breadcrumb · Product/TouristTrip · FAQ) ░░ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    "name": "Savour the Setúbal Story",
-    "description": "A private, fully hosted full-day wine experience on Portugal's Setúbal Peninsula, around forty minutes from Lisbon. Visits to family-owned estates, hosted tastings of Moscatel and local wines, a regional lunch, and time among the vines. Private transport from central Lisbon included. Small private groups of two to seven guests.",
-    "url": "https://viavinho.net/classic/savour-the-setubal-story/",
-    "image": "https://viavinho.net/assets/images/experiences/sip-the-setubal-story/arrabida-coastal-viewpoint-setubal-portugal.webp",
-    "touristType": "Wine and food travellers",
-    "keywords": "Setúbal wine tour from Lisbon, private wine tour Lisbon, Setúbal wine tasting, wine day trip from Lisbon, Moscatel de Setúbal, wine tour with pickup from Lisbon, Arrábida wine experience",
-    "itinerary": {
-      "@type": "Place",
-      "name": "Setúbal Peninsula, Portugal",
-      "geo": { "@type": "GeoCoordinates", "latitude": "38.5244", "longitude": "-8.8882" }
-    },
-    "provider": { "@id": "https://viavinho.net/#organization" },
-    "review": {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Alex Ge" },
-      "reviewBody": "Just the most fun. Easy pickup in the centre of Lisbon, and they took us to the most amazing wine estates. We met one winemaker who talked to us for an hour about his process while touring the winery. Such a fun weekend adventure."
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "350",
-      "priceCurrency": "EUR",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "url": "https://viavinho.net/classic/savour-the-setubal-story/"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://viavinho.net/#organization",
+        "name": "Via Vinho",
+        "url": "https://viavinho.net/",
+        "logo": "https://viavinho.net/logos/ViaVinho_LogoDesign_Classic_White.png",
+        "email": "hello@viavinho.net",
+        "sameAs": ["https://instagram.com/viavinho"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lisbon",
+          "addressCountry": "PT"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "RNAAT",
+          "value": "959/2024"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://viavinho.net/classic/savour-the-setubal-story/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://viavinho.net/" },
+          { "@type": "ListItem", "position": 2, "name": "Classic", "item": "https://viavinho.net/classic/" },
+          { "@type": "ListItem", "position": 3, "name": "Savour the Setúbal Story" }
+        ]
+      },
+      {
+        "@type": ["Product", "TouristTrip"],
+        "@id": "https://viavinho.net/classic/savour-the-setubal-story/#trip",
+        "name": "Savour the Setúbal Story — Private Wine Tour from Lisbon",
+        "description": "A hosted full day among the Setúbal Peninsula's family wine estates, 40 minutes from Lisbon. Pickup in central Lisbon, guided cellar visits, hosted tastings of Moscatel and regional wines, a long lunch of regional pairings, and time among the vines. Groups from two.",
+        "url": "https://viavinho.net/classic/savour-the-setubal-story/",
+        "image": [
+          "https://viavinho.net/assets/images/experiences/sip-the-setubal-story/arrabida-coastal-viewpoint-setubal-portugal.webp",
+          "https://viavinho.net/assets/images/experiences/sip-the-setubal-story/guest-tasting-red-wine-portugal.webp",
+          "https://viavinho.net/assets/images/experiences/sip-the-setubal-story/portuguese-cheese-charcuterie-wine-pairing-setubal.webp"
+        ],
+        "brand": { "@id": "https://viavinho.net/#organization" },
+        "touristType": ["Wine lovers", "Couples", "Food and wine travellers"],
+        "itinerary": {
+          "@type": "ItemList",
+          "numberOfItems": 6,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Arrival — pickup in central Lisbon, drive to the Arrábida hills" },
+            { "@type": "ListItem", "position": 2, "name": "Meet the Producer — guided cellar walk at a family estate" },
+            { "@type": "ListItem", "position": 3, "name": "The Tasting — Setúbal Moscatel, reds and rarities" },
+            { "@type": "ListItem", "position": 4, "name": "Regional Pairings — long lunch of cheese, charcuterie and local cooking" },
+            { "@type": "ListItem", "position": 5, "name": "Stories from the Vineyard — second, rustic estate visit" },
+            { "@type": "ListItem", "position": 6, "name": "Among the Vines — vineyard time before return to Lisbon" }
+          ]
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Scheduled departure (shared small group)",
+            "price": "350",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://viavinho.net/classic/savour-the-setubal-story/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "350",
+              "priceCurrency": "EUR",
+              "unitText": "per person"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Private group (2 guests)",
+            "price": "1060",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://viavinho.net/classic/savour-the-setubal-story/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "1060",
+              "priceCurrency": "EUR",
+              "unitText": "per group of 2"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Private group (3–4 guests)",
+            "price": "1300",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://viavinho.net/classic/savour-the-setubal-story/#pricing",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "1300",
+              "priceCurrency": "EUR",
+              "unitText": "per group, up to 4 guests"
+            }
+          }
+        ],
+        "review": {
+          "@type": "Review",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "author": { "@type": "Person", "name": "Alex Ge" },
+          "reviewBody": "Just the most fun. Easy pickup in the centre of Lisbon, and they took us to the most amazing wine estates. We met one winemaker who talked to us for an hour about his process while touring the winery. Such a fun weekend adventure."
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://viavinho.net/classic/savour-the-setubal-story/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where does the day start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We collect you from a central Lisbon meeting point, usually near Saldanha, at around 10am, and drop you back there by around 6pm. For private experiences the pick-up point and timings can be tailored. Private transport both ways is included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which wineries will we visit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Estates vary with the season and availability, but are always family-owned and personally hosted, with places like Filipe Palhoça, Quinta de Alcube and Quinta de Catralvos. Wherever the day takes you, you will meet the people who make the wine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it suitable for couples, families or non-drinkers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It runs as a small private group from two guests, so it suits couples and small parties equally. Non-drinkers and dietary needs are easily accommodated — let us know in advance and we will shape the day around you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in the price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Private transport from Lisbon, all estate visits and tastings, a regional lunch, and hosting throughout. No booking fees. You are paying for access to family estates most visitors never reach, with someone who knows them personally."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -152,19 +258,6 @@
   </script>
 
 
-  <!-- ░░ STRUCTURED DATA — FAQPage · keep in sync with the accordion below ░░ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Where does the Savour the Setúbal Story day start?", "acceptedAnswer": { "@type": "Answer", "text": "We collect you from a central Lisbon meeting point, usually near Saldanha, at around 10am, and drop you back there by around 6pm. For private experiences the pick-up point and timings can be tailored to whatever suits you. Private transport both ways is included." } },
-      { "@type": "Question", "name": "Which wineries will we visit?", "acceptedAnswer": { "@type": "Answer", "text": "Estates vary with the season and availability, but are always family-owned and personally hosted, with places like Filipe Palhoça, Quinta de Alcube and Quinta de Catralvos. Wherever the day takes you, you will meet the people who make the wine." } },
-      { "@type": "Question", "name": "Is it suitable for couples, families or non-drinkers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It runs as a small private group from two guests, so it suits couples and small parties equally. Non-drinkers and dietary needs are easily accommodated, just let us know in advance and we will shape the day around you." } },
-      { "@type": "Question", "name": "What is included in the price?", "acceptedAnswer": { "@type": "Answer", "text": "Private transport from Lisbon, all estate visits and tastings, a regional lunch, and hosting throughout. No booking fees. You are paying for access to family estates most visitors never reach, with someone who knows them personally." } }
-    ]
-  }
-  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -710,6 +803,8 @@
     .xp-book-headline { font-family: var(--font-serif); font-size: clamp(2.4rem,7vw,3.2rem); font-weight: 400; line-height: 1; color: var(--burgundy); margin-bottom: 6px; }
     .xp-book-headline small { display: block; font-family: var(--font-sans); font-size: 0.64rem; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch-55); margin-top: 10px; }
     .xp-book-note { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--ch-70); max-width: 300px; margin: 18px auto 22px; }
+    .xp-book-tag { display: inline-block; font-family: var(--font-sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--alabaster); background: var(--burgundy); padding: 5px 13px; border-radius: 999px; margin-bottom: 16px; }
+    .xp-price-upsell { font-family: var(--font-serif); font-style: italic; font-size: 0.9rem; line-height: 1.5; color: var(--burgundy); max-width: 320px; margin: 0 auto 22px; }
     .xp-rezdy { display: flex; justify-content: center; margin-top: 6px; }
     .xp-rezdy iframe { width: 300px; max-width: 100%; border: none; }
     .xp-price-foot {
@@ -1130,9 +1225,10 @@
       </div>
 
       <div class="xp-book-panel" id="bk-sched" role="tabpanel" aria-labelledby="bk-sched-btn">
+        <p class="xp-book-tag">Most popular</p>
         <p class="xp-book-eyebrow">Join a fixed departure</p>
         <p class="xp-book-headline"><span>€350</span><small>per person</small></p>
-        <p class="xp-book-note">A small shared group of fellow travellers. Pick an open date below and book in seconds.</p>
+        <p class="xp-book-note">Join a small shared departure of fellow travellers. Pick an open date and book in seconds.</p>
         <div class="xp-rezdy">
           <iframe seamless width="300" height="660" frameborder="0" class="rezdy" loading="lazy" title="Book a scheduled Savour the Setúbal Story departure" src="https://viavinho.rezdy.com/calendarWidget/690982?iframe=true"></iframe>
         </div>
@@ -1140,16 +1236,9 @@
 
       <div class="xp-book-panel" id="bk-priv" role="tabpanel" aria-labelledby="bk-priv-btn" hidden>
         <p class="xp-book-eyebrow">Just your group, your date</p>
-        <div class="xp-group" data-prices="2:500,3:375,4:325,5:295,6:275,7:255">
-          <div class="xp-group-head">
-            <span class="xp-group-label">Group size</span>
-            <span class="xp-group-count"><span class="xp-group-n">4</span> guests</span>
-          </div>
-          <input type="range" class="xp-group-slider" min="2" max="7" step="1" value="4" aria-label="Group size" />
-        </div>
-        <p class="xp-price-headline"><span class="xp-pp-val">€325</span><small>per person</small></p>
-        <p class="xp-price-total"><span class="xp-total">€1,300 total · 4 guests</span></p>
-        <p class="xp-book-note">Never shared with other guests. Choose any open date below.</p>
+        <p class="xp-book-headline"><span>From €1,060</span><small>per group</small></p>
+        <p class="xp-book-note">Your group only — never shared. €1,060 for two guests, €1,300 for up to four.</p>
+        <p class="xp-price-upsell">A full group of four works out to €325 pp — less than the shared departure.</p>
         <div class="xp-rezdy">
           <iframe seamless width="300" height="660" frameborder="0" class="rezdy" loading="lazy" title="Book a private Savour the Setúbal Story experience" src="https://viavinho.rezdy.com/calendarWidget/769875?iframe=true"></iframe>
         </div>
@@ -1190,7 +1279,7 @@
   <!-- ══════════════ 9 · FINAL CTA ══════════════ -->
   <section class="xp-final" id="enquire-cta">
     <div class="xp-final-rule"></div>
-    <h2 class="reveal">Spend an afternoon in Setúbal.</h2>
+    <h2 class="reveal">Spend a proper day in Setúbal.</h2>
     <p class="reveal reveal-d1">Tell us your dates and group size, and we'll take care of the rest.</p>
     <div class="xp-final-ctas reveal reveal-d2">
       <a href="/#enquire" class="btn-ghost-dark">
