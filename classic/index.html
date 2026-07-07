@@ -374,6 +374,16 @@
       color: var(--ch-70);
       letter-spacing: 0.04em;
     }
+    .cc-reviews {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 22px; padding: 8px 16px;
+      border: 1px solid var(--ch-10); border-radius: 999px;
+      transition: border-color 150ms ease;
+    }
+    .cc-reviews:hover { border-color: var(--ch-40); }
+    .cc-reviews-stars { color: #E8A93A; letter-spacing: 2px; font-size: 0.86rem; }
+    .cc-reviews-score { font-family: var(--font-sans); font-weight: 600; font-size: 0.82rem; color: var(--charcoal); }
+    .cc-reviews-label { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch-70); }
     .classic-collection-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -814,8 +824,8 @@
 
     /* ─── PAGE CTA ─── */
     .classic-cta {
-      background: var(--charcoal);
-      border-top: 1px solid rgba(244,249,240,0.06);
+      background: var(--burgundy);
+      border-top: 1px solid rgba(244,249,240,0.10);
       padding: clamp(56px, 8vw, 96px) var(--gutter);
       text-align: center;
     }
@@ -866,7 +876,9 @@
     </a>
     <ul class="nav-links">
       <li><a href="/classic/" aria-current="page">Classic</a></li>
+      <li><a href="/reserve/">Reserve</a></li>
       <li><a href="/regions/">Discover Portugal</a></li>
+      <li><a href="/about/">Our Story</a></li>
       <li class="nav-enquire"><a href="/#enquire">Enquire</a></li>
     </ul>
     <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
@@ -876,7 +888,9 @@
   <div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
     <ul>
       <li><a href="/classic/">Classic</a></li>
+      <li><a href="/reserve/">Reserve</a></li>
       <li><a href="/regions/">Discover Portugal</a></li>
+      <li><a href="/about/">Our Story</a></li>
       <li class="nav-enquire"><a href="/#enquire">Enquire</a></li>
     </ul>
   </div>
@@ -1016,6 +1030,11 @@
     <div class="classic-collection-header reveal">
       <h2>The Experiences</h2>
       <p>Click into any experience for the full itinerary, inclusions, and pricing.</p>
+      <a class="cc-reviews" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Vinho+Lisbon" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 on Google reviews">
+        <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
+        <span class="cc-reviews-score">4.9</span>
+        <span class="cc-reviews-label">Google reviews</span>
+      </a>
     </div>
 
     <div class="classic-collection-grid">
@@ -1081,24 +1100,14 @@
             Palmela, a long lunch with regional cuisine, and the wines that
             have shaped this part of Portugal for centuries.
           </p>
-          <div class="cc-group" data-prices="2:552,3:424,4:350,5:300,6:270,7:250">
-            <div class="cc-group-head">
-              <span class="cc-group-label">Group size</span>
-              <span class="cc-group-count"><span class="cc-group-n">4</span> guests</span>
-            </div>
-            <input type="range" class="cc-group-slider" min="2" max="7" step="1" value="4"
-                   aria-label="Group size for Setúbal Indulgence" />
-          </div>
           <div class="cc-card-footer">
             <span class="cc-card-price">
-              <span class="cc-pp"><span class="cc-pp-val">€350</span><small class="cc-unit">per person</small></span>
-              <small class="cc-total">€1,400 total · 4 guests</small>
+              <span class="cc-pp"><span class="cc-pp-val">From €380</span><small class="cc-unit">per person</small></span>
             </span>
             <a href="../classic/setubal-indulgence/" class="cc-card-cta">
               Explore Experience →
             </a>
           </div>
-          <p class="cc-season"><strong>June rates</strong> · summer pricing from July</p>
         </div>
       </article>
 
