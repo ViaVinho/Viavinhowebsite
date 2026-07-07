@@ -339,7 +339,7 @@
 
 
     /* ════════ SECTION SCAFFOLD ════════ */
-    .xp-section { background: var(--alabaster); padding: clamp(64px, 10vw, 120px) var(--gutter); }
+    .xp-section { background: var(--alabaster); padding: clamp(38px, 6vw, 64px) var(--gutter); }
     .xp-narrow { max-width: 720px; margin: 0 auto; }
     .xp-wide { max-width: var(--max-w); margin: 0 auto; }
     .xp-eyebrow {
@@ -672,6 +672,8 @@
     .xp-book-headline { font-family: var(--font-serif); font-size: clamp(2.4rem,7vw,3.2rem); font-weight: 400; line-height: 1; color: var(--burgundy); margin-bottom: 6px; }
     .xp-book-headline small { display: block; font-family: var(--font-sans); font-size: 0.64rem; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch-55); margin-top: 10px; }
     .xp-book-note { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--ch-70); max-width: 300px; margin: 18px auto 22px; }
+    .xp-price-subline { font-family: var(--font-sans); font-size: 0.96rem; font-weight: 300; color: var(--ch-70); margin-bottom: 6px; }
+    .xp-price-subline .xp-pp-val { color: var(--charcoal); font-weight: 500; }
     .xp-rezdy { display: flex; justify-content: center; margin-top: 6px; }
     .xp-rezdy iframe { width: 300px; max-width: 100%; border: none; }
     .xp-price-cta { margin-top: 30px; }
@@ -1123,6 +1125,8 @@
 
       <div class="xp-book-panel" id="bk-priv" role="tabpanel" aria-labelledby="bk-priv-btn" hidden>
         <p class="xp-book-eyebrow">Just your group, your date</p>
+        <p class="xp-book-headline"><span class="xp-total-val">€1,580</span><small>total · <span class="xp-total-n">4</span> guests</small></p>
+        <p class="xp-price-subline"><span class="xp-pp-val">€395</span> per person</p>
         <div class="xp-group" data-prices="2:530,3:440,4:395,5:375,6:360,7:350">
           <div class="xp-group-head">
             <span class="xp-group-label">Group size</span>
@@ -1130,9 +1134,7 @@
           </div>
           <input type="range" class="xp-group-slider" min="2" max="7" step="1" value="4" aria-label="Group size" />
         </div>
-        <p class="xp-price-headline"><span class="xp-pp-val">€395</span><small>per person</small></p>
-        <p class="xp-price-total"><span class="xp-total">€1,580 total · 4 guests</span></p>
-        <p class="xp-book-note">Never shared with other guests. Choose any open date below.</p>
+        <p class="xp-book-note">Your group only — never shared. Choose any open date below.</p>
         <div class="xp-rezdy">
           <iframe seamless width="300" height="660" frameborder="0" class="rezdy" loading="lazy" title="Book a private Setúbal Indulgence experience" src="https://viavinho.rezdy.com/calendarWidget/754071?iframe=true"></iframe>
         </div>
@@ -1245,12 +1247,13 @@
   <script>
     (function () {
       document.querySelectorAll('.xp-group').forEach(function (group) {
-        var root     = document;
+        var panel    = group.closest('.xp-book-panel') || document;
         var slider   = group.querySelector('.xp-group-slider');
         var nOut      = group.querySelector('.xp-group-n');
-        var ppOut     = root.querySelector('.xp-pp-val');
-        var totalOut  = root.querySelector('.xp-total');
-        if (!slider || !ppOut || !totalOut) return;
+        var ppOut     = panel.querySelector('.xp-pp-val');
+        var totalVal  = panel.querySelector('.xp-total-val');
+        var totalN    = panel.querySelector('.xp-total-n');
+        if (!slider) return;
 
         var prices = {};
         group.dataset.prices.split(',').forEach(function (pair) {
@@ -1262,9 +1265,10 @@
           var n  = parseInt(slider.value, 10);
           var pp = prices[n];
           if (pp == null) return;
-          nOut.textContent     = n;
-          ppOut.textContent    = '€' + pp;
-          totalOut.textContent = '€' + (pp * n).toLocaleString('en-GB') + ' total · ' + n + ' guests';
+          if (nOut)     nOut.textContent     = n;
+          if (ppOut)    ppOut.textContent    = '€' + pp;
+          if (totalVal) totalVal.textContent = '€' + (pp * n).toLocaleString('en-GB');
+          if (totalN)   totalN.textContent   = n;
         }
         slider.addEventListener('input', update);
         update();
