@@ -1,26 +1,18 @@
 {
   "redirects": [
-    {
-      "source": "/classic/sip-the-setubal-story",
-      "destination": "/classic/savour-the-setubal-story/",
-      "permanent": true
-    },
-    {
-      "source": "/classic/sip-the-setubal-story/",
-      "destination": "/classic/savour-the-setubal-story/",
-      "permanent": true
-    },
+    { "source": "/classic/sip-the-setubal-story",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/classic/sip-the-setubal-story/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
 
-    { "source": "/tours/setubal-full-day",       "destination": "/classic/savour-the-setubal-story/", "permanent": true },
-    { "source": "/tours/setubal-full-day/",      "destination": "/classic/savour-the-setubal-story/", "permanent": true },
-    { "source": "/tours/setubal-half-day-tour",  "destination": "/classic/savour-the-setubal-story/", "permanent": true },
-    { "source": "/tours/setubal-half-day-tour/", "destination": "/classic/savour-the-setubal-story/", "permanent": true },
-    { "source": "/tours/private-tour-full-day",  "destination": "/classic/setubal-indulgence/",        "permanent": true },
-    { "source": "/tours/private-tour-full-day/", "destination": "/classic/setubal-indulgence/",        "permanent": true },
+    { "source": "/tours/setubal-full-day",       "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/tours/setubal-full-day/",      "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/tours/setubal-half-day-tour",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/tours/setubal-half-day-tour/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
+    { "source": "/tours/private-tour-full-day",  "destination": "/classic/setubal-indulgence/",        "statusCode": 301 },
+    { "source": "/tours/private-tour-full-day/", "destination": "/classic/setubal-indulgence/",        "statusCode": 301 },
 
-    { "source": "/tours",                 "destination": "/classic/", "permanent": true },
-    { "source": "/tours/:path*",          "destination": "/classic/", "permanent": true },
-    { "source": "/service-page",          "destination": "/classic/", "permanent": true },
-    { "source": "/service-page/:path*",   "destination": "/classic/", "permanent": true }
+    { "source": "/tours",                 "destination": "/classic/", "statusCode": 301 },
+    { "source": "/tours/:path*",          "destination": "/classic/", "statusCode": 301 },
+    { "source": "/service-page",          "destination": "/classic/", "statusCode": 301 },
+    { "source": "/service-page/:path*",   "destination": "/classic/", "statusCode": 301 }
   ]
 }
