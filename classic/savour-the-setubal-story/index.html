@@ -1429,5 +1429,16 @@
        widget initialised on panel switch. The iframe fits the full
        widget at its fixed height, so the resize helper isn't needed. -->
   <script defer src="/js/analytics-consent.js"></script>
+  <!-- GA4 funnel events (consent-gated via vvTrack; purchase fires from Rezdy's own tag) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var item = { item_id: 'savour-setubal', item_name: 'Savour the Setúbal Story', item_category: 'Classic', price: 350 };
+      window.vvTrack && vvTrack('view_item', { currency: 'EUR', value: 350, items: [item] });
+      var cta = document.querySelector('a.btn-classic[href="#pricing"]');
+      if (cta) cta.addEventListener('click', function () {
+        window.vvTrack && vvTrack('begin_checkout', { currency: 'EUR', value: 350, items: [item] });
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>

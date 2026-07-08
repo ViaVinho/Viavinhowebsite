@@ -1137,5 +1137,14 @@
       })();
   </script>
   <script defer src="/js/analytics-consent.js"></script>
+  <!-- GA4 funnel event (view_item only; Graça is enquiry-led, no scheduled Rezdy widget) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.vvTrack && vvTrack('view_item', {
+        currency: 'EUR', value: 80,
+        items: [{ item_id: 'graca-anjos', item_name: 'Graça & Anjos After Dark', item_category: 'Classic', price: 80 }]
+      });
+    });
+  </script>
 </body>
 </html>

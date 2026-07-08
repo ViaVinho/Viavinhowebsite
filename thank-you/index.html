@@ -75,5 +75,11 @@
   </footer>
 
   <script defer src="/js/analytics-consent.js"></script>
+  <!-- GA4 lead conversion: thank-you page is the single reliable form-success hook -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.vvTrack && vvTrack('generate_lead', { currency: 'EUR', value: 0, form_name: 'enquiry' });
+    });
+  </script>
 </body>
 </html>

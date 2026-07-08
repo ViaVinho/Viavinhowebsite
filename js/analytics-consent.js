@@ -32,7 +32,9 @@
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
     gtag('js', new Date());
-    gtag('config', GA_ID);
+    gtag('config', GA_ID, {
+      linker: { domains: ['viavinho.net', 'rezdy.com'], accept_incoming: true }
+    });
   }
 
   function grant() {
@@ -44,6 +46,15 @@
     });
     loadGA();
   }
+
+  // Consent-gated event helper — safe to call anywhere; no-ops until Accept.
+  // Defined before the early returns below so it always exists.
+  window.vvTrack = function (name, params) {
+    try {
+      if (localStorage.getItem('vv_consent') !== 'granted') return; // hard consent gate
+    } catch (e) { return; }
+    gtag('event', name, params || {});
+  };
 
   var prior = null;
   try { prior = localStorage.getItem(KEY); } catch (e) {}
