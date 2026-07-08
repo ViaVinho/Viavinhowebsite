@@ -10,6 +10,10 @@
       ]
     }
   ],
+  "rewrites": [
+    { "source": "/found",  "destination": "/found.html" },
+    { "source": "/found/", "destination": "/found.html" }
+  ],
   "redirects": [
     { "source": "/classic/sip-the-setubal-story",  "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
     { "source": "/classic/sip-the-setubal-story/", "destination": "/classic/savour-the-setubal-story/", "statusCode": 301 },
