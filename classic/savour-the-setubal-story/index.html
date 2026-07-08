@@ -147,6 +147,12 @@
             }
           }
         ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "18",
+          "bestRating": "5"
+        },
         "review": {
           "@type": "Review",
           "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
@@ -948,6 +954,12 @@
     }
     .btn-ghost-light:hover { background: var(--burgundy); color: var(--alabaster); }
 
+    .cc-reviews-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
+    .cc-reviews { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid var(--ch-10); border-radius: 999px; transition: border-color 150ms ease; }
+    .cc-reviews:hover { border-color: var(--ch-40); }
+    .cc-reviews-stars { color: #E8A93A; letter-spacing: 2px; font-size: 0.86rem; }
+    .cc-reviews-score { font-family: var(--font-sans); font-weight: 600; font-size: 0.82rem; color: var(--charcoal); }
+    .cc-reviews-label { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch-70); }
   </style>
 </head>
 <body>
@@ -1217,6 +1229,18 @@
     <div class="xp-wide" style="text-align:center; margin-bottom: clamp(28px,4vw,44px);">
       <p class="xp-eyebrow xp-eyebrow--center">Pricing</p>
       <h2 class="xp-section-title">Book your day.</h2>
+      <div class="cc-reviews-row">
+        <a class="cc-reviews" href="https://g.page/r/CZJRsqA7Z1YBEBM/review" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 from 18 reviews on Google">
+          <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
+          <span class="cc-reviews-score">4.9</span>
+          <span class="cc-reviews-label">18 Google reviews</span>
+        </a>
+        <a class="cc-reviews" href="https://www.tripadvisor.com/AttractionProductReview-g189158-d34493873-Setubal_Wine_Tour_from_Lisbon_Small_Group_Tastings_and_Lunch-Lisbon_Lisbon_Distric.html" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 from 10 reviews on Tripadvisor">
+          <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
+          <span class="cc-reviews-score">4.9</span>
+          <span class="cc-reviews-label">10 Tripadvisor reviews</span>
+        </a>
+      </div>
     </div>
 
     <!-- Booking: scheduled (shared, Rezdy 690982) vs private (slider + Rezdy 769875) -->
