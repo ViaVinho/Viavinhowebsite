@@ -374,9 +374,10 @@
       color: var(--ch-70);
       letter-spacing: 0.04em;
     }
+    .cc-reviews-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 22px; }
     .cc-reviews {
       display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 22px; padding: 8px 16px;
+      padding: 8px 16px;
       border: 1px solid var(--ch-10); border-radius: 999px;
       transition: border-color 150ms ease;
     }
@@ -1030,11 +1031,18 @@
     <div class="classic-collection-header reveal">
       <h2>The Experiences</h2>
       <p>Click into any experience for the full itinerary, inclusions, and pricing.</p>
-      <a class="cc-reviews" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Vinho+Lisbon" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 on Google reviews">
-        <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
-        <span class="cc-reviews-score">4.9</span>
-        <span class="cc-reviews-label">Google reviews</span>
-      </a>
+      <div class="cc-reviews-row">
+        <a class="cc-reviews" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Vinho+Lisbon" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 from 18 reviews on Google">
+          <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
+          <span class="cc-reviews-score">4.9</span>
+          <span class="cc-reviews-label">18 Google reviews</span>
+        </a>
+        <a class="cc-reviews" href="https://www.tripadvisor.com/AttractionProductReview-g189158-d34493873-Setubal_Wine_Tour_from_Lisbon_Small_Group_Tastings_and_Lunch-Lisbon_Lisbon_Distric.html" target="_blank" rel="noopener noreferrer" aria-label="Rated 4.9 out of 5 from 10 reviews on Tripadvisor">
+          <span class="cc-reviews-stars" aria-hidden="true">★★★★★</span>
+          <span class="cc-reviews-score">4.9</span>
+          <span class="cc-reviews-label">10 Tripadvisor reviews</span>
+        </a>
+      </div>
     </div>
 
     <div class="classic-collection-grid">
