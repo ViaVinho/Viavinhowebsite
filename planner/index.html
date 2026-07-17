@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Roteiro · Portuguese Wine Trip Planner by Via Vinho</title>
+<meta name="description" content="Plan your Portuguese wine days in two minutes. Curated wineries that actually welcome your group size, with reservations, transport and lunch handled region by region.">
+<meta name="theme-color" content="#6B1F2A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roteiro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-name">Via Vinho</span>
+    <span class="brand-sep"></span>
+    <span class="brand-app">Roteiro</span>
+  </div>
+  <a class="topbar-link" href="https://viavinho.net" target="_blank" rel="noopener">viavinho.net</a>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Portuguese wine trip planner</p>
+    <h1>Your wine days in Portugal, <em>planned properly.</em></h1>
+    <p class="hero-sub">Which estates genuinely welcome your group size. Where you need a reservation. How you actually get between them. Two minutes of questions, one honest roteiro.</p>
+  </section>
+
+  <section class="planner card" id="planner">
+    <h2 class="step-title"><span>01</span> Where are you drawn to?</h2>
+    <div class="region-grid" id="regionGrid"></div>
+
+    <h2 class="step-title"><span>02</span> How many wine days?</h2>
+    <div class="pills" id="daysPills" data-key="days"></div>
+
+    <h2 class="step-title"><span>03</span> How many of you?</h2>
+    <div class="pills" id="groupPills" data-key="group"></div>
+
+    <h2 class="step-title"><span>04</span> Your pace</h2>
+    <div class="pills" id="pacePills" data-key="pace"></div>
+
+    <button class="btn-primary" id="buildBtn">Build my roteiro</button>
+  </section>
+
+  <section class="results" id="results" hidden>
+    <div class="results-head">
+      <p class="eyebrow" id="resultRegionLabel"></p>
+      <h2 id="resultTitle"></h2>
+      <p class="transport-note" id="transportNote"></p>
+      <p class="group-warn" id="groupWarn" hidden></p>
+    </div>
+    <div id="dayCards"></div>
+    <div class="result-actions">
+      <button class="btn-ghost" id="copyBtn">Copy itinerary</button>
+      <button class="btn-ghost" id="restartBtn">Start over</button>
+    </div>
+  </section>
+
+  <section class="concierge card" id="concierge" hidden>
+    <p class="eyebrow">The concierge option</p>
+    <h2><em>Want this handled for you?</em></h2>
+    <p class="concierge-sub">Send us this roteiro and we will refine it around your dates: confirm which estates can take you, hold the reservations that matter, and sort transport and lunch. A local plan from the team behind Via Vinho, from €75 per trip.</p>
+    <form id="leadForm">
+      <div class="form-row">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="form-row">
+        <label>When are you travelling?<input type="text" name="travel_month" placeholder="e.g. September 2026"></label>
+      </div>
+      <label>Anything we should know?<textarea name="notes" rows="3" placeholder="Occasions, must-visits, dietary notes, mobility, budget..."></textarea></label>
+      <button class="btn-primary" type="submit" id="leadSubmit">Send my roteiro to Via Vinho</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Roteiro is made by <a href="https://viavinho.net" target="_blank" rel="noopener">Via Vinho</a>, small-group wine experiences from Lisbon.</p>
+  <p class="fineprint">Winery details and prices are indicative and change seasonally. Always confirm directly or let us confirm for you. <a href="mailto:hello@viavinho.net">hello@viavinho.net</a></p>
+</footer>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

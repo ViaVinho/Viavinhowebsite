@@ -1,0 +1,19 @@
+{
+  "name": "Roteiro — Portuguese Wine Trip Planner by Via Vinho",
+  "short_name": "Roteiro",
+  "description": "Plan your Portuguese wine days: curated wineries that welcome your group size, reservations flagged, transport and lunch sorted region by region.",
+  "id": "/planner/",
+  "start_url": "/planner/",
+  "scope": "/planner/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F9F0",
+  "theme_color": "#6B1F2A",
+  "lang": "en",
+  "categories": ["travel", "food", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
