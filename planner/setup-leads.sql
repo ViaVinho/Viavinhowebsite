@@ -12,8 +12,12 @@ create table if not exists public.planner_leads (
   days int,
   group_size text not null default '',
   itinerary jsonb,
-  source text not null default 'roteiro-app'
+  -- 'viavinho' (viavinho.net/planner + roteiro-viavinho.netlify.app) or 'atlas' (the Atlas /plan/ surface)
+  source text not null default 'viavinho'
 );
+
+-- Safe to re-run on an existing table (migration from the pre-fusion default):
+alter table public.planner_leads alter column source set default 'viavinho';
 
 alter table public.planner_leads enable row level security;
 

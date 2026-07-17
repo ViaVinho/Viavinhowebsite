@@ -48,17 +48,21 @@ function buildPlan(){
 }
 
 function stopHTML(when, w){
-  if(!w) return '';
+  if(!w) return `<div class="stop">
+    <div class="stop-when">${when}</div>
+    <div class="stop-body"><p class="stop-why"><em>Open slot. The estates here that fit your group are already on your plan; our concierge can arrange visits beyond the published pool.</em></p></div>
+  </div>`;
   const bookTag = w.book==='required' ? '<span class="tag warn">Reservation required</span>'
-                : w.book==='recommended' ? '<span class="tag">Booking recommended</span>'
-                : '<span class="tag ok">Walk-in friendly</span>';
+                : w.book==='walkin' ? '<span class="tag ok">Walk-ins accepted</span>'
+                : '<span class="tag">Confirm when booking</span>';
+  const priceTag = w.price !== null ? `<span class="tag">From €${w.price} pp</span>` : '<span class="tag">Price on request</span>';
   return `<div class="stop">
     <div class="stop-when">${when}</div>
     <div class="stop-body">
       <h4><a href="${w.site}" target="_blank" rel="noopener">${w.name}</a></h4>
       <p class="stop-area">${w.area}</p>
       <p class="stop-why">${w.why}</p>
-      <div class="stop-meta">${bookTag}${w.en?'<span class="tag ok">English spoken</span>':''}<span class="tag">${w.price} pp</span></div>
+      <div class="stop-meta">${bookTag}${w.en===true?'<span class="tag ok">Tours in English</span>':''}${priceTag}</div>
     </div>
   </div>`;
 }
@@ -107,18 +111,20 @@ $('buildBtn').onclick = () => {
 function planAsText(){
   if(!lastPlan) return '';
   const { region, days } = lastPlan;
+  const bookTxt = {required:'reservation required', walkin:'walk-ins accepted', confirm:'confirm when booking'};
+  const priceTxt = w => w.price !== null ? 'from €'+w.price+' pp' : 'price on request';
   const L = [`ROTEIRO: ${state.days} day(s) in ${region.name} (group: ${state.group}, pace: ${state.pace})`,
              `Getting around: ${region.transport}`, ''];
   days.forEach(d => {
     L.push(`DAY ${d.n}`);
-    if(d.morning)   L.push(`  Morning: ${d.morning.name} (${d.morning.area}) - ${d.morning.book==='required'?'reservation required':'booking '+d.morning.book} - ${d.morning.price} pp - ${d.morning.site}`);
+    if(d.morning)   L.push(`  Morning: ${d.morning.name} (${d.morning.area}) - ${bookTxt[d.morning.book]} - ${priceTxt(d.morning)} - ${d.morning.site}`);
     L.push(`  Lunch: ${d.lunch}`);
-    if(d.afternoon) L.push(`  Afternoon: ${d.afternoon.name} (${d.afternoon.area}) - ${d.afternoon.book==='required'?'reservation required':'booking '+d.afternoon.book} - ${d.afternoon.price} pp - ${d.afternoon.site}`);
+    if(d.afternoon) L.push(`  Afternoon: ${d.afternoon.name} (${d.afternoon.area}) - ${bookTxt[d.afternoon.book]} - ${priceTxt(d.afternoon)} - ${d.afternoon.site}`);
     if(d.extra)     L.push(`  Extra: ${d.extra.name} (${d.extra.area}) - ${d.extra.site}`);
     L.push('');
   });
   L.push(`Evening tip: ${region.eveningTip}`);
-  L.push('', 'Built with Roteiro by Via Vinho - viavinho.net');
+  L.push('', `Estate data by ${D.atlasName}, verified ${D.dataVerified}.`, 'Built with Roteiro by Via Vinho - viavinho.net');
   return L.join('\n');
 }
 $('copyBtn').onclick = async () => {
@@ -135,7 +141,7 @@ $('leadForm').onsubmit = async (ev) => {
     name: f.name.value.trim(), email: f.email.value.trim(),
     travel_month: f.travel_month.value.trim(), notes: f.notes.value.trim(),
     region: state.region || '', days: state.days, group_size: state.group,
-    itinerary: lastPlan ? { text: planAsText() } : null, source: 'roteiro-app'
+    itinerary: lastPlan ? { text: planAsText() } : null, source: D.config.SOURCE
   };
   btn.disabled = true; status.className = 'form-status'; status.textContent = 'Sending...';
   try {
