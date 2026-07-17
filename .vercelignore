@@ -31,6 +31,8 @@
 !regions/**
 !privacy
 !privacy/**
+!planner
+!planner/**
 
 # Explicitly re-exclude noise that could slip back in
 .DS_Store
